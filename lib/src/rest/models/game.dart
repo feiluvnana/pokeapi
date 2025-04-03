@@ -1,8 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pokeapi/pokeapi.dart';
-import 'package:pokeapi/src/rest/models/location.dart';
-import 'package:pokeapi/src/rest/models/move.dart';
-import 'package:pokeapi/src/rest/models/pokemon.dart';
 
 part 'game.freezed.dart';
 part 'game.g.dart';

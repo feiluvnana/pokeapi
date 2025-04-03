@@ -1,8 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pokeapi/pokeapi.dart';
-import 'package:pokeapi/src/rest/models/game.dart';
-import 'package:pokeapi/src/rest/models/item.dart';
-import 'package:pokeapi/src/rest/models/move.dart';
 
 part 'machine.freezed.dart';
 part 'machine.g.dart';
