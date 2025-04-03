@@ -2,15 +2,25 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:pokeapi/src/rest/models/named_api_resource_list.dart';
-import 'package:pokeapi/src/rest/models/resource.dart';
+import 'package:pokeapi/src/rest/models/resource_endpoint.dart';
 
 class Rest {
   final String baseUrl;
 
   Rest({required this.baseUrl});
 
+  Future<T> get<T>(
+    Uri uri,
+    T Function(Map<String, dynamic> json) fromJson,
+  ) async {
+    print("Request: $uri");
+    final response = await http.get(uri);
+    print("Response: ${response.body}");
+    return fromJson(jsonDecode(response.body));
+  }
+
   Future<NamedApiResourceList> named(
-    NamedResource endpoint, {
+    NamedResourceEndpoint endpoint, {
     int? limit,
     int? offset,
   }) async {
@@ -20,24 +30,11 @@ class Rest {
         if (offset != null) "offset": offset.toString(),
       },
     );
-    print("Request: $uri");
-    final response = await http.get(uri);
-    print("Response: ${response.body}");
-    return NamedApiResourceList.fromJson(jsonDecode(response.body));
+    return get(uri, NamedApiResourceList.fromJson);
   }
 
-  /// Get a list of named API resources. More info: [Resource Lists/Pagination](https://pokeapi.co/docs/v2#resource-listspagination-section)
-  ///
-  /// Parameters:
-  ///
-  /// - [count] The total number of resources available from this API.
-  /// - [next] The URL for the next page in the list.
-  /// - [previous] The URL for the previous page in the list.
-  /// - [results] A list of named API resources.
-  ///
-  /// Output: An instance of [NamedApiResourceList].
   Future<NamedApiResourceList> unnamed(
-    UnnamedResource endpoint, {
+    UnnamedResourceEndpoint endpoint, {
     int? limit,
     int? offset,
   }) async {
@@ -46,7 +43,6 @@ class Rest {
       if (limit != null) "limit": limit.toString(),
       if (offset != null) "offset": offset.toString(),
     });
-    final response = await http.get(uri);
-    return NamedApiResourceList.fromJson(jsonDecode(response.body));
+    return get(uri, NamedApiResourceList.fromJson);
   }
 }
