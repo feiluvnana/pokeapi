@@ -1,12 +1,13 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:pokeapi/src/pokeapi.dart';
 import 'package:pokeapi/src/rest/models/models.dart' as models;
 
 class Rest {
-  final String baseUrl;
+  final RestOptions options;
 
-  const Rest({required this.baseUrl});
+  const Rest({required this.options});
 
   /// Fetches resource from the PokeAPI.
   ///
@@ -18,9 +19,9 @@ class Rest {
     int? offset,
   }) async {
     var uri =
-        endpoint.contains(baseUrl)
+        endpoint.contains(options.baseUrl)
             ? Uri.parse(endpoint)
-            : Uri.parse('$baseUrl/$endpoint');
+            : Uri.parse('$options.baseUrl/$endpoint');
     uri = uri.replace(
       queryParameters: {
         ...uri.queryParameters,
@@ -28,8 +29,19 @@ class Rest {
         if (offset != null) "offset": offset.toString(),
       },
     );
-    final response = await http.get(uri);
-    return fromJson(jsonDecode(response.body));
+    await options.onRequest?.call(uri.toString());
+    try {
+      final response = await http.get(uri);
+      await options.onResponse?.call(
+        uri.toString(),
+        response.statusCode,
+        response.body,
+      );
+      return fromJson(jsonDecode(response.body));
+    } catch (e) {
+      await options.onError?.call(uri.toString(), e);
+      rethrow;
+    }
   }
 
   /// Fetches a paginated list of available resources for a named API. For all available types, checkout [NamedApiResourceEndpoint].
