@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pokeapi/pokeapi.dart';
+import 'package:pokeapi/src/rest/models/base.dart';
 import 'package:pokeapi/src/rest/rest.dart';
 
 part 'common.freezed.dart';
@@ -7,7 +8,7 @@ part 'common.g.dart';
 
 /// Languages for translations of API resource information. More info: https://pokeapi.co/docs/v2#language
 @freezed
-abstract class Language with _$Language {
+abstract class Language with _$Language implements NamedResource {
   const factory Language({
     /// The identifier for this resource.
     required int id,
@@ -28,8 +29,7 @@ abstract class Language with _$Language {
     required List<Name> names,
   }) = _Language;
 
-  factory Language.fromJson(Map<String, dynamic> json) =>
-      _$LanguageFromJson(json);
+  factory Language.fromJson(Map<String, dynamic> json) => _$LanguageFromJson(json);
 }
 
 /// More info: https://pokeapi.co/docs/v2#apiresource
@@ -42,12 +42,11 @@ abstract class ApiResource<T> with _$ApiResource<T> {
     required String url,
   }) = _ApiResource<T>;
 
-  factory ApiResource.fromJson(Map<String, dynamic> json) =>
-      _$ApiResourceFromJson<T>(json);
+  factory ApiResource.fromJson(Map<String, dynamic> json) => _$ApiResourceFromJson<T>(json);
 
   /// Fetches the associated resource from the API.
   Future<T> fetch() async {
-    final endpoint = ApiResourceEndpoint.from<T>();
+    final endpoint = kApiResourceEndpoints[T];
     assert(endpoint != null, "No endpoint found for type $T");
     return PokeApi.I.rest.get<T>(url, (endpoint as dynamic).fromJson);
   }
@@ -64,8 +63,7 @@ abstract class Description with _$Description {
     required NamedApiResource<Language> language,
   }) = _Description;
 
-  factory Description.fromJson(Map<String, dynamic> json) =>
-      _$DescriptionFromJson(json);
+  factory Description.fromJson(Map<String, dynamic> json) => _$DescriptionFromJson(json);
 }
 
 /// More info: https://pokeapi.co/docs/v2#effect
@@ -102,18 +100,17 @@ abstract class Encounter with _$Encounter {
     required NamedApiResource<EncounterMethod> method,
   }) = _Encounter;
 
-  factory Encounter.fromJson(Map<String, dynamic> json) =>
-      _$EncounterFromJson(json);
+  factory Encounter.fromJson(Map<String, dynamic> json) => _$EncounterFromJson(json);
 }
 
 /// More info: https://pokeapi.co/docs/v2#flavortext
 @freezed
 abstract class FlavorText with _$FlavorText {
   const factory FlavorText({
-    /// The localized flavor text for an API resource in a specific language.
-    /// Note that this text is left unprocessed as it is found in game files.
-    /// This means that it contains special characters that one might want to replace with their visible decodable version.
-    /// Please check out this [issue](https://github.com/veekun/pokedex/issues/218#issuecomment-339841781) to find out more.
+    /// The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed
+    /// as it is found in game files. This means that it contains special characters that one might want to replace
+    /// with their visible decodable version. Please check out this
+    /// [issue](https://github.com/veekun/pokedex/issues/218#issuecomment-339841781) to find out more.
     required String flavorText,
 
     /// The language this name is in.
@@ -123,8 +120,7 @@ abstract class FlavorText with _$FlavorText {
     required NamedApiResource<Version> version,
   }) = _FlavorText;
 
-  factory FlavorText.fromJson(Map<String, dynamic> json) =>
-      _$FlavorTextFromJson(json);
+  factory FlavorText.fromJson(Map<String, dynamic> json) => _$FlavorTextFromJson(json);
 }
 
 /// More info: https://pokeapi.co/docs/v2#generationgameindex
@@ -138,8 +134,7 @@ abstract class GenerationGameIndex with _$GenerationGameIndex {
     required NamedApiResource<Generation> generation,
   }) = _GenerationGameIndex;
 
-  factory GenerationGameIndex.fromJson(Map<String, dynamic> json) =>
-      _$GenerationGameIndexFromJson(json);
+  factory GenerationGameIndex.fromJson(Map<String, dynamic> json) => _$GenerationGameIndexFromJson(json);
 }
 
 /// More info: https://pokeapi.co/docs/v2#machineversiondetail
@@ -153,8 +148,7 @@ abstract class MachineVersionDetail with _$MachineVersionDetail {
     required NamedApiResource<VersionGroup> versionGroup,
   }) = _MachineVersionDetail;
 
-  factory MachineVersionDetail.fromJson(Map<String, dynamic> json) =>
-      _$MachineVersionDetailFromJson(json);
+  factory MachineVersionDetail.fromJson(Map<String, dynamic> json) => _$MachineVersionDetailFromJson(json);
 }
 
 /// More info: https://pokeapi.co/docs/v2#name
@@ -184,12 +178,11 @@ abstract class NamedApiResource<T> with _$NamedApiResource<T> {
     required String url,
   }) = _NamedApiResource<T>;
 
-  factory NamedApiResource.fromJson(Map<String, dynamic> json) =>
-      _$NamedApiResourceFromJson<T>(json);
+  factory NamedApiResource.fromJson(Map<String, dynamic> json) => _$NamedApiResourceFromJson<T>(json);
 
   /// Fetches the associated resource from the API.
   Future<T> fetch() async {
-    final endpoint = NamedApiResourceEndpoint.from<T>();
+    final endpoint = kNamedApiResourceEndpoints[T];
     assert(endpoint != null, "No endpoint found for type $T");
     return PokeApi.I.rest.get<T>(url, (endpoint as dynamic).fromJson);
   }
@@ -209,8 +202,7 @@ abstract class VerboseEffect with _$VerboseEffect {
     required NamedApiResource<Language> language,
   }) = _VerboseEffect;
 
-  factory VerboseEffect.fromJson(Map<String, dynamic> json) =>
-      _$VerboseEffectFromJson(json);
+  factory VerboseEffect.fromJson(Map<String, dynamic> json) => _$VerboseEffectFromJson(json);
 }
 
 /// More info: https://pokeapi.co/docs/v2#versionencounterdetail
@@ -227,8 +219,7 @@ abstract class VersionEncounterDetail with _$VersionEncounterDetail {
     required List<Encounter> encounterDetails,
   }) = _VersionEncounterDetail;
 
-  factory VersionEncounterDetail.fromJson(Map<String, dynamic> json) =>
-      _$VersionEncounterDetailFromJson(json);
+  factory VersionEncounterDetail.fromJson(Map<String, dynamic> json) => _$VersionEncounterDetailFromJson(json);
 }
 
 /// More info: https://pokeapi.co/docs/v2#versiongameindex
@@ -242,8 +233,7 @@ abstract class VersionGameIndex with _$VersionGameIndex {
     required NamedApiResource<Version> version,
   }) = _VersionGameIndex;
 
-  factory VersionGameIndex.fromJson(Map<String, dynamic> json) =>
-      _$VersionGameIndexFromJson(json);
+  factory VersionGameIndex.fromJson(Map<String, dynamic> json) => _$VersionGameIndexFromJson(json);
 }
 
 /// More info: https://pokeapi.co/docs/v2#versiongroupflavortext
@@ -260,6 +250,5 @@ abstract class VersionGroupFlavorText with _$VersionGroupFlavorText {
     required NamedApiResource<VersionGroup> versionGroup,
   }) = _VersionGroupFlavorText;
 
-  factory VersionGroupFlavorText.fromJson(Map<String, dynamic> json) =>
-      _$VersionGroupFlavorTextFromJson(json);
+  factory VersionGroupFlavorText.fromJson(Map<String, dynamic> json) => _$VersionGroupFlavorTextFromJson(json);
 }

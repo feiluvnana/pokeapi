@@ -20,7 +20,7 @@ _Move _$MoveFromJson(Map<String, dynamic> json) => _Move(
   contestType: NamedApiResource<ContestType>.fromJson(
     json['contest_type'] as Map<String, dynamic>,
   ),
-  contestEffect: NamedApiResource<ContestEffect>.fromJson(
+  contestEffect: ApiResource<ContestEffect>.fromJson(
     json['contest_effect'] as Map<String, dynamic>,
   ),
   damageClass: NamedApiResource<MoveDamageClass>.fromJson(
@@ -105,16 +105,18 @@ Map<String, dynamic> _$MoveToJson(_Move instance) => <String, dynamic>{
 
 _ContestComboSets _$ContestComboSetsFromJson(Map<String, dynamic> json) =>
     _ContestComboSets(
-      normal: ContestComboDetail.fromJson(
+      normalContest: ContestComboDetail.fromJson(
         json['normal'] as Map<String, dynamic>,
       ),
-      zuper: ContestComboDetail.fromJson(json['super'] as Map<String, dynamic>),
+      superContest: ContestComboDetail.fromJson(
+        json['super'] as Map<String, dynamic>,
+      ),
     );
 
 Map<String, dynamic> _$ContestComboSetsToJson(_ContestComboSets instance) =>
     <String, dynamic>{
-      'normal': instance.normal.toJson(),
-      'super': instance.zuper.toJson(),
+      'normal': instance.normalContest.toJson(),
+      'super': instance.superContest.toJson(),
     };
 
 _ContestComboDetail _$ContestComboDetailFromJson(
@@ -166,10 +168,10 @@ _MoveMetaData _$MoveMetaDataFromJson(Map<String, dynamic> json) =>
       category: NamedApiResource<MoveCategory>.fromJson(
         json['category'] as Map<String, dynamic>,
       ),
-      minHits: (json['min_hits'] as num).toInt(),
-      maxHits: (json['max_hits'] as num).toInt(),
-      minTurns: (json['min_turns'] as num).toInt(),
-      maxTurns: (json['max_turns'] as num).toInt(),
+      minHits: (json['min_hits'] as num?)?.toInt(),
+      maxHits: (json['max_hits'] as num?)?.toInt(),
+      minTurns: (json['min_turns'] as num?)?.toInt(),
+      maxTurns: (json['max_turns'] as num?)?.toInt(),
       drain: (json['drain'] as num).toInt(),
       healing: (json['healing'] as num).toInt(),
       critRate: (json['crit_rate'] as num).toInt(),
@@ -297,9 +299,9 @@ _MoveCategory _$MoveCategoryFromJson(Map<String, dynamic> json) =>
                     NamedApiResource<Move>.fromJson(e as Map<String, dynamic>),
               )
               .toList(),
-      descriptions:
-          (json['descriptions'] as List<dynamic>)
-              .map((e) => Description.fromJson(e as Map<String, dynamic>))
+      names:
+          (json['names'] as List<dynamic>)
+              .map((e) => Name.fromJson(e as Map<String, dynamic>))
               .toList(),
     );
 
@@ -308,7 +310,7 @@ Map<String, dynamic> _$MoveCategoryToJson(_MoveCategory instance) =>
       'id': instance.id,
       'name': instance.name,
       'moves': instance.moves.map((e) => e.toJson()).toList(),
-      'descriptions': instance.descriptions.map((e) => e.toJson()).toList(),
+      'names': instance.names.map((e) => e.toJson()).toList(),
     };
 
 _MoveDamageClass _$MoveDamageClassFromJson(Map<String, dynamic> json) =>

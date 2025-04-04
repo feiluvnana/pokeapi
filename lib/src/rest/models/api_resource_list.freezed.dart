@@ -14,7 +14,7 @@ part of 'api_resource_list.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-mixin _$ApiResourceList<T> {
+mixin _$ApiResourceList<T extends UnnamedResource> {
 
 /// The total number of resources available from this API.
  int get count;/// The URL for the next page in the list.
@@ -49,7 +49,7 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class $ApiResourceListCopyWith<T,$Res>  {
+abstract mixin class $ApiResourceListCopyWith<T extends UnnamedResource,$Res>  {
   factory $ApiResourceListCopyWith(ApiResourceList<T> value, $Res Function(ApiResourceList<T>) _then) = _$ApiResourceListCopyWithImpl;
 @useResult
 $Res call({
@@ -61,7 +61,7 @@ $Res call({
 
 }
 /// @nodoc
-class _$ApiResourceListCopyWithImpl<T,$Res>
+class _$ApiResourceListCopyWithImpl<T extends UnnamedResource,$Res>
     implements $ApiResourceListCopyWith<T, $Res> {
   _$ApiResourceListCopyWithImpl(this._self, this._then);
 
@@ -86,7 +86,7 @@ as List<ApiResource<T>>,
 /// @nodoc
 @JsonSerializable()
 
-class _ApiResourceList<T> extends ApiResourceList<T> {
+class _ApiResourceList<T extends UnnamedResource> extends ApiResourceList<T> {
   const _ApiResourceList({required this.count, this.next, this.previous, required final  List<ApiResource<T>> results}): _results = results,super._();
   factory _ApiResourceList.fromJson(Map<String, dynamic> json) => _$ApiResourceListFromJson(json);
 
@@ -135,7 +135,7 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$ApiResourceListCopyWith<T,$Res> implements $ApiResourceListCopyWith<T, $Res> {
+abstract mixin class _$ApiResourceListCopyWith<T extends UnnamedResource,$Res> implements $ApiResourceListCopyWith<T, $Res> {
   factory _$ApiResourceListCopyWith(_ApiResourceList<T> value, $Res Function(_ApiResourceList<T>) _then) = __$ApiResourceListCopyWithImpl;
 @override @useResult
 $Res call({
@@ -147,7 +147,7 @@ $Res call({
 
 }
 /// @nodoc
-class __$ApiResourceListCopyWithImpl<T,$Res>
+class __$ApiResourceListCopyWithImpl<T extends UnnamedResource,$Res>
     implements _$ApiResourceListCopyWith<T, $Res> {
   __$ApiResourceListCopyWithImpl(this._self, this._then);
 
@@ -171,7 +171,7 @@ as List<ApiResource<T>>,
 
 
 /// @nodoc
-mixin _$NamedApiResourceList<T> {
+mixin _$NamedApiResourceList<T extends NamedResource> {
 
 /// The total number of resources available from this API.
  int get count;/// The URL for the next page in the list.
@@ -206,7 +206,7 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class $NamedApiResourceListCopyWith<T,$Res>  {
+abstract mixin class $NamedApiResourceListCopyWith<T extends NamedResource,$Res>  {
   factory $NamedApiResourceListCopyWith(NamedApiResourceList<T> value, $Res Function(NamedApiResourceList<T>) _then) = _$NamedApiResourceListCopyWithImpl;
 @useResult
 $Res call({
@@ -218,7 +218,7 @@ $Res call({
 
 }
 /// @nodoc
-class _$NamedApiResourceListCopyWithImpl<T,$Res>
+class _$NamedApiResourceListCopyWithImpl<T extends NamedResource,$Res>
     implements $NamedApiResourceListCopyWith<T, $Res> {
   _$NamedApiResourceListCopyWithImpl(this._self, this._then);
 
@@ -243,7 +243,7 @@ as List<NamedApiResource<T>>,
 /// @nodoc
 @JsonSerializable()
 
-class _NamedApiResourceList<T> extends NamedApiResourceList<T> {
+class _NamedApiResourceList<T extends NamedResource> extends NamedApiResourceList<T> {
   const _NamedApiResourceList({required this.count, this.next, this.previous, required final  List<NamedApiResource<T>> results}): _results = results,super._();
   factory _NamedApiResourceList.fromJson(Map<String, dynamic> json) => _$NamedApiResourceListFromJson(json);
 
@@ -292,7 +292,7 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$NamedApiResourceListCopyWith<T,$Res> implements $NamedApiResourceListCopyWith<T, $Res> {
+abstract mixin class _$NamedApiResourceListCopyWith<T extends NamedResource,$Res> implements $NamedApiResourceListCopyWith<T, $Res> {
   factory _$NamedApiResourceListCopyWith(_NamedApiResourceList<T> value, $Res Function(_NamedApiResourceList<T>) _then) = __$NamedApiResourceListCopyWithImpl;
 @override @useResult
 $Res call({
@@ -304,7 +304,7 @@ $Res call({
 
 }
 /// @nodoc
-class __$NamedApiResourceListCopyWithImpl<T,$Res>
+class __$NamedApiResourceListCopyWithImpl<T extends NamedResource,$Res>
     implements _$NamedApiResourceListCopyWith<T, $Res> {
   __$NamedApiResourceListCopyWithImpl(this._self, this._then);
 

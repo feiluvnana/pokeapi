@@ -405,11 +405,7 @@ _Pokemon _$PokemonFromJson(Map<String, dynamic> json) => _Pokemon(
           .toList(),
   gameIndices:
       (json['game_indices'] as List<dynamic>)
-          .map(
-            (e) => NamedApiResource<VersionGameIndex>.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
+          .map((e) => VersionGameIndex.fromJson(e as Map<String, dynamic>))
           .toList(),
   heldItems:
       (json['held_items'] as List<dynamic>)
@@ -498,7 +494,7 @@ Map<String, dynamic> _$PokemonFormTypeToJson(_PokemonFormType instance) =>
 
 _PokemonTypePast _$PokemonTypePastFromJson(Map<String, dynamic> json) =>
     _PokemonTypePast(
-      generation: NamedApiResource<Type>.fromJson(
+      generation: NamedApiResource<Generation>.fromJson(
         json['generation'] as Map<String, dynamic>,
       ),
       types:
@@ -596,14 +592,14 @@ Map<String, dynamic> _$PokemonStatToJson(_PokemonStat instance) =>
 
 _PokemonSprites _$PokemonSpritesFromJson(Map<String, dynamic> json) =>
     _PokemonSprites(
-      frontDefault: json['front_default'] as String,
-      frontShiny: json['front_shiny'] as String,
-      frontFemale: json['front_female'] as String,
-      frontShinyFemale: json['front_shiny_female'] as String,
-      backDefault: json['back_default'] as String,
-      backShiny: json['back_shiny'] as String,
-      backFemale: json['back_female'] as String,
-      backShinyFemale: json['back_shiny_female'] as String,
+      frontDefault: json['front_default'] as String?,
+      frontShiny: json['front_shiny'] as String?,
+      frontFemale: json['front_female'] as String?,
+      frontShinyFemale: json['front_shiny_female'] as String?,
+      backDefault: json['back_default'] as String?,
+      backShiny: json['back_shiny'] as String?,
+      backFemale: json['back_female'] as String?,
+      backShinyFemale: json['back_shiny_female'] as String?,
     );
 
 Map<String, dynamic> _$PokemonSpritesToJson(_PokemonSprites instance) =>
@@ -691,7 +687,6 @@ _PokemonForm _$PokemonFormFromJson(Map<String, dynamic> json) => _PokemonForm(
       (json['types'] as List<dynamic>)
           .map((e) => PokemonFormType.fromJson(e as Map<String, dynamic>))
           .toList(),
-  sprites: PokemonFormSprites.fromJson(json['sprites'] as Map<String, dynamic>),
   versionGroup: NamedApiResource<VersionGroup>.fromJson(
     json['version_group'] as Map<String, dynamic>,
   ),
@@ -717,7 +712,6 @@ Map<String, dynamic> _$PokemonFormToJson(_PokemonForm instance) =>
       'form_name': instance.formName,
       'pokemon': instance.pokemon.toJson(),
       'types': instance.types.map((e) => e.toJson()).toList(),
-      'sprites': instance.sprites.toJson(),
       'version_group': instance.versionGroup.toJson(),
       'names': instance.names.map((e) => e.toJson()).toList(),
       'form_names': instance.formNames.map((e) => e.toJson()).toList(),
@@ -1096,6 +1090,9 @@ _Type _$TypeFromJson(Map<String, dynamic> json) => _Type(
       (json['game_indices'] as List<dynamic>)
           .map((e) => GenerationGameIndex.fromJson(e as Map<String, dynamic>))
           .toList(),
+  generation: NamedApiResource<Generation>.fromJson(
+    json['generation'] as Map<String, dynamic>,
+  ),
   moveDamageClass: NamedApiResource<MoveDamageClass>.fromJson(
     json['move_damage_class'] as Map<String, dynamic>,
   ),
@@ -1122,6 +1119,7 @@ Map<String, dynamic> _$TypeToJson(_Type instance) => <String, dynamic>{
   'past_damage_relations':
       instance.pastDamageRelations.map((e) => e.toJson()).toList(),
   'game_indices': instance.gameIndices.map((e) => e.toJson()).toList(),
+  'generation': instance.generation.toJson(),
   'move_damage_class': instance.moveDamageClass.toJson(),
   'names': instance.names.map((e) => e.toJson()).toList(),
   'pokemon': instance.pokemon.map((e) => e.toJson()).toList(),

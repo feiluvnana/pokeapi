@@ -1,30 +1,28 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pokeapi/pokeapi.dart';
+import 'package:pokeapi/src/rest/models/base.dart';
 
 part 'evolution.freezed.dart';
 part 'evolution.g.dart';
 
-/// Evolution chains are essentially family trees.
-/// They start with the lowest stage within a family and detail evolution conditions
-/// for each as well as Pokémon they can evolve into up through the hierarchy.
+/// Evolution chains are essentially family trees. They start with the lowest stage within a family and detail
+/// evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
 @freezed
-abstract class EvolutionChain with _$EvolutionChain {
+abstract class EvolutionChain with _$EvolutionChain implements UnnamedResource {
   const factory EvolutionChain({
     /// The identifier for this resource.
     required int id,
 
-    /// The item that a Pokémon would be holding when mating that
-    /// would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
+    /// The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather
+    /// than a basic Pokémon.
     required NamedApiResource<Item> babyTriggerItem,
 
-    /// The base chain link object.
-    /// Each link contains evolution details for a Pokémon in the chain.
-    /// Each link references the next Pokémon in the natural evolution order.
+    /// The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link
+    /// references the next Pokémon in the natural evolution order.
     required ChainLink chain,
   }) = _EvolutionChain;
 
-  factory EvolutionChain.fromJson(Map<String, dynamic> json) =>
-      _$EvolutionChainFromJson(json);
+  factory EvolutionChain.fromJson(Map<String, dynamic> json) => _$EvolutionChainFromJson(json);
 }
 
 /// The base chain link object.
@@ -44,8 +42,7 @@ abstract class ChainLink with _$ChainLink {
     required List<ChainLink> evolvesTo,
   }) = _ChainLink;
 
-  factory ChainLink.fromJson(Map<String, dynamic> json) =>
-      _$ChainLinkFromJson(json);
+  factory ChainLink.fromJson(Map<String, dynamic> json) => _$ChainLinkFromJson(json);
 }
 
 /// The details of the evolution for this Pokémon species.
@@ -58,20 +55,19 @@ abstract class EvolutionDetail with _$EvolutionDetail {
     /// The type of event that triggers evolution into this Pokémon species.
     required NamedApiResource<EvolutionTrigger> trigger,
 
-    /// The id of the gender of the evolving Pokémon species must be in order to
-    /// evolve into this Pokémon species.
+    /// The id of the gender of the evolving Pokémon species must be in order to evolve into this Pokémon species.
     required int gender,
 
-    /// The item the evolving Pokémon species must be holding during the evolution trigger event
-    /// to evolve into this Pokémon species.
+    /// The item the evolving Pokémon species must be holding during the evolution trigger event to evolve into this
+    /// Pokémon species.
     required NamedApiResource<Item> heldItem,
 
-    /// The move that must be known by the evolving Pokémon species during
-    /// the evolution trigger event in order to evolve into this Pokémon species.
+    /// The move that must be known by the evolving Pokémon species during the evolution trigger event in order to
+    /// evolve into this Pokémon species.
     required NamedApiResource<Move> knownMove,
 
-    /// The evolving Pokémon species must know a move with this type
-    /// during the evolution trigger event in order to evolve into this Pokémon species.
+    /// The evolving Pokémon species must know a move with this type during the evolution trigger event in order to
+    /// evolve into this Pokémon species.
     required NamedApiResource<Type> knownMoveType,
 
     /// The location the evolution must be triggered at.
@@ -92,17 +88,16 @@ abstract class EvolutionDetail with _$EvolutionDetail {
     /// Whether or not it must be raining in the overworld to cause evolution this Pokémon species.
     required bool needsOverworldRain,
 
-    /// The Pokémon species that must be in the players party in order for
-    /// the evolving Pokémon species to evolve into this Pokémon species.
+    /// The Pokémon species that must be in the players party in order for the evolving Pokémon species to evolve into
+    /// this Pokémon species.
     required NamedApiResource<PokemonSpecies> partySpecies,
 
-    /// The player must have a Pokémon of this type in their party during
-    /// the evolution trigger event in order for the evolving Pokémon species
-    /// to evolve into this Pokémon species.
+    /// The player must have a Pokémon of this type in their party during the evolution trigger event in order for the
+    /// evolving Pokémon species to evolve into this Pokémon species.
     required NamedApiResource<Type> partyType,
 
-    /// The required relation between the Pokémon's Attack and Defense stats.
-    /// 1 means Attack > Defense. 0 means Attack = Defense. -1 means Attack < Defense.
+    /// The required relation between the Pokémon's Attack and Defense stats. 1 means Attack > Defense. 0 means Attack
+    /// = Defense. -1 means Attack < Defense.
     required int relativePhysicalStats,
 
     /// The required time of day. Day or night.
@@ -115,14 +110,14 @@ abstract class EvolutionDetail with _$EvolutionDetail {
     required bool turnUpsideDown,
   }) = _EvolutionDetail;
 
-  factory EvolutionDetail.fromJson(Map<String, dynamic> json) =>
-      _$EvolutionDetailFromJson(json);
+  factory EvolutionDetail.fromJson(Map<String, dynamic> json) => _$EvolutionDetailFromJson(json);
 }
 
 /// Evolution triggers are the events and conditions that cause a Pokémon to evolve.
+///
 /// Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.
 @freezed
-abstract class EvolutionTrigger with _$EvolutionTrigger {
+abstract class EvolutionTrigger with _$EvolutionTrigger implements NamedResource {
   const factory EvolutionTrigger({
     /// The identifier for this resource.
     required int id,
@@ -137,6 +132,5 @@ abstract class EvolutionTrigger with _$EvolutionTrigger {
     required List<NamedApiResource<PokemonSpecies>> pokemonSpecies,
   }) = _EvolutionTrigger;
 
-  factory EvolutionTrigger.fromJson(Map<String, dynamic> json) =>
-      _$EvolutionTriggerFromJson(json);
+  factory EvolutionTrigger.fromJson(Map<String, dynamic> json) => _$EvolutionTriggerFromJson(json);
 }

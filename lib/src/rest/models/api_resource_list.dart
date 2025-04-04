@@ -1,12 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pokeapi/pokeapi.dart';
+import 'package:pokeapi/src/rest/models/base.dart';
 
 part 'api_resource_list.freezed.dart';
 part 'api_resource_list.g.dart';
 
 /// More info: https://pokeapi.co/docs/v2#apiresourcelist
 @freezed
-abstract class ApiResourceList<T> with _$ApiResourceList<T> {
+abstract class ApiResourceList<T extends UnnamedResource> with _$ApiResourceList<T> {
   const ApiResourceList._();
 
   const factory ApiResourceList({
@@ -23,31 +24,24 @@ abstract class ApiResourceList<T> with _$ApiResourceList<T> {
     required List<ApiResource<T>> results,
   }) = _ApiResourceList<T>;
 
-  factory ApiResourceList.fromJson(Map<String, dynamic> json) =>
-      _$ApiResourceListFromJson<T>(json);
+  factory ApiResourceList.fromJson(Map<String, dynamic> json) => _$ApiResourceListFromJson<T>(json);
 
   /// Fetches the next page of the list.
   Future<ApiResourceList<T>?> fetchNext() async {
     if (next == null) return null;
-    return PokeApi.I.rest.get<ApiResourceList<T>>(
-      next!,
-      ApiResourceList<T>.fromJson,
-    );
+    return PokeApi.I.rest.get<ApiResourceList<T>>(next!, (json) => ApiResourceList<T>.fromJson(json));
   }
 
   /// Fetches the previous page of the list.
   Future<ApiResourceList<T>?> fetchPrevious() async {
     if (previous == null) return null;
-    return PokeApi.I.rest.get<ApiResourceList<T>>(
-      previous!,
-      ApiResourceList<T>.fromJson,
-    );
+    return PokeApi.I.rest.get<ApiResourceList<T>>(previous!, (json) => ApiResourceList<T>.fromJson(json));
   }
 }
 
 /// More info: https://pokeapi.co/docs/v2#namedapiresourcelist
 @freezed
-abstract class NamedApiResourceList<T> with _$NamedApiResourceList<T> {
+abstract class NamedApiResourceList<T extends NamedResource> with _$NamedApiResourceList<T> {
   const NamedApiResourceList._();
 
   const factory NamedApiResourceList({
@@ -64,24 +58,17 @@ abstract class NamedApiResourceList<T> with _$NamedApiResourceList<T> {
     required List<NamedApiResource<T>> results,
   }) = _NamedApiResourceList<T>;
 
-  factory NamedApiResourceList.fromJson(Map<String, dynamic> json) =>
-      _$NamedApiResourceListFromJson<T>(json);
+  factory NamedApiResourceList.fromJson(Map<String, dynamic> json) => _$NamedApiResourceListFromJson<T>(json);
 
   /// Fetches the next page of the list.
   Future<NamedApiResourceList<T>?> fetchNext() async {
     if (next == null) return null;
-    return PokeApi.I.rest.get<NamedApiResourceList<T>>(
-      next!,
-      NamedApiResourceList<T>.fromJson,
-    );
+    return PokeApi.I.rest.get<NamedApiResourceList<T>>(next!, (json) => NamedApiResourceList<T>.fromJson(json));
   }
 
   /// Fetches the previous page of the list.
   Future<NamedApiResourceList<T>?> fetchPrevious() async {
     if (previous == null) return null;
-    return PokeApi.I.rest.get<NamedApiResourceList<T>>(
-      previous!,
-      NamedApiResourceList<T>.fromJson,
-    );
+    return PokeApi.I.rest.get<NamedApiResourceList<T>>(previous!, (json) => NamedApiResourceList<T>.fromJson(json));
   }
 }

@@ -1,13 +1,15 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pokeapi/pokeapi.dart';
+import 'package:pokeapi/src/rest/models/base.dart';
 
 part 'contest.freezed.dart';
 part 'contest.g.dart';
 
 /// Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests.
+///
 /// Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.
 @freezed
-abstract class ContestType with _$ContestType {
+abstract class ContestType with _$ContestType implements NamedResource {
   const factory ContestType({
     /// The identifier for this resource.
     required int id,
@@ -22,8 +24,7 @@ abstract class ContestType with _$ContestType {
     required List<ContestName> names,
   }) = _ContestType;
 
-  factory ContestType.fromJson(Map<String, dynamic> json) =>
-      _$ContestTypeFromJson(json);
+  factory ContestType.fromJson(Map<String, dynamic> json) => _$ContestTypeFromJson(json);
 }
 
 /// A contest name and the color associated with it.
@@ -40,13 +41,12 @@ abstract class ContestName with _$ContestName {
     required NamedApiResource<ContestType> language,
   }) = _ContestName;
 
-  factory ContestName.fromJson(Map<String, dynamic> json) =>
-      _$ContestNameFromJson(json);
+  factory ContestName.fromJson(Map<String, dynamic> json) => _$ContestNameFromJson(json);
 }
 
 /// Contest effects refer to the effects of moves when used in contests.
 @freezed
-abstract class ContestEffect with _$ContestEffect {
+abstract class ContestEffect with _$ContestEffect implements UnnamedResource {
   const factory ContestEffect({
     /// The identifier for this resource.
     required int id,
@@ -64,13 +64,12 @@ abstract class ContestEffect with _$ContestEffect {
     required List<FlavorText> flavorTextEntries,
   }) = _ContestEffect;
 
-  factory ContestEffect.fromJson(Map<String, dynamic> json) =>
-      _$ContestEffectFromJson(json);
+  factory ContestEffect.fromJson(Map<String, dynamic> json) => _$ContestEffectFromJson(json);
 }
 
 /// Super contest effects refer to the effects of moves when used in super contests.
 @freezed
-abstract class SuperContestEffect with _$SuperContestEffect {
+abstract class SuperContestEffect with _$SuperContestEffect implements UnnamedResource {
   const factory SuperContestEffect({
     /// The identifier for this resource.
     required int id,
@@ -85,6 +84,5 @@ abstract class SuperContestEffect with _$SuperContestEffect {
     required List<NamedApiResource<Move>> moves,
   }) = _SuperContestEffect;
 
-  factory SuperContestEffect.fromJson(Map<String, dynamic> json) =>
-      _$SuperContestEffectFromJson(json);
+  factory SuperContestEffect.fromJson(Map<String, dynamic> json) => _$SuperContestEffectFromJson(json);
 }

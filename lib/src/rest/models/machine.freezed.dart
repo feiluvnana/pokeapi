@@ -16,7 +16,11 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Machine {
 
- int get id; NamedApiResource<Item> get item; NamedApiResource<Move> get move; NamedApiResource<VersionGroup> get versionGroup;
+/// The identifier for this resource.
+ int get id;/// The TM or HM item that corresponds to this machine.
+ NamedApiResource<Item> get item;/// The move that is taught by this machine.
+ NamedApiResource<Move> get move;/// The version group that this machine applies to.
+ NamedApiResource<VersionGroup> get versionGroup;
 /// Create a copy of Machine
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -113,9 +117,13 @@ class _Machine implements Machine {
   const _Machine({required this.id, required this.item, required this.move, required this.versionGroup});
   factory _Machine.fromJson(Map<String, dynamic> json) => _$MachineFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The TM or HM item that corresponds to this machine.
 @override final  NamedApiResource<Item> item;
+/// The move that is taught by this machine.
 @override final  NamedApiResource<Move> move;
+/// The version group that this machine applies to.
 @override final  NamedApiResource<VersionGroup> versionGroup;
 
 /// Create a copy of Machine

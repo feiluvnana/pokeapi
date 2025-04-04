@@ -17,11 +17,10 @@ T _$identity<T>(T value) => value;
 mixin _$EvolutionChain {
 
 /// The identifier for this resource.
- int get id;/// The item that a Pokémon would be holding when mating that
-/// would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
- NamedApiResource<Item> get babyTriggerItem;/// The base chain link object.
-/// Each link contains evolution details for a Pokémon in the chain.
-/// Each link references the next Pokémon in the natural evolution order.
+ int get id;/// The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather
+/// than a basic Pokémon.
+ NamedApiResource<Item> get babyTriggerItem;/// The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link
+/// references the next Pokémon in the natural evolution order.
  ChainLink get chain;
 /// Create a copy of EvolutionChain
 /// with the given fields replaced by the non-null parameter values.
@@ -111,12 +110,11 @@ class _EvolutionChain implements EvolutionChain {
 
 /// The identifier for this resource.
 @override final  int id;
-/// The item that a Pokémon would be holding when mating that
-/// would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
+/// The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather
+/// than a basic Pokémon.
 @override final  NamedApiResource<Item> babyTriggerItem;
-/// The base chain link object.
-/// Each link contains evolution details for a Pokémon in the chain.
-/// Each link references the next Pokémon in the natural evolution order.
+/// The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link
+/// references the next Pokémon in the natural evolution order.
 @override final  ChainLink chain;
 
 /// Create a copy of EvolutionChain
@@ -387,27 +385,25 @@ mixin _$EvolutionDetail {
 
 /// The item required to cause evolution this into Pokémon species.
  NamedApiResource<Item> get item;/// The type of event that triggers evolution into this Pokémon species.
- NamedApiResource<EvolutionTrigger> get trigger;/// The id of the gender of the evolving Pokémon species must be in order to
+ NamedApiResource<EvolutionTrigger> get trigger;/// The id of the gender of the evolving Pokémon species must be in order to evolve into this Pokémon species.
+ int get gender;/// The item the evolving Pokémon species must be holding during the evolution trigger event to evolve into this
+/// Pokémon species.
+ NamedApiResource<Item> get heldItem;/// The move that must be known by the evolving Pokémon species during the evolution trigger event in order to
 /// evolve into this Pokémon species.
- int get gender;/// The item the evolving Pokémon species must be holding during the evolution trigger event
-/// to evolve into this Pokémon species.
- NamedApiResource<Item> get heldItem;/// The move that must be known by the evolving Pokémon species during
-/// the evolution trigger event in order to evolve into this Pokémon species.
- NamedApiResource<Move> get knownMove;/// The evolving Pokémon species must know a move with this type
-/// during the evolution trigger event in order to evolve into this Pokémon species.
+ NamedApiResource<Move> get knownMove;/// The evolving Pokémon species must know a move with this type during the evolution trigger event in order to
+/// evolve into this Pokémon species.
  NamedApiResource<Type> get knownMoveType;/// The location the evolution must be triggered at.
  NamedApiResource<Location> get location;/// The minimum required level of the evolving Pokémon species to evolve into this Pokémon species.
  int get minLevel;/// The minimum required level of happiness the evolving Pokémon species to evolve into this Pokémon species.
  int get minHappiness;/// The minimum required level of happiness the evolving Pokémon species to evolve into this Pokémon species.
  int get minBeauty;/// The minimum required level of affection the evolving Pokémon species to evolve into this Pokémon species.
  int get minAffection;/// Whether or not it must be raining in the overworld to cause evolution this Pokémon species.
- bool get needsOverworldRain;/// The Pokémon species that must be in the players party in order for
-/// the evolving Pokémon species to evolve into this Pokémon species.
- NamedApiResource<PokemonSpecies> get partySpecies;/// The player must have a Pokémon of this type in their party during
-/// the evolution trigger event in order for the evolving Pokémon species
-/// to evolve into this Pokémon species.
- NamedApiResource<Type> get partyType;/// The required relation between the Pokémon's Attack and Defense stats.
-/// 1 means Attack > Defense. 0 means Attack = Defense. -1 means Attack < Defense.
+ bool get needsOverworldRain;/// The Pokémon species that must be in the players party in order for the evolving Pokémon species to evolve into
+/// this Pokémon species.
+ NamedApiResource<PokemonSpecies> get partySpecies;/// The player must have a Pokémon of this type in their party during the evolution trigger event in order for the
+/// evolving Pokémon species to evolve into this Pokémon species.
+ NamedApiResource<Type> get partyType;/// The required relation between the Pokémon's Attack and Defense stats. 1 means Attack > Defense. 0 means Attack
+/// = Defense. -1 means Attack < Defense.
  int get relativePhysicalStats;/// The required time of day. Day or night.
  String get timeOfDay;/// Pokémon species for which this one must be traded.
  NamedApiResource<PokemonSpecies> get tradeSpecies;/// Whether or not the 3DS needs to be turned upside-down as this Pokémon levels up.
@@ -580,17 +576,16 @@ class _EvolutionDetail implements EvolutionDetail {
 @override final  NamedApiResource<Item> item;
 /// The type of event that triggers evolution into this Pokémon species.
 @override final  NamedApiResource<EvolutionTrigger> trigger;
-/// The id of the gender of the evolving Pokémon species must be in order to
-/// evolve into this Pokémon species.
+/// The id of the gender of the evolving Pokémon species must be in order to evolve into this Pokémon species.
 @override final  int gender;
-/// The item the evolving Pokémon species must be holding during the evolution trigger event
-/// to evolve into this Pokémon species.
+/// The item the evolving Pokémon species must be holding during the evolution trigger event to evolve into this
+/// Pokémon species.
 @override final  NamedApiResource<Item> heldItem;
-/// The move that must be known by the evolving Pokémon species during
-/// the evolution trigger event in order to evolve into this Pokémon species.
+/// The move that must be known by the evolving Pokémon species during the evolution trigger event in order to
+/// evolve into this Pokémon species.
 @override final  NamedApiResource<Move> knownMove;
-/// The evolving Pokémon species must know a move with this type
-/// during the evolution trigger event in order to evolve into this Pokémon species.
+/// The evolving Pokémon species must know a move with this type during the evolution trigger event in order to
+/// evolve into this Pokémon species.
 @override final  NamedApiResource<Type> knownMoveType;
 /// The location the evolution must be triggered at.
 @override final  NamedApiResource<Location> location;
@@ -604,15 +599,14 @@ class _EvolutionDetail implements EvolutionDetail {
 @override final  int minAffection;
 /// Whether or not it must be raining in the overworld to cause evolution this Pokémon species.
 @override final  bool needsOverworldRain;
-/// The Pokémon species that must be in the players party in order for
-/// the evolving Pokémon species to evolve into this Pokémon species.
+/// The Pokémon species that must be in the players party in order for the evolving Pokémon species to evolve into
+/// this Pokémon species.
 @override final  NamedApiResource<PokemonSpecies> partySpecies;
-/// The player must have a Pokémon of this type in their party during
-/// the evolution trigger event in order for the evolving Pokémon species
-/// to evolve into this Pokémon species.
+/// The player must have a Pokémon of this type in their party during the evolution trigger event in order for the
+/// evolving Pokémon species to evolve into this Pokémon species.
 @override final  NamedApiResource<Type> partyType;
-/// The required relation between the Pokémon's Attack and Defense stats.
-/// 1 means Attack > Defense. 0 means Attack = Defense. -1 means Attack < Defense.
+/// The required relation between the Pokémon's Attack and Defense stats. 1 means Attack > Defense. 0 means Attack
+/// = Defense. -1 means Attack < Defense.
 @override final  int relativePhysicalStats;
 /// The required time of day. Day or night.
 @override final  String timeOfDay;

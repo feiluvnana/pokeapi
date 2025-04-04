@@ -16,7 +16,16 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Generation {
 
- int get id; String get name; List<NamedApiResource<Ability>> get abilities; List<Name> get names; NamedApiResource<Region> get mainRegion; List<NamedApiResource<Move>> get moves; List<NamedApiResource<PokemonSpecies>> get pokemonSpecies; List<NamedApiResource<Type>> get types; List<NamedApiResource<VersionGroup>> get versionGroups;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// A list of abilities that were introduced in this generation.
+ List<NamedApiResource<Ability>> get abilities;/// The name of this resource listed in different languages.
+ List<Name> get names;/// The main region travelled in this generation.
+ NamedApiResource<Region> get mainRegion;/// A list of moves that were introduced in this generation.
+ List<NamedApiResource<Move>> get moves;/// A list of Pokémon species that were introduced in this generation.
+ List<NamedApiResource<PokemonSpecies>> get pokemonSpecies;/// A list of types that were introduced in this generation.
+ List<NamedApiResource<Type>> get types;/// A list of version groups that were introduced in this generation.
+ List<NamedApiResource<VersionGroup>> get versionGroups;
 /// Create a copy of Generation
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -100,45 +109,60 @@ class _Generation implements Generation {
   const _Generation({required this.id, required this.name, required final  List<NamedApiResource<Ability>> abilities, required final  List<Name> names, required this.mainRegion, required final  List<NamedApiResource<Move>> moves, required final  List<NamedApiResource<PokemonSpecies>> pokemonSpecies, required final  List<NamedApiResource<Type>> types, required final  List<NamedApiResource<VersionGroup>> versionGroups}): _abilities = abilities,_names = names,_moves = moves,_pokemonSpecies = pokemonSpecies,_types = types,_versionGroups = versionGroups;
   factory _Generation.fromJson(Map<String, dynamic> json) => _$GenerationFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// A list of abilities that were introduced in this generation.
  final  List<NamedApiResource<Ability>> _abilities;
+/// A list of abilities that were introduced in this generation.
 @override List<NamedApiResource<Ability>> get abilities {
   if (_abilities is EqualUnmodifiableListView) return _abilities;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_abilities);
 }
 
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_names);
 }
 
+/// The main region travelled in this generation.
 @override final  NamedApiResource<Region> mainRegion;
+/// A list of moves that were introduced in this generation.
  final  List<NamedApiResource<Move>> _moves;
+/// A list of moves that were introduced in this generation.
 @override List<NamedApiResource<Move>> get moves {
   if (_moves is EqualUnmodifiableListView) return _moves;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_moves);
 }
 
+/// A list of Pokémon species that were introduced in this generation.
  final  List<NamedApiResource<PokemonSpecies>> _pokemonSpecies;
+/// A list of Pokémon species that were introduced in this generation.
 @override List<NamedApiResource<PokemonSpecies>> get pokemonSpecies {
   if (_pokemonSpecies is EqualUnmodifiableListView) return _pokemonSpecies;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_pokemonSpecies);
 }
 
+/// A list of types that were introduced in this generation.
  final  List<NamedApiResource<Type>> _types;
+/// A list of types that were introduced in this generation.
 @override List<NamedApiResource<Type>> get types {
   if (_types is EqualUnmodifiableListView) return _types;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_types);
 }
 
+/// A list of version groups that were introduced in this generation.
  final  List<NamedApiResource<VersionGroup>> _versionGroups;
+/// A list of version groups that were introduced in this generation.
 @override List<NamedApiResource<VersionGroup>> get versionGroups {
   if (_versionGroups is EqualUnmodifiableListView) return _versionGroups;
   // ignore: implicit_dynamic_type
@@ -227,7 +251,15 @@ $NamedApiResourceCopyWith<Region, $Res> get mainRegion {
 /// @nodoc
 mixin _$Pokedex {
 
- int get id; String get name; bool get isMainSeries; List<Description> get descriptions; List<Name> get names; List<PokemonEntry> get pokemonEntries; NamedApiResource<Region> get region; List<NamedApiResource<VersionGroup>> get versionGroups;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// Whether or not this Pokédex originated in the main series of the video games.
+ bool get isMainSeries;/// The description of this resource listed in different languages.
+ List<Description> get descriptions;/// The name of this resource listed in different languages.
+ List<Name> get names;/// A list of Pokémon catalogued in this Pokédex and their indexes.
+ List<PokemonEntry> get pokemonEntries;/// The region this Pokédex catalogues Pokémon for.
+ NamedApiResource<Region> get region;/// A list of version groups this Pokédex is relevant to.
+ List<NamedApiResource<VersionGroup>> get versionGroups;
 /// Create a copy of Pokedex
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -310,32 +342,44 @@ class _Pokedex implements Pokedex {
   const _Pokedex({required this.id, required this.name, required this.isMainSeries, required final  List<Description> descriptions, required final  List<Name> names, required final  List<PokemonEntry> pokemonEntries, required this.region, required final  List<NamedApiResource<VersionGroup>> versionGroups}): _descriptions = descriptions,_names = names,_pokemonEntries = pokemonEntries,_versionGroups = versionGroups;
   factory _Pokedex.fromJson(Map<String, dynamic> json) => _$PokedexFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// Whether or not this Pokédex originated in the main series of the video games.
 @override final  bool isMainSeries;
+/// The description of this resource listed in different languages.
  final  List<Description> _descriptions;
+/// The description of this resource listed in different languages.
 @override List<Description> get descriptions {
   if (_descriptions is EqualUnmodifiableListView) return _descriptions;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_descriptions);
 }
 
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_names);
 }
 
+/// A list of Pokémon catalogued in this Pokédex and their indexes.
  final  List<PokemonEntry> _pokemonEntries;
+/// A list of Pokémon catalogued in this Pokédex and their indexes.
 @override List<PokemonEntry> get pokemonEntries {
   if (_pokemonEntries is EqualUnmodifiableListView) return _pokemonEntries;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_pokemonEntries);
 }
 
+/// The region this Pokédex catalogues Pokémon for.
 @override final  NamedApiResource<Region> region;
+/// A list of version groups this Pokédex is relevant to.
  final  List<NamedApiResource<VersionGroup>> _versionGroups;
+/// A list of version groups this Pokédex is relevant to.
 @override List<NamedApiResource<VersionGroup>> get versionGroups {
   if (_versionGroups is EqualUnmodifiableListView) return _versionGroups;
   // ignore: implicit_dynamic_type
@@ -423,7 +467,9 @@ $NamedApiResourceCopyWith<Region, $Res> get region {
 /// @nodoc
 mixin _$PokemonEntry {
 
- int get entryNumber; NamedApiResource<PokemonSpecies> get pokemonSpecies;
+/// The index of this Pokémon species entry within the Pokédex.
+ int get entryNumber;/// The Pokémon species being encountered.
+ NamedApiResource<PokemonSpecies> get pokemonSpecies;
 /// Create a copy of PokemonEntry
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -500,7 +546,9 @@ class _PokemonEntry implements PokemonEntry {
   const _PokemonEntry({required this.entryNumber, required this.pokemonSpecies});
   factory _PokemonEntry.fromJson(Map<String, dynamic> json) => _$PokemonEntryFromJson(json);
 
+/// The index of this Pokémon species entry within the Pokédex.
 @override final  int entryNumber;
+/// The Pokémon species being encountered.
 @override final  NamedApiResource<PokemonSpecies> pokemonSpecies;
 
 /// Create a copy of PokemonEntry
@@ -577,7 +625,11 @@ $NamedApiResourceCopyWith<PokemonSpecies, $Res> get pokemonSpecies {
 /// @nodoc
 mixin _$Version {
 
- int get id; String get name; List<Name> get names; NamedApiResource<VersionGroup> get versionGroup;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// The name of this resource listed in different languages.
+ List<Name> get names;/// The version group this version belongs to.
+ NamedApiResource<VersionGroup> get versionGroup;
 /// Create a copy of Version
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -656,15 +708,20 @@ class _Version implements Version {
   const _Version({required this.id, required this.name, required final  List<Name> names, required this.versionGroup}): _names = names;
   factory _Version.fromJson(Map<String, dynamic> json) => _$VersionFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_names);
 }
 
+/// The version group this version belongs to.
 @override final  NamedApiResource<VersionGroup> versionGroup;
 
 /// Create a copy of Version
@@ -743,7 +800,15 @@ $NamedApiResourceCopyWith<VersionGroup, $Res> get versionGroup {
 /// @nodoc
 mixin _$VersionGroup {
 
- int get id; String get name; int get order; NamedApiResource<Generation> get generation; List<NamedApiResource<MoveLearnMethod>> get moveLearnMethods; List<NamedApiResource<Pokedex>> get pokedexes; List<NamedApiResource<Region>> get regions; List<NamedApiResource<Version>> get versions;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// Order for sorting. Almost by date of release, except similar versions are grouped together.
+ int get order;/// The generation this version was introduced in.
+ NamedApiResource<Generation> get generation;/// A list of methods in which Pokémon can learn moves in this version group.
+ List<NamedApiResource<MoveLearnMethod>> get moveLearnMethods;/// A list of Pokédexes introduces in this version group.
+ List<NamedApiResource<Pokedex>> get pokedexes;/// A list of regions that can be visited in this version group.
+ List<NamedApiResource<Region>> get regions;/// The versions this version group owns.
+ List<NamedApiResource<Version>> get versions;
 /// Create a copy of VersionGroup
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -826,32 +891,44 @@ class _VersionGroup implements VersionGroup {
   const _VersionGroup({required this.id, required this.name, required this.order, required this.generation, required final  List<NamedApiResource<MoveLearnMethod>> moveLearnMethods, required final  List<NamedApiResource<Pokedex>> pokedexes, required final  List<NamedApiResource<Region>> regions, required final  List<NamedApiResource<Version>> versions}): _moveLearnMethods = moveLearnMethods,_pokedexes = pokedexes,_regions = regions,_versions = versions;
   factory _VersionGroup.fromJson(Map<String, dynamic> json) => _$VersionGroupFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// Order for sorting. Almost by date of release, except similar versions are grouped together.
 @override final  int order;
+/// The generation this version was introduced in.
 @override final  NamedApiResource<Generation> generation;
+/// A list of methods in which Pokémon can learn moves in this version group.
  final  List<NamedApiResource<MoveLearnMethod>> _moveLearnMethods;
+/// A list of methods in which Pokémon can learn moves in this version group.
 @override List<NamedApiResource<MoveLearnMethod>> get moveLearnMethods {
   if (_moveLearnMethods is EqualUnmodifiableListView) return _moveLearnMethods;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_moveLearnMethods);
 }
 
+/// A list of Pokédexes introduces in this version group.
  final  List<NamedApiResource<Pokedex>> _pokedexes;
+/// A list of Pokédexes introduces in this version group.
 @override List<NamedApiResource<Pokedex>> get pokedexes {
   if (_pokedexes is EqualUnmodifiableListView) return _pokedexes;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_pokedexes);
 }
 
+/// A list of regions that can be visited in this version group.
  final  List<NamedApiResource<Region>> _regions;
+/// A list of regions that can be visited in this version group.
 @override List<NamedApiResource<Region>> get regions {
   if (_regions is EqualUnmodifiableListView) return _regions;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_regions);
 }
 
+/// The versions this version group owns.
  final  List<NamedApiResource<Version>> _versions;
+/// The versions this version group owns.
 @override List<NamedApiResource<Version>> get versions {
   if (_versions is EqualUnmodifiableListView) return _versions;
   // ignore: implicit_dynamic_type

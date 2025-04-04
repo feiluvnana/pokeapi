@@ -16,7 +16,13 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Location {
 
- int get id; String get name; NamedApiResource<Region> get region; List<Name> get names; List<GenerationGameIndex> get gameIndices; List<NamedApiResource<LocationArea>> get locationAreas;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// The region this location can be found in.
+ NamedApiResource<Region> get region;/// The name of this resource listed in different languages.
+ List<Name> get names;/// A list of game indices relevent to this location by generation.
+ List<GenerationGameIndex> get gameIndices;/// Areas that can be found within this location.
+ List<NamedApiResource<LocationArea>> get locationAreas;
 /// Create a copy of Location
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -97,24 +103,33 @@ class _Location implements Location {
   const _Location({required this.id, required this.name, required this.region, required final  List<Name> names, required final  List<GenerationGameIndex> gameIndices, required final  List<NamedApiResource<LocationArea>> locationAreas}): _names = names,_gameIndices = gameIndices,_locationAreas = locationAreas;
   factory _Location.fromJson(Map<String, dynamic> json) => _$LocationFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// The region this location can be found in.
 @override final  NamedApiResource<Region> region;
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_names);
 }
 
+/// A list of game indices relevent to this location by generation.
  final  List<GenerationGameIndex> _gameIndices;
+/// A list of game indices relevent to this location by generation.
 @override List<GenerationGameIndex> get gameIndices {
   if (_gameIndices is EqualUnmodifiableListView) return _gameIndices;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_gameIndices);
 }
 
+/// Areas that can be found within this location.
  final  List<NamedApiResource<LocationArea>> _locationAreas;
+/// Areas that can be found within this location.
 @override List<NamedApiResource<LocationArea>> get locationAreas {
   if (_locationAreas is EqualUnmodifiableListView) return _locationAreas;
   // ignore: implicit_dynamic_type
@@ -200,7 +215,15 @@ $NamedApiResourceCopyWith<Region, $Res> get region {
 /// @nodoc
 mixin _$LocationArea {
 
- int get id; String get name; int get gameIndex; List<EncounterMethodRate> get encounterMethodRates; NamedApiResource<Location> get location; List<Name> get names; List<PokemonEncounter> get pokemonEncounters;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// The internal id of an API resource within game data.
+ int get gameIndex;/// A list of methods in which Pokémon may be encountered in this area and how likely the method will occur
+/// depending on the version of the game.
+ List<EncounterMethodRate> get encounterMethodRates;/// The region this location area can be found in.
+ NamedApiResource<Location> get location;/// The name of this resource listed in different languages.
+ List<Name> get names;/// A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
+ List<PokemonEncounter> get pokemonEncounters;
 /// Create a copy of LocationArea
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -282,25 +305,37 @@ class _LocationArea implements LocationArea {
   const _LocationArea({required this.id, required this.name, required this.gameIndex, required final  List<EncounterMethodRate> encounterMethodRates, required this.location, required final  List<Name> names, required final  List<PokemonEncounter> pokemonEncounters}): _encounterMethodRates = encounterMethodRates,_names = names,_pokemonEncounters = pokemonEncounters;
   factory _LocationArea.fromJson(Map<String, dynamic> json) => _$LocationAreaFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// The internal id of an API resource within game data.
 @override final  int gameIndex;
+/// A list of methods in which Pokémon may be encountered in this area and how likely the method will occur
+/// depending on the version of the game.
  final  List<EncounterMethodRate> _encounterMethodRates;
+/// A list of methods in which Pokémon may be encountered in this area and how likely the method will occur
+/// depending on the version of the game.
 @override List<EncounterMethodRate> get encounterMethodRates {
   if (_encounterMethodRates is EqualUnmodifiableListView) return _encounterMethodRates;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_encounterMethodRates);
 }
 
+/// The region this location area can be found in.
 @override final  NamedApiResource<Location> location;
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_names);
 }
 
+/// A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
  final  List<PokemonEncounter> _pokemonEncounters;
+/// A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
 @override List<PokemonEncounter> get pokemonEncounters {
   if (_pokemonEncounters is EqualUnmodifiableListView) return _pokemonEncounters;
   // ignore: implicit_dynamic_type
@@ -387,7 +422,9 @@ $NamedApiResourceCopyWith<Location, $Res> get location {
 /// @nodoc
 mixin _$EncounterMethodRate {
 
- NamedApiResource<EncounterMethod> get encounterMethod; List<EncounterVersionDetails> get versionDetails;
+/// The method by which Pokémon can be encountered in the area.
+ NamedApiResource<EncounterMethod> get encounterMethod;/// The chance of the encounter to occur on a version of the game.
+ List<EncounterVersionDetails> get versionDetails;
 /// Create a copy of EncounterMethodRate
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -464,8 +501,11 @@ class _EncounterMethodRate implements EncounterMethodRate {
   const _EncounterMethodRate({required this.encounterMethod, required final  List<EncounterVersionDetails> versionDetails}): _versionDetails = versionDetails;
   factory _EncounterMethodRate.fromJson(Map<String, dynamic> json) => _$EncounterMethodRateFromJson(json);
 
+/// The method by which Pokémon can be encountered in the area.
 @override final  NamedApiResource<EncounterMethod> encounterMethod;
+/// The chance of the encounter to occur on a version of the game.
  final  List<EncounterVersionDetails> _versionDetails;
+/// The chance of the encounter to occur on a version of the game.
 @override List<EncounterVersionDetails> get versionDetails {
   if (_versionDetails is EqualUnmodifiableListView) return _versionDetails;
   // ignore: implicit_dynamic_type
@@ -547,7 +587,9 @@ $NamedApiResourceCopyWith<EncounterMethod, $Res> get encounterMethod {
 /// @nodoc
 mixin _$EncounterVersionDetails {
 
- int get rate; NamedApiResource<Version> get version;
+/// TThe chance of an encounter to occur.
+ int get rate;/// The version of the game in which the encounter can occur with the given chance.
+ NamedApiResource<Version> get version;
 /// Create a copy of EncounterVersionDetails
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -624,7 +666,9 @@ class _EncounterVersionDetails implements EncounterVersionDetails {
   const _EncounterVersionDetails({required this.rate, required this.version});
   factory _EncounterVersionDetails.fromJson(Map<String, dynamic> json) => _$EncounterVersionDetailsFromJson(json);
 
+/// TThe chance of an encounter to occur.
 @override final  int rate;
+/// The version of the game in which the encounter can occur with the given chance.
 @override final  NamedApiResource<Version> version;
 
 /// Create a copy of EncounterVersionDetails
@@ -701,7 +745,9 @@ $NamedApiResourceCopyWith<Version, $Res> get version {
 /// @nodoc
 mixin _$PokemonEncounter {
 
- NamedApiResource<Pokemon> get pokemon; List<VersionEncounterDetail> get versionDetails;
+/// The Pokémon being encountered.
+ NamedApiResource<Pokemon> get pokemon;/// A list of versions and encounters with Pokémon that might happen in the referenced location area.
+ List<VersionEncounterDetail> get versionDetails;
 /// Create a copy of PokemonEncounter
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -778,8 +824,11 @@ class _PokemonEncounter implements PokemonEncounter {
   const _PokemonEncounter({required this.pokemon, required final  List<VersionEncounterDetail> versionDetails}): _versionDetails = versionDetails;
   factory _PokemonEncounter.fromJson(Map<String, dynamic> json) => _$PokemonEncounterFromJson(json);
 
+/// The Pokémon being encountered.
 @override final  NamedApiResource<Pokemon> pokemon;
+/// A list of versions and encounters with Pokémon that might happen in the referenced location area.
  final  List<VersionEncounterDetail> _versionDetails;
+/// A list of versions and encounters with Pokémon that might happen in the referenced location area.
 @override List<VersionEncounterDetail> get versionDetails {
   if (_versionDetails is EqualUnmodifiableListView) return _versionDetails;
   // ignore: implicit_dynamic_type
@@ -861,7 +910,11 @@ $NamedApiResourceCopyWith<Pokemon, $Res> get pokemon {
 /// @nodoc
 mixin _$PalParkArea {
 
- int get id; String get name; List<Name> get names; List<PalParkEncounterSpecies> get pokemonEncounters;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// The name of this resource listed in different languages.
+ List<Name> get names;/// A list of Pokémon encountered in this pal park area along with details.
+ List<PalParkEncounterSpecies> get pokemonEncounters;
 /// Create a copy of PalParkArea
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -931,16 +984,22 @@ class _PalParkArea implements PalParkArea {
   const _PalParkArea({required this.id, required this.name, required final  List<Name> names, required final  List<PalParkEncounterSpecies> pokemonEncounters}): _names = names,_pokemonEncounters = pokemonEncounters;
   factory _PalParkArea.fromJson(Map<String, dynamic> json) => _$PalParkAreaFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_names);
 }
 
+/// A list of Pokémon encountered in this pal park area along with details.
  final  List<PalParkEncounterSpecies> _pokemonEncounters;
+/// A list of Pokémon encountered in this pal park area along with details.
 @override List<PalParkEncounterSpecies> get pokemonEncounters {
   if (_pokemonEncounters is EqualUnmodifiableListView) return _pokemonEncounters;
   // ignore: implicit_dynamic_type
@@ -1015,7 +1074,10 @@ as List<PalParkEncounterSpecies>,
 /// @nodoc
 mixin _$PalParkEncounterSpecies {
 
- int get baseScore; int get rate; NamedApiResource<PokemonSpecies> get pokemonSpecies;
+/// The base score given to the player when the Pokémon is caught during a pal park run.
+ int get baseScore;/// The base rate for encountering this Pokémon in this pal park area.
+ int get rate;/// The Pokémon species being encountered.
+ NamedApiResource<PokemonSpecies> get pokemonSpecies;
 /// Create a copy of PalParkEncounterSpecies
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1093,8 +1155,11 @@ class _PalParkEncounterSpecies implements PalParkEncounterSpecies {
   const _PalParkEncounterSpecies({required this.baseScore, required this.rate, required this.pokemonSpecies});
   factory _PalParkEncounterSpecies.fromJson(Map<String, dynamic> json) => _$PalParkEncounterSpeciesFromJson(json);
 
+/// The base score given to the player when the Pokémon is caught during a pal park run.
 @override final  int baseScore;
+/// The base rate for encountering this Pokémon in this pal park area.
 @override final  int rate;
+/// The Pokémon species being encountered.
 @override final  NamedApiResource<PokemonSpecies> pokemonSpecies;
 
 /// Create a copy of PalParkEncounterSpecies
@@ -1172,7 +1237,14 @@ $NamedApiResourceCopyWith<PokemonSpecies, $Res> get pokemonSpecies {
 /// @nodoc
 mixin _$Region {
 
- int get id; List<NamedApiResource<Location>> get locations; String get name; List<Name> get names; NamedApiResource<Generation> get mainGeneration; List<NamedApiResource<Pokedex>> get pokedexes; List<NamedApiResource<VersionGroup>> get versionGroups;
+/// The identifier for this resource.
+ int get id;/// A list of locations that belong to this region.
+ List<NamedApiResource<Location>> get locations;/// The name for this resource.
+ String get name;/// The name of this resource listed in different languages.
+ List<Name> get names;/// The generation this region was introduced in.
+ NamedApiResource<Generation> get mainGeneration;/// A list of pokédexes that catalogue Pokémon in this region.
+ List<NamedApiResource<Pokedex>> get pokedexes;/// A list of version groups where this region can be visited.
+ List<NamedApiResource<VersionGroup>> get versionGroups;
 /// Create a copy of Region
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1254,31 +1326,42 @@ class _Region implements Region {
   const _Region({required this.id, required final  List<NamedApiResource<Location>> locations, required this.name, required final  List<Name> names, required this.mainGeneration, required final  List<NamedApiResource<Pokedex>> pokedexes, required final  List<NamedApiResource<VersionGroup>> versionGroups}): _locations = locations,_names = names,_pokedexes = pokedexes,_versionGroups = versionGroups;
   factory _Region.fromJson(Map<String, dynamic> json) => _$RegionFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// A list of locations that belong to this region.
  final  List<NamedApiResource<Location>> _locations;
+/// A list of locations that belong to this region.
 @override List<NamedApiResource<Location>> get locations {
   if (_locations is EqualUnmodifiableListView) return _locations;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_locations);
 }
 
+/// The name for this resource.
 @override final  String name;
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_names);
 }
 
+/// The generation this region was introduced in.
 @override final  NamedApiResource<Generation> mainGeneration;
+/// A list of pokédexes that catalogue Pokémon in this region.
  final  List<NamedApiResource<Pokedex>> _pokedexes;
+/// A list of pokédexes that catalogue Pokémon in this region.
 @override List<NamedApiResource<Pokedex>> get pokedexes {
   if (_pokedexes is EqualUnmodifiableListView) return _pokedexes;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_pokedexes);
 }
 
+/// A list of version groups where this region can be visited.
  final  List<NamedApiResource<VersionGroup>> _versionGroups;
+/// A list of version groups where this region can be visited.
 @override List<NamedApiResource<VersionGroup>> get versionGroups {
   if (_versionGroups is EqualUnmodifiableListView) return _versionGroups;
   // ignore: implicit_dynamic_type

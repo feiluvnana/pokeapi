@@ -18,17 +18,16 @@ mixin _$Berry {
 
 /// The identifier for this resource.
  int get id;/// The name for this resource.
- String get name;/// Time it takes the tree to grow one stage, in hours.
-/// Berry trees go through four of these growth stages before they can be picked.
+ String get name;/// Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before
+/// they can be picked.
  int get growthTime;/// The maximum number of these berries that can grow on one tree in Generation IV.
  int get maxHarvest;/// The power of the move "Natural Gift" when used with this Berry.
  int get naturalGiftPower;/// The size of this Berry, in millimeters.
  int get size;/// The smoothness of this Berry, used in making Pokéblocks or Poffins.
- int get smoothness;/// The speed at which this Berry dries out the soil as it grows.
-/// A higher rate means the soil dries more quickly.
+ int get smoothness;/// The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
  int get soilDryness;/// The firmness of this berry, used in making Pokéblocks or Poffins.
- NamedApiResource<BerryFirmness> get firmness;/// A list of references to each flavor a berry can have
-/// and the potency of each of those flavors in regard to this berry.
+ NamedApiResource<BerryFirmness> get firmness;/// A list of references to each flavor a berry can have and the potency of each of those flavors in regard to
+/// this berry.
  List<BerryFlavorMap> get flavors;/// Berries are actually items.
 /// This is a reference to the item specific data for this berry.
  NamedApiResource<Item> get item;/// The type inherited by "Natural Gift" when used with this Berry.
@@ -141,8 +140,8 @@ class _Berry implements Berry {
 @override final  int id;
 /// The name for this resource.
 @override final  String name;
-/// Time it takes the tree to grow one stage, in hours.
-/// Berry trees go through four of these growth stages before they can be picked.
+/// Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before
+/// they can be picked.
 @override final  int growthTime;
 /// The maximum number of these berries that can grow on one tree in Generation IV.
 @override final  int maxHarvest;
@@ -152,16 +151,15 @@ class _Berry implements Berry {
 @override final  int size;
 /// The smoothness of this Berry, used in making Pokéblocks or Poffins.
 @override final  int smoothness;
-/// The speed at which this Berry dries out the soil as it grows.
-/// A higher rate means the soil dries more quickly.
+/// The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
 @override final  int soilDryness;
 /// The firmness of this berry, used in making Pokéblocks or Poffins.
 @override final  NamedApiResource<BerryFirmness> firmness;
-/// A list of references to each flavor a berry can have
-/// and the potency of each of those flavors in regard to this berry.
+/// A list of references to each flavor a berry can have and the potency of each of those flavors in regard to
+/// this berry.
  final  List<BerryFlavorMap> _flavors;
-/// A list of references to each flavor a berry can have
-/// and the potency of each of those flavors in regard to this berry.
+/// A list of references to each flavor a berry can have and the potency of each of those flavors in regard to
+/// this berry.
 @override List<BerryFlavorMap> get flavors {
   if (_flavors is EqualUnmodifiableListView) return _flavors;
   // ignore: implicit_dynamic_type

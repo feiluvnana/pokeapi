@@ -16,7 +16,16 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Ability {
 
- int get id; String get name; bool get isMainSeries; NamedApiResource<Generation> get generation; List<Name> get names; List<VerboseEffect> get effectEntries; List<AbilityEffectChange> get effectChanges; List<AbilityFlavorText> get flavorTextEntries; List<AbilityPokemon> get pokemon;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// Whether this ability originated in the main series of the video games.
+ bool get isMainSeries;/// The generation this ability was introduced in.
+ NamedApiResource<Generation> get generation;/// The name of this resource listed in different languages.
+ List<Name> get names;/// The effect of this ability listed in different languages.
+ List<VerboseEffect> get effectEntries;/// The list of previous effects this ability has had across version groups of the games.
+ List<AbilityEffectChange> get effectChanges;/// The flavor text of this ability listed in different languages.
+ List<AbilityFlavorText> get flavorTextEntries;/// A list of Pokémon that could potentially have this ability.
+ List<AbilityPokemon> get pokemon;
 /// Create a copy of Ability
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -100,39 +109,53 @@ class _Ability implements Ability {
   const _Ability({required this.id, required this.name, required this.isMainSeries, required this.generation, required final  List<Name> names, required final  List<VerboseEffect> effectEntries, required final  List<AbilityEffectChange> effectChanges, required final  List<AbilityFlavorText> flavorTextEntries, required final  List<AbilityPokemon> pokemon}): _names = names,_effectEntries = effectEntries,_effectChanges = effectChanges,_flavorTextEntries = flavorTextEntries,_pokemon = pokemon;
   factory _Ability.fromJson(Map<String, dynamic> json) => _$AbilityFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// Whether this ability originated in the main series of the video games.
 @override final  bool isMainSeries;
+/// The generation this ability was introduced in.
 @override final  NamedApiResource<Generation> generation;
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_names);
 }
 
+/// The effect of this ability listed in different languages.
  final  List<VerboseEffect> _effectEntries;
+/// The effect of this ability listed in different languages.
 @override List<VerboseEffect> get effectEntries {
   if (_effectEntries is EqualUnmodifiableListView) return _effectEntries;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_effectEntries);
 }
 
+/// The list of previous effects this ability has had across version groups of the games.
  final  List<AbilityEffectChange> _effectChanges;
+/// The list of previous effects this ability has had across version groups of the games.
 @override List<AbilityEffectChange> get effectChanges {
   if (_effectChanges is EqualUnmodifiableListView) return _effectChanges;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_effectChanges);
 }
 
+/// The flavor text of this ability listed in different languages.
  final  List<AbilityFlavorText> _flavorTextEntries;
+/// The flavor text of this ability listed in different languages.
 @override List<AbilityFlavorText> get flavorTextEntries {
   if (_flavorTextEntries is EqualUnmodifiableListView) return _flavorTextEntries;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_flavorTextEntries);
 }
 
+/// A list of Pokémon that could potentially have this ability.
  final  List<AbilityPokemon> _pokemon;
+/// A list of Pokémon that could potentially have this ability.
 @override List<AbilityPokemon> get pokemon {
   if (_pokemon is EqualUnmodifiableListView) return _pokemon;
   // ignore: implicit_dynamic_type
@@ -221,7 +244,9 @@ $NamedApiResourceCopyWith<Generation, $Res> get generation {
 /// @nodoc
 mixin _$AbilityEffectChange {
 
- List<Effect> get effectEntries; NamedApiResource<VersionGroup> get versionGroup;
+/// The previous effect of this ability listed in different languages.
+ List<Effect> get effectEntries;/// The version group that had this ability effect change.
+ NamedApiResource<VersionGroup> get versionGroup;
 /// Create a copy of AbilityEffectChange
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -298,13 +323,16 @@ class _AbilityEffectChange implements AbilityEffectChange {
   const _AbilityEffectChange({required final  List<Effect> effectEntries, required this.versionGroup}): _effectEntries = effectEntries;
   factory _AbilityEffectChange.fromJson(Map<String, dynamic> json) => _$AbilityEffectChangeFromJson(json);
 
+/// The previous effect of this ability listed in different languages.
  final  List<Effect> _effectEntries;
+/// The previous effect of this ability listed in different languages.
 @override List<Effect> get effectEntries {
   if (_effectEntries is EqualUnmodifiableListView) return _effectEntries;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_effectEntries);
 }
 
+/// The version group that had this ability effect change.
 @override final  NamedApiResource<VersionGroup> versionGroup;
 
 /// Create a copy of AbilityEffectChange
@@ -381,7 +409,10 @@ $NamedApiResourceCopyWith<VersionGroup, $Res> get versionGroup {
 /// @nodoc
 mixin _$AbilityFlavorText {
 
- String get flavorText; NamedApiResource<Language> get language; NamedApiResource<VersionGroup> get versionGroup;
+/// The localized flavor text for an api resource in a specific language.
+ String get flavorText;/// The language this flavor text is in.
+ NamedApiResource<Language> get language;/// The version group that uses this flavor text.
+ NamedApiResource<VersionGroup> get versionGroup;
 /// Create a copy of AbilityFlavorText
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -468,8 +499,11 @@ class _AbilityFlavorText implements AbilityFlavorText {
   const _AbilityFlavorText({required this.flavorText, required this.language, required this.versionGroup});
   factory _AbilityFlavorText.fromJson(Map<String, dynamic> json) => _$AbilityFlavorTextFromJson(json);
 
+/// The localized flavor text for an api resource in a specific language.
 @override final  String flavorText;
+/// The language this flavor text is in.
 @override final  NamedApiResource<Language> language;
+/// The version group that uses this flavor text.
 @override final  NamedApiResource<VersionGroup> versionGroup;
 
 /// Create a copy of AbilityFlavorText
@@ -556,7 +590,11 @@ $NamedApiResourceCopyWith<VersionGroup, $Res> get versionGroup {
 /// @nodoc
 mixin _$AbilityPokemon {
 
- bool get isHidden; int get slot; NamedApiResource<Pokemon> get pokemon;
+/// Whether or not this a hidden ability for the referenced Pokémon.
+ bool get isHidden;/// Pokémon have 3 ability 'slots' which hold references to possible abilities they could have. This is the slot of
+/// this ability for the referenced pokemon.
+ int get slot;/// The Pokémon this ability could belong to.
+ NamedApiResource<Pokemon> get pokemon;
 /// Create a copy of AbilityPokemon
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -634,8 +672,12 @@ class _AbilityPokemon implements AbilityPokemon {
   const _AbilityPokemon({required this.isHidden, required this.slot, required this.pokemon});
   factory _AbilityPokemon.fromJson(Map<String, dynamic> json) => _$AbilityPokemonFromJson(json);
 
+/// Whether or not this a hidden ability for the referenced Pokémon.
 @override final  bool isHidden;
+/// Pokémon have 3 ability 'slots' which hold references to possible abilities they could have. This is the slot of
+/// this ability for the referenced pokemon.
 @override final  int slot;
+/// The Pokémon this ability could belong to.
 @override final  NamedApiResource<Pokemon> pokemon;
 
 /// Create a copy of AbilityPokemon
@@ -713,7 +755,13 @@ $NamedApiResourceCopyWith<Pokemon, $Res> get pokemon {
 /// @nodoc
 mixin _$Characteristic {
 
- int get id; int get geneModulo; List<int> get possibleValues; NamedApiResource<Stat> get highestStat; List<Description> get descriptions;
+/// The identifier for this resource.
+ int get id;/// The remainder of the highest stat/IV divided by 5.
+ int get geneModulo;/// The possible values of the highest stat that would result in a Pokémon recieving this characteristic when
+/// divided by 5.
+ List<int> get possibleValues;/// The stat which results in this characteristic.
+ NamedApiResource<Stat> get highestStat;/// The descriptions of this characteristic listed in different languages.
+ List<Description> get descriptions;
 /// Create a copy of Characteristic
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -793,17 +841,26 @@ class _Characteristic implements Characteristic {
   const _Characteristic({required this.id, required this.geneModulo, required final  List<int> possibleValues, required this.highestStat, required final  List<Description> descriptions}): _possibleValues = possibleValues,_descriptions = descriptions;
   factory _Characteristic.fromJson(Map<String, dynamic> json) => _$CharacteristicFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The remainder of the highest stat/IV divided by 5.
 @override final  int geneModulo;
+/// The possible values of the highest stat that would result in a Pokémon recieving this characteristic when
+/// divided by 5.
  final  List<int> _possibleValues;
+/// The possible values of the highest stat that would result in a Pokémon recieving this characteristic when
+/// divided by 5.
 @override List<int> get possibleValues {
   if (_possibleValues is EqualUnmodifiableListView) return _possibleValues;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_possibleValues);
 }
 
+/// The stat which results in this characteristic.
 @override final  NamedApiResource<Stat> highestStat;
+/// The descriptions of this characteristic listed in different languages.
  final  List<Description> _descriptions;
+/// The descriptions of this characteristic listed in different languages.
 @override List<Description> get descriptions {
   if (_descriptions is EqualUnmodifiableListView) return _descriptions;
   // ignore: implicit_dynamic_type
@@ -888,7 +945,11 @@ $NamedApiResourceCopyWith<Stat, $Res> get highestStat {
 /// @nodoc
 mixin _$EggGroup {
 
- int get id; String get name; List<Name> get names; List<NamedApiResource<PokemonSpecies>> get pokemonSpecies;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// The name of this resource listed in different languages.
+ List<Name> get names;/// A list of species that are members of this egg group.
+ List<NamedApiResource<PokemonSpecies>> get pokemonSpecies;
 /// Create a copy of EggGroup
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -958,16 +1019,22 @@ class _EggGroup implements EggGroup {
   const _EggGroup({required this.id, required this.name, required final  List<Name> names, required final  List<NamedApiResource<PokemonSpecies>> pokemonSpecies}): _names = names,_pokemonSpecies = pokemonSpecies;
   factory _EggGroup.fromJson(Map<String, dynamic> json) => _$EggGroupFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_names);
 }
 
+/// A list of species that are members of this egg group.
  final  List<NamedApiResource<PokemonSpecies>> _pokemonSpecies;
+/// A list of species that are members of this egg group.
 @override List<NamedApiResource<PokemonSpecies>> get pokemonSpecies {
   if (_pokemonSpecies is EqualUnmodifiableListView) return _pokemonSpecies;
   // ignore: implicit_dynamic_type
@@ -1042,7 +1109,11 @@ as List<NamedApiResource<PokemonSpecies>>,
 /// @nodoc
 mixin _$Gender {
 
- int get id; String get name; List<PokemonSpeciesGender> get pokemonSpeciesDetails; List<NamedApiResource<PokemonSpecies>> get requiredForEvolution;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// A list of Pokémon species that can be this gender and how likely it is that they will be.
+ List<PokemonSpeciesGender> get pokemonSpeciesDetails;/// A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
+ List<NamedApiResource<PokemonSpecies>> get requiredForEvolution;
 /// Create a copy of Gender
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1112,16 +1183,22 @@ class _Gender implements Gender {
   const _Gender({required this.id, required this.name, required final  List<PokemonSpeciesGender> pokemonSpeciesDetails, required final  List<NamedApiResource<PokemonSpecies>> requiredForEvolution}): _pokemonSpeciesDetails = pokemonSpeciesDetails,_requiredForEvolution = requiredForEvolution;
   factory _Gender.fromJson(Map<String, dynamic> json) => _$GenderFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// A list of Pokémon species that can be this gender and how likely it is that they will be.
  final  List<PokemonSpeciesGender> _pokemonSpeciesDetails;
+/// A list of Pokémon species that can be this gender and how likely it is that they will be.
 @override List<PokemonSpeciesGender> get pokemonSpeciesDetails {
   if (_pokemonSpeciesDetails is EqualUnmodifiableListView) return _pokemonSpeciesDetails;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_pokemonSpeciesDetails);
 }
 
+/// A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
  final  List<NamedApiResource<PokemonSpecies>> _requiredForEvolution;
+/// A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
 @override List<NamedApiResource<PokemonSpecies>> get requiredForEvolution {
   if (_requiredForEvolution is EqualUnmodifiableListView) return _requiredForEvolution;
   // ignore: implicit_dynamic_type
@@ -1196,7 +1273,9 @@ as List<NamedApiResource<PokemonSpecies>>,
 /// @nodoc
 mixin _$PokemonSpeciesGender {
 
- int get rate; NamedApiResource<PokemonSpecies> get pokemonSpecies;
+/// The chance of this Pokémon being female, in eighths; or -1 for genderless.
+ int get rate;/// A Pokémon species that can be the referenced gender.
+ NamedApiResource<PokemonSpecies> get pokemonSpecies;
 /// Create a copy of PokemonSpeciesGender
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1273,7 +1352,9 @@ class _PokemonSpeciesGender implements PokemonSpeciesGender {
   const _PokemonSpeciesGender({required this.rate, required this.pokemonSpecies});
   factory _PokemonSpeciesGender.fromJson(Map<String, dynamic> json) => _$PokemonSpeciesGenderFromJson(json);
 
+/// The chance of this Pokémon being female, in eighths; or -1 for genderless.
 @override final  int rate;
+/// A Pokémon species that can be the referenced gender.
 @override final  NamedApiResource<PokemonSpecies> pokemonSpecies;
 
 /// Create a copy of PokemonSpeciesGender
@@ -1350,7 +1431,13 @@ $NamedApiResourceCopyWith<PokemonSpecies, $Res> get pokemonSpecies {
 /// @nodoc
 mixin _$GrowthRate {
 
- int get id; String get name; String get formula; List<Description> get descriptions; List<GrowthRateExperienceLevel> get levels; List<NamedApiResource<PokemonSpecies>> get pokemonSpecies;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// The formula used to calculate the rate at which the Pokémon species gains level.
+ String get formula;/// The descriptions of this resource listed in different languages.
+ List<Description> get descriptions;/// A list of levels and the amount of experienced needed to atain them based on this growth rate.
+ List<GrowthRateExperienceLevel> get levels;/// A list of Pokémon species that gain levels at this growth rate.
+ List<NamedApiResource<PokemonSpecies>> get pokemonSpecies;
 /// Create a copy of GrowthRate
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1422,24 +1509,33 @@ class _GrowthRate implements GrowthRate {
   const _GrowthRate({required this.id, required this.name, required this.formula, required final  List<Description> descriptions, required final  List<GrowthRateExperienceLevel> levels, required final  List<NamedApiResource<PokemonSpecies>> pokemonSpecies}): _descriptions = descriptions,_levels = levels,_pokemonSpecies = pokemonSpecies;
   factory _GrowthRate.fromJson(Map<String, dynamic> json) => _$GrowthRateFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// The formula used to calculate the rate at which the Pokémon species gains level.
 @override final  String formula;
+/// The descriptions of this resource listed in different languages.
  final  List<Description> _descriptions;
+/// The descriptions of this resource listed in different languages.
 @override List<Description> get descriptions {
   if (_descriptions is EqualUnmodifiableListView) return _descriptions;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_descriptions);
 }
 
+/// A list of levels and the amount of experienced needed to atain them based on this growth rate.
  final  List<GrowthRateExperienceLevel> _levels;
+/// A list of levels and the amount of experienced needed to atain them based on this growth rate.
 @override List<GrowthRateExperienceLevel> get levels {
   if (_levels is EqualUnmodifiableListView) return _levels;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_levels);
 }
 
+/// A list of Pokémon species that gain levels at this growth rate.
  final  List<NamedApiResource<PokemonSpecies>> _pokemonSpecies;
+/// A list of Pokémon species that gain levels at this growth rate.
 @override List<NamedApiResource<PokemonSpecies>> get pokemonSpecies {
   if (_pokemonSpecies is EqualUnmodifiableListView) return _pokemonSpecies;
   // ignore: implicit_dynamic_type
@@ -1516,7 +1612,9 @@ as List<NamedApiResource<PokemonSpecies>>,
 /// @nodoc
 mixin _$GrowthRateExperienceLevel {
 
- int get level; int get experience;
+/// The level gained.
+ int get level;/// The amount of experience required to reach the referenced level.
+ int get experience;
 /// Create a copy of GrowthRateExperienceLevel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1584,7 +1682,9 @@ class _GrowthRateExperienceLevel implements GrowthRateExperienceLevel {
   const _GrowthRateExperienceLevel({required this.level, required this.experience});
   factory _GrowthRateExperienceLevel.fromJson(Map<String, dynamic> json) => _$GrowthRateExperienceLevelFromJson(json);
 
+/// The level gained.
 @override final  int level;
+/// The amount of experience required to reach the referenced level.
 @override final  int experience;
 
 /// Create a copy of GrowthRateExperienceLevel
@@ -1652,7 +1752,16 @@ as int,
 /// @nodoc
 mixin _$Nature {
 
- int get id; String get name; NamedApiResource<Stat> get decreasedStat; NamedApiResource<Stat> get increasedStat; NamedApiResource<BerryFlavor> get hatesFlavor; NamedApiResource<BerryFlavor> get likesFlavor; List<NatureStatChange> get pokeathlonStatChanges; List<MoveBattleStylePreference> get moveBattleStylePreferences; List<Name> get names;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// The stat decreased by 10% in Pokémon with this nature.
+ NamedApiResource<Stat> get decreasedStat;/// The stat increased by 10% in Pokémon with this nature.
+ NamedApiResource<Stat> get increasedStat;/// The flavor hated by Pokémon with this nature.
+ NamedApiResource<BerryFlavor> get hatesFlavor;/// The flavor liked by Pokémon with this nature.
+ NamedApiResource<BerryFlavor> get likesFlavor;/// A list of Pokéathlon stats this nature effects and how much it effects them.
+ List<NatureStatChange> get pokeathlonStatChanges;/// A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
+ List<MoveBattleStylePreference> get moveBattleStylePreferences;/// The name of this resource listed in different languages.
+ List<Name> get names;
 /// Create a copy of Nature
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1763,27 +1872,39 @@ class _Nature implements Nature {
   const _Nature({required this.id, required this.name, required this.decreasedStat, required this.increasedStat, required this.hatesFlavor, required this.likesFlavor, required final  List<NatureStatChange> pokeathlonStatChanges, required final  List<MoveBattleStylePreference> moveBattleStylePreferences, required final  List<Name> names}): _pokeathlonStatChanges = pokeathlonStatChanges,_moveBattleStylePreferences = moveBattleStylePreferences,_names = names;
   factory _Nature.fromJson(Map<String, dynamic> json) => _$NatureFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// The stat decreased by 10% in Pokémon with this nature.
 @override final  NamedApiResource<Stat> decreasedStat;
+/// The stat increased by 10% in Pokémon with this nature.
 @override final  NamedApiResource<Stat> increasedStat;
+/// The flavor hated by Pokémon with this nature.
 @override final  NamedApiResource<BerryFlavor> hatesFlavor;
+/// The flavor liked by Pokémon with this nature.
 @override final  NamedApiResource<BerryFlavor> likesFlavor;
+/// A list of Pokéathlon stats this nature effects and how much it effects them.
  final  List<NatureStatChange> _pokeathlonStatChanges;
+/// A list of Pokéathlon stats this nature effects and how much it effects them.
 @override List<NatureStatChange> get pokeathlonStatChanges {
   if (_pokeathlonStatChanges is EqualUnmodifiableListView) return _pokeathlonStatChanges;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_pokeathlonStatChanges);
 }
 
+/// A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
  final  List<MoveBattleStylePreference> _moveBattleStylePreferences;
+/// A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
 @override List<MoveBattleStylePreference> get moveBattleStylePreferences {
   if (_moveBattleStylePreferences is EqualUnmodifiableListView) return _moveBattleStylePreferences;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_moveBattleStylePreferences);
 }
 
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
@@ -1899,7 +2020,9 @@ $NamedApiResourceCopyWith<BerryFlavor, $Res> get likesFlavor {
 /// @nodoc
 mixin _$NatureStatChange {
 
- int get maxChange; NamedApiResource<PokeathlonStat> get pokeathlonStat;
+/// The amount of change.
+ int get maxChange;/// The stat being affected.
+ NamedApiResource<PokeathlonStat> get pokeathlonStat;
 /// Create a copy of NatureStatChange
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1976,7 +2099,9 @@ class _NatureStatChange implements NatureStatChange {
   const _NatureStatChange({required this.maxChange, required this.pokeathlonStat});
   factory _NatureStatChange.fromJson(Map<String, dynamic> json) => _$NatureStatChangeFromJson(json);
 
+/// The amount of change.
 @override final  int maxChange;
+/// The stat being affected.
 @override final  NamedApiResource<PokeathlonStat> pokeathlonStat;
 
 /// Create a copy of NatureStatChange
@@ -2053,7 +2178,10 @@ $NamedApiResourceCopyWith<PokeathlonStat, $Res> get pokeathlonStat {
 /// @nodoc
 mixin _$MoveBattleStylePreference {
 
- int get lowHpPreference; int get highHpPreference; NamedApiResource<MoveBattleStyle> get moveBattleStyle;
+/// Chance of using the move, in percent, if HP is under one half.
+ int get lowHpPreference;/// Chance of using the move, in percent, if HP is over one half.
+ int get highHpPreference;/// The move battle style.
+ NamedApiResource<MoveBattleStyle> get moveBattleStyle;
 /// Create a copy of MoveBattleStylePreference
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -2131,8 +2259,11 @@ class _MoveBattleStylePreference implements MoveBattleStylePreference {
   const _MoveBattleStylePreference({required this.lowHpPreference, required this.highHpPreference, required this.moveBattleStyle});
   factory _MoveBattleStylePreference.fromJson(Map<String, dynamic> json) => _$MoveBattleStylePreferenceFromJson(json);
 
+/// Chance of using the move, in percent, if HP is under one half.
 @override final  int lowHpPreference;
+/// Chance of using the move, in percent, if HP is over one half.
 @override final  int highHpPreference;
+/// The move battle style.
 @override final  NamedApiResource<MoveBattleStyle> moveBattleStyle;
 
 /// Create a copy of MoveBattleStylePreference
@@ -2210,7 +2341,11 @@ $NamedApiResourceCopyWith<MoveBattleStyle, $Res> get moveBattleStyle {
 /// @nodoc
 mixin _$PokeathlonStat {
 
- int get id; String get name; List<Name> get names; NaturePokeathlonStatAffectSets get affectingNatures;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// The name of this resource listed in different languages.
+ List<Name> get names;/// A detail of natures which affect this Pokéathlon stat positively or negatively.
+ NaturePokeathlonStatAffectSets get affectingNatures;
 /// Create a copy of PokeathlonStat
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -2289,15 +2424,20 @@ class _PokeathlonStat implements PokeathlonStat {
   const _PokeathlonStat({required this.id, required this.name, required final  List<Name> names, required this.affectingNatures}): _names = names;
   factory _PokeathlonStat.fromJson(Map<String, dynamic> json) => _$PokeathlonStatFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_names);
 }
 
+/// A detail of natures which affect this Pokéathlon stat positively or negatively.
 @override final  NaturePokeathlonStatAffectSets affectingNatures;
 
 /// Create a copy of PokeathlonStat
@@ -2376,7 +2516,9 @@ $NaturePokeathlonStatAffectSetsCopyWith<$Res> get affectingNatures {
 /// @nodoc
 mixin _$NaturePokeathlonStatAffectSets {
 
- List<NaturePokeathlonStatAffect> get increase; List<NaturePokeathlonStatAffect> get decrease;
+/// A list of natures and how they change the referenced Pokéathlon stat.
+ List<NaturePokeathlonStatAffect> get increase;/// A list of natures and how they change the referenced Pokéathlon stat.
+ List<NaturePokeathlonStatAffect> get decrease;
 /// Create a copy of NaturePokeathlonStatAffectSets
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -2444,14 +2586,18 @@ class _NaturePokeathlonStatAffectSets implements NaturePokeathlonStatAffectSets 
   const _NaturePokeathlonStatAffectSets({required final  List<NaturePokeathlonStatAffect> increase, required final  List<NaturePokeathlonStatAffect> decrease}): _increase = increase,_decrease = decrease;
   factory _NaturePokeathlonStatAffectSets.fromJson(Map<String, dynamic> json) => _$NaturePokeathlonStatAffectSetsFromJson(json);
 
+/// A list of natures and how they change the referenced Pokéathlon stat.
  final  List<NaturePokeathlonStatAffect> _increase;
+/// A list of natures and how they change the referenced Pokéathlon stat.
 @override List<NaturePokeathlonStatAffect> get increase {
   if (_increase is EqualUnmodifiableListView) return _increase;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_increase);
 }
 
+/// A list of natures and how they change the referenced Pokéathlon stat.
  final  List<NaturePokeathlonStatAffect> _decrease;
+/// A list of natures and how they change the referenced Pokéathlon stat.
 @override List<NaturePokeathlonStatAffect> get decrease {
   if (_decrease is EqualUnmodifiableListView) return _decrease;
   // ignore: implicit_dynamic_type
@@ -2524,7 +2670,9 @@ as List<NaturePokeathlonStatAffect>,
 /// @nodoc
 mixin _$NaturePokeathlonStatAffect {
 
- int get maxChange; NamedApiResource<Nature> get nature;
+/// The maximum amount of change to the referenced Pokéathlon stat.
+ int get maxChange;/// The nature causing the change.
+ NamedApiResource<Nature> get nature;
 /// Create a copy of NaturePokeathlonStatAffect
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -2601,7 +2749,9 @@ class _NaturePokeathlonStatAffect implements NaturePokeathlonStatAffect {
   const _NaturePokeathlonStatAffect({required this.maxChange, required this.nature});
   factory _NaturePokeathlonStatAffect.fromJson(Map<String, dynamic> json) => _$NaturePokeathlonStatAffectFromJson(json);
 
+/// The maximum amount of change to the referenced Pokéathlon stat.
 @override final  int maxChange;
+/// The nature causing the change.
 @override final  NamedApiResource<Nature> nature;
 
 /// Create a copy of NaturePokeathlonStatAffect
@@ -2678,7 +2828,28 @@ $NamedApiResourceCopyWith<Nature, $Res> get nature {
 /// @nodoc
 mixin _$Pokemon {
 
- int get id; String get name; int get baseExperience; int get height; bool get isDefault; int get order; int get weight; List<PokemonAbility> get abilities; List<NamedApiResource<PokemonForm>> get forms; List<NamedApiResource<VersionGameIndex>> get gameIndices; List<PokemonHeldItem> get heldItems; String get locationAreaEncounters; List<PokemonMove> get moves; List<PokemonTypePast> get pastTypes; PokemonSprites get sprites; PokemonCries get cries; NamedApiResource<PokemonSpecies> get species; List<PokemonStat> get stats; List<PokemonType> get types;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// The base experience gained for defeating this Pokémon.
+ int get baseExperience;/// The height of this Pokémon in decimetres.
+ int get height;/// Set for exactly one Pokémon used as the default for each species.
+ bool get isDefault;/// Order for sorting. Almost national order, except families are grouped together.
+ int get order;/// The weight of this Pokémon in hectograms.
+ int get weight;/// A list of abilities this Pokémon could potentially have.
+ List<PokemonAbility> get abilities;/// A list of forms this Pokémon can take on.
+ List<NamedApiResource<PokemonForm>> get forms;/// A list of game indices related to this Pokémon by generation.
+ List<VersionGameIndex> get gameIndices;/// A list of items this Pokémon may be holding when encountered.
+ List<PokemonHeldItem> get heldItems;/// A link to a list of location areas, as well as encounter details pertaining to specific versions.
+ String get locationAreaEncounters;/// A list of moves along with learn methods and level details pertaining to specific version groups.
+ List<PokemonMove> get moves;/// A list of details showing types this Pokémon has through previous generations.
+ List<PokemonTypePast> get pastTypes;/// A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be
+/// found at [PokeAPI/sprites](https://github.com/PokeAPI/sprites#sprites).
+ PokemonSprites get sprites;/// A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be
+/// found at [PokeAPI/cries](https://github.com/PokeAPI/cries#cries).
+ PokemonCries get cries;/// The species this Pokémon belongs to.
+ NamedApiResource<PokemonSpecies> get species;/// A list of base stat values for this Pokémon.
+ List<PokemonStat> get stats;/// A list of details showing types this Pokémon has.
+ List<PokemonType> get types;
 /// Create a copy of Pokemon
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -2711,7 +2882,7 @@ abstract mixin class $PokemonCopyWith<$Res>  {
   factory $PokemonCopyWith(Pokemon value, $Res Function(Pokemon) _then) = _$PokemonCopyWithImpl;
 @useResult
 $Res call({
- int id, String name, int baseExperience, int height, bool isDefault, int order, int weight, List<PokemonAbility> abilities, List<NamedApiResource<PokemonForm>> forms, List<NamedApiResource<VersionGameIndex>> gameIndices, List<PokemonHeldItem> heldItems, String locationAreaEncounters, List<PokemonMove> moves, List<PokemonTypePast> pastTypes, PokemonSprites sprites, PokemonCries cries, NamedApiResource<PokemonSpecies> species, List<PokemonStat> stats, List<PokemonType> types
+ int id, String name, int baseExperience, int height, bool isDefault, int order, int weight, List<PokemonAbility> abilities, List<NamedApiResource<PokemonForm>> forms, List<VersionGameIndex> gameIndices, List<PokemonHeldItem> heldItems, String locationAreaEncounters, List<PokemonMove> moves, List<PokemonTypePast> pastTypes, PokemonSprites sprites, PokemonCries cries, NamedApiResource<PokemonSpecies> species, List<PokemonStat> stats, List<PokemonType> types
 });
 
 
@@ -2740,7 +2911,7 @@ as int,weight: null == weight ? _self.weight : weight // ignore: cast_nullable_t
 as int,abilities: null == abilities ? _self.abilities : abilities // ignore: cast_nullable_to_non_nullable
 as List<PokemonAbility>,forms: null == forms ? _self.forms : forms // ignore: cast_nullable_to_non_nullable
 as List<NamedApiResource<PokemonForm>>,gameIndices: null == gameIndices ? _self.gameIndices : gameIndices // ignore: cast_nullable_to_non_nullable
-as List<NamedApiResource<VersionGameIndex>>,heldItems: null == heldItems ? _self.heldItems : heldItems // ignore: cast_nullable_to_non_nullable
+as List<VersionGameIndex>,heldItems: null == heldItems ? _self.heldItems : heldItems // ignore: cast_nullable_to_non_nullable
 as List<PokemonHeldItem>,locationAreaEncounters: null == locationAreaEncounters ? _self.locationAreaEncounters : locationAreaEncounters // ignore: cast_nullable_to_non_nullable
 as String,moves: null == moves ? _self.moves : moves // ignore: cast_nullable_to_non_nullable
 as List<PokemonMove>,pastTypes: null == pastTypes ? _self.pastTypes : pastTypes // ignore: cast_nullable_to_non_nullable
@@ -2787,70 +2958,99 @@ $NamedApiResourceCopyWith<PokemonSpecies, $Res> get species {
 @JsonSerializable()
 
 class _Pokemon implements Pokemon {
-  const _Pokemon({required this.id, required this.name, required this.baseExperience, required this.height, required this.isDefault, required this.order, required this.weight, required final  List<PokemonAbility> abilities, required final  List<NamedApiResource<PokemonForm>> forms, required final  List<NamedApiResource<VersionGameIndex>> gameIndices, required final  List<PokemonHeldItem> heldItems, required this.locationAreaEncounters, required final  List<PokemonMove> moves, required final  List<PokemonTypePast> pastTypes, required this.sprites, required this.cries, required this.species, required final  List<PokemonStat> stats, required final  List<PokemonType> types}): _abilities = abilities,_forms = forms,_gameIndices = gameIndices,_heldItems = heldItems,_moves = moves,_pastTypes = pastTypes,_stats = stats,_types = types;
+  const _Pokemon({required this.id, required this.name, required this.baseExperience, required this.height, required this.isDefault, required this.order, required this.weight, required final  List<PokemonAbility> abilities, required final  List<NamedApiResource<PokemonForm>> forms, required final  List<VersionGameIndex> gameIndices, required final  List<PokemonHeldItem> heldItems, required this.locationAreaEncounters, required final  List<PokemonMove> moves, required final  List<PokemonTypePast> pastTypes, required this.sprites, required this.cries, required this.species, required final  List<PokemonStat> stats, required final  List<PokemonType> types}): _abilities = abilities,_forms = forms,_gameIndices = gameIndices,_heldItems = heldItems,_moves = moves,_pastTypes = pastTypes,_stats = stats,_types = types;
   factory _Pokemon.fromJson(Map<String, dynamic> json) => _$PokemonFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// The base experience gained for defeating this Pokémon.
 @override final  int baseExperience;
+/// The height of this Pokémon in decimetres.
 @override final  int height;
+/// Set for exactly one Pokémon used as the default for each species.
 @override final  bool isDefault;
+/// Order for sorting. Almost national order, except families are grouped together.
 @override final  int order;
+/// The weight of this Pokémon in hectograms.
 @override final  int weight;
+/// A list of abilities this Pokémon could potentially have.
  final  List<PokemonAbility> _abilities;
+/// A list of abilities this Pokémon could potentially have.
 @override List<PokemonAbility> get abilities {
   if (_abilities is EqualUnmodifiableListView) return _abilities;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_abilities);
 }
 
+/// A list of forms this Pokémon can take on.
  final  List<NamedApiResource<PokemonForm>> _forms;
+/// A list of forms this Pokémon can take on.
 @override List<NamedApiResource<PokemonForm>> get forms {
   if (_forms is EqualUnmodifiableListView) return _forms;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_forms);
 }
 
- final  List<NamedApiResource<VersionGameIndex>> _gameIndices;
-@override List<NamedApiResource<VersionGameIndex>> get gameIndices {
+/// A list of game indices related to this Pokémon by generation.
+ final  List<VersionGameIndex> _gameIndices;
+/// A list of game indices related to this Pokémon by generation.
+@override List<VersionGameIndex> get gameIndices {
   if (_gameIndices is EqualUnmodifiableListView) return _gameIndices;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_gameIndices);
 }
 
+/// A list of items this Pokémon may be holding when encountered.
  final  List<PokemonHeldItem> _heldItems;
+/// A list of items this Pokémon may be holding when encountered.
 @override List<PokemonHeldItem> get heldItems {
   if (_heldItems is EqualUnmodifiableListView) return _heldItems;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_heldItems);
 }
 
+/// A link to a list of location areas, as well as encounter details pertaining to specific versions.
 @override final  String locationAreaEncounters;
+/// A list of moves along with learn methods and level details pertaining to specific version groups.
  final  List<PokemonMove> _moves;
+/// A list of moves along with learn methods and level details pertaining to specific version groups.
 @override List<PokemonMove> get moves {
   if (_moves is EqualUnmodifiableListView) return _moves;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_moves);
 }
 
+/// A list of details showing types this Pokémon has through previous generations.
  final  List<PokemonTypePast> _pastTypes;
+/// A list of details showing types this Pokémon has through previous generations.
 @override List<PokemonTypePast> get pastTypes {
   if (_pastTypes is EqualUnmodifiableListView) return _pastTypes;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_pastTypes);
 }
 
+/// A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be
+/// found at [PokeAPI/sprites](https://github.com/PokeAPI/sprites#sprites).
 @override final  PokemonSprites sprites;
+/// A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be
+/// found at [PokeAPI/cries](https://github.com/PokeAPI/cries#cries).
 @override final  PokemonCries cries;
+/// The species this Pokémon belongs to.
 @override final  NamedApiResource<PokemonSpecies> species;
+/// A list of base stat values for this Pokémon.
  final  List<PokemonStat> _stats;
+/// A list of base stat values for this Pokémon.
 @override List<PokemonStat> get stats {
   if (_stats is EqualUnmodifiableListView) return _stats;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_stats);
 }
 
+/// A list of details showing types this Pokémon has.
  final  List<PokemonType> _types;
+/// A list of details showing types this Pokémon has.
 @override List<PokemonType> get types {
   if (_types is EqualUnmodifiableListView) return _types;
   // ignore: implicit_dynamic_type
@@ -2891,7 +3091,7 @@ abstract mixin class _$PokemonCopyWith<$Res> implements $PokemonCopyWith<$Res> {
   factory _$PokemonCopyWith(_Pokemon value, $Res Function(_Pokemon) _then) = __$PokemonCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String name, int baseExperience, int height, bool isDefault, int order, int weight, List<PokemonAbility> abilities, List<NamedApiResource<PokemonForm>> forms, List<NamedApiResource<VersionGameIndex>> gameIndices, List<PokemonHeldItem> heldItems, String locationAreaEncounters, List<PokemonMove> moves, List<PokemonTypePast> pastTypes, PokemonSprites sprites, PokemonCries cries, NamedApiResource<PokemonSpecies> species, List<PokemonStat> stats, List<PokemonType> types
+ int id, String name, int baseExperience, int height, bool isDefault, int order, int weight, List<PokemonAbility> abilities, List<NamedApiResource<PokemonForm>> forms, List<VersionGameIndex> gameIndices, List<PokemonHeldItem> heldItems, String locationAreaEncounters, List<PokemonMove> moves, List<PokemonTypePast> pastTypes, PokemonSprites sprites, PokemonCries cries, NamedApiResource<PokemonSpecies> species, List<PokemonStat> stats, List<PokemonType> types
 });
 
 
@@ -2920,7 +3120,7 @@ as int,weight: null == weight ? _self.weight : weight // ignore: cast_nullable_t
 as int,abilities: null == abilities ? _self._abilities : abilities // ignore: cast_nullable_to_non_nullable
 as List<PokemonAbility>,forms: null == forms ? _self._forms : forms // ignore: cast_nullable_to_non_nullable
 as List<NamedApiResource<PokemonForm>>,gameIndices: null == gameIndices ? _self._gameIndices : gameIndices // ignore: cast_nullable_to_non_nullable
-as List<NamedApiResource<VersionGameIndex>>,heldItems: null == heldItems ? _self._heldItems : heldItems // ignore: cast_nullable_to_non_nullable
+as List<VersionGameIndex>,heldItems: null == heldItems ? _self._heldItems : heldItems // ignore: cast_nullable_to_non_nullable
 as List<PokemonHeldItem>,locationAreaEncounters: null == locationAreaEncounters ? _self.locationAreaEncounters : locationAreaEncounters // ignore: cast_nullable_to_non_nullable
 as String,moves: null == moves ? _self._moves : moves // ignore: cast_nullable_to_non_nullable
 as List<PokemonMove>,pastTypes: null == pastTypes ? _self._pastTypes : pastTypes // ignore: cast_nullable_to_non_nullable
@@ -2967,7 +3167,10 @@ $NamedApiResourceCopyWith<PokemonSpecies, $Res> get species {
 /// @nodoc
 mixin _$PokemonAbility {
 
- bool get isHidden; int get slot; NamedApiResource<Ability> get ability;
+/// Whether this ability is hidden or not.
+ bool get isHidden;/// The slot this ability occupies in this Pokémon species.
+ int get slot;/// The ability the Pokémon may have.
+ NamedApiResource<Ability> get ability;
 /// Create a copy of PokemonAbility
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -3045,8 +3248,11 @@ class _PokemonAbility implements PokemonAbility {
   const _PokemonAbility({required this.isHidden, required this.slot, required this.ability});
   factory _PokemonAbility.fromJson(Map<String, dynamic> json) => _$PokemonAbilityFromJson(json);
 
+/// Whether this ability is hidden or not.
 @override final  bool isHidden;
+/// The slot this ability occupies in this Pokémon species.
 @override final  int slot;
+/// The ability the Pokémon may have.
 @override final  NamedApiResource<Ability> ability;
 
 /// Create a copy of PokemonAbility
@@ -3124,7 +3330,9 @@ $NamedApiResourceCopyWith<Ability, $Res> get ability {
 /// @nodoc
 mixin _$PokemonType {
 
- int get slot; NamedApiResource<Type> get type;
+/// The order the Pokémon's types are listed in.
+ int get slot;/// The type the referenced Pokémon has.
+ NamedApiResource<Type> get type;
 /// Create a copy of PokemonType
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -3201,7 +3409,9 @@ class _PokemonType implements PokemonType {
   const _PokemonType({required this.slot, required this.type});
   factory _PokemonType.fromJson(Map<String, dynamic> json) => _$PokemonTypeFromJson(json);
 
+/// The order the Pokémon's types are listed in.
 @override final  int slot;
+/// The type the referenced Pokémon has.
 @override final  NamedApiResource<Type> type;
 
 /// Create a copy of PokemonType
@@ -3278,7 +3488,9 @@ $NamedApiResourceCopyWith<Type, $Res> get type {
 /// @nodoc
 mixin _$PokemonFormType {
 
- int get slot; NamedApiResource<Type> get type;
+/// The order the Pokémon's types are listed in.
+ int get slot;/// The type the referenced Pokémon has.
+ NamedApiResource<Type> get type;
 /// Create a copy of PokemonFormType
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -3355,7 +3567,9 @@ class _PokemonFormType implements PokemonFormType {
   const _PokemonFormType({required this.slot, required this.type});
   factory _PokemonFormType.fromJson(Map<String, dynamic> json) => _$PokemonFormTypeFromJson(json);
 
+/// The order the Pokémon's types are listed in.
 @override final  int slot;
+/// The type the referenced Pokémon has.
 @override final  NamedApiResource<Type> type;
 
 /// Create a copy of PokemonFormType
@@ -3432,7 +3646,9 @@ $NamedApiResourceCopyWith<Type, $Res> get type {
 /// @nodoc
 mixin _$PokemonTypePast {
 
- NamedApiResource<Type> get generation; List<PokemonType> get types;
+/// The last generation in which the referenced pokémon had the listed types.
+ NamedApiResource<Generation> get generation;/// The types the referenced pokémon had up to and including the listed generation.
+ List<PokemonType> get types;
 /// Create a copy of PokemonTypePast
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -3465,11 +3681,11 @@ abstract mixin class $PokemonTypePastCopyWith<$Res>  {
   factory $PokemonTypePastCopyWith(PokemonTypePast value, $Res Function(PokemonTypePast) _then) = _$PokemonTypePastCopyWithImpl;
 @useResult
 $Res call({
- NamedApiResource<Type> generation, List<PokemonType> types
+ NamedApiResource<Generation> generation, List<PokemonType> types
 });
 
 
-$NamedApiResourceCopyWith<Type, $Res> get generation;
+$NamedApiResourceCopyWith<Generation, $Res> get generation;
 
 }
 /// @nodoc
@@ -3485,7 +3701,7 @@ class _$PokemonTypePastCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? generation = null,Object? types = null,}) {
   return _then(_self.copyWith(
 generation: null == generation ? _self.generation : generation // ignore: cast_nullable_to_non_nullable
-as NamedApiResource<Type>,types: null == types ? _self.types : types // ignore: cast_nullable_to_non_nullable
+as NamedApiResource<Generation>,types: null == types ? _self.types : types // ignore: cast_nullable_to_non_nullable
 as List<PokemonType>,
   ));
 }
@@ -3493,9 +3709,9 @@ as List<PokemonType>,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$NamedApiResourceCopyWith<Type, $Res> get generation {
+$NamedApiResourceCopyWith<Generation, $Res> get generation {
   
-  return $NamedApiResourceCopyWith<Type, $Res>(_self.generation, (value) {
+  return $NamedApiResourceCopyWith<Generation, $Res>(_self.generation, (value) {
     return _then(_self.copyWith(generation: value));
   });
 }
@@ -3509,8 +3725,11 @@ class _PokemonTypePast implements PokemonTypePast {
   const _PokemonTypePast({required this.generation, required final  List<PokemonType> types}): _types = types;
   factory _PokemonTypePast.fromJson(Map<String, dynamic> json) => _$PokemonTypePastFromJson(json);
 
-@override final  NamedApiResource<Type> generation;
+/// The last generation in which the referenced pokémon had the listed types.
+@override final  NamedApiResource<Generation> generation;
+/// The types the referenced pokémon had up to and including the listed generation.
  final  List<PokemonType> _types;
+/// The types the referenced pokémon had up to and including the listed generation.
 @override List<PokemonType> get types {
   if (_types is EqualUnmodifiableListView) return _types;
   // ignore: implicit_dynamic_type
@@ -3551,11 +3770,11 @@ abstract mixin class _$PokemonTypePastCopyWith<$Res> implements $PokemonTypePast
   factory _$PokemonTypePastCopyWith(_PokemonTypePast value, $Res Function(_PokemonTypePast) _then) = __$PokemonTypePastCopyWithImpl;
 @override @useResult
 $Res call({
- NamedApiResource<Type> generation, List<PokemonType> types
+ NamedApiResource<Generation> generation, List<PokemonType> types
 });
 
 
-@override $NamedApiResourceCopyWith<Type, $Res> get generation;
+@override $NamedApiResourceCopyWith<Generation, $Res> get generation;
 
 }
 /// @nodoc
@@ -3571,7 +3790,7 @@ class __$PokemonTypePastCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? generation = null,Object? types = null,}) {
   return _then(_PokemonTypePast(
 generation: null == generation ? _self.generation : generation // ignore: cast_nullable_to_non_nullable
-as NamedApiResource<Type>,types: null == types ? _self._types : types // ignore: cast_nullable_to_non_nullable
+as NamedApiResource<Generation>,types: null == types ? _self._types : types // ignore: cast_nullable_to_non_nullable
 as List<PokemonType>,
   ));
 }
@@ -3580,9 +3799,9 @@ as List<PokemonType>,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$NamedApiResourceCopyWith<Type, $Res> get generation {
+$NamedApiResourceCopyWith<Generation, $Res> get generation {
   
-  return $NamedApiResourceCopyWith<Type, $Res>(_self.generation, (value) {
+  return $NamedApiResourceCopyWith<Generation, $Res>(_self.generation, (value) {
     return _then(_self.copyWith(generation: value));
   });
 }
@@ -3592,7 +3811,9 @@ $NamedApiResourceCopyWith<Type, $Res> get generation {
 /// @nodoc
 mixin _$PokemonHeldItem {
 
- NamedApiResource<Item> get item; List<PokemonHeldItemVersion> get versionDetails;
+/// The item the referenced Pokémon holds.
+ NamedApiResource<Item> get item;/// The details of the different versions in which the item is held.
+ List<PokemonHeldItemVersion> get versionDetails;
 /// Create a copy of PokemonHeldItem
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -3669,8 +3890,11 @@ class _PokemonHeldItem implements PokemonHeldItem {
   const _PokemonHeldItem({required this.item, required final  List<PokemonHeldItemVersion> versionDetails}): _versionDetails = versionDetails;
   factory _PokemonHeldItem.fromJson(Map<String, dynamic> json) => _$PokemonHeldItemFromJson(json);
 
+/// The item the referenced Pokémon holds.
 @override final  NamedApiResource<Item> item;
+/// The details of the different versions in which the item is held.
  final  List<PokemonHeldItemVersion> _versionDetails;
+/// The details of the different versions in which the item is held.
 @override List<PokemonHeldItemVersion> get versionDetails {
   if (_versionDetails is EqualUnmodifiableListView) return _versionDetails;
   // ignore: implicit_dynamic_type
@@ -3752,7 +3976,9 @@ $NamedApiResourceCopyWith<Item, $Res> get item {
 /// @nodoc
 mixin _$PokemonHeldItemVersion {
 
- NamedApiResource<Version> get version; int get rarity;
+/// The version in which the item is held.
+ NamedApiResource<Version> get version;/// How often the item is held.
+ int get rarity;
 /// Create a copy of PokemonHeldItemVersion
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -3829,7 +4055,9 @@ class _PokemonHeldItemVersion implements PokemonHeldItemVersion {
   const _PokemonHeldItemVersion({required this.version, required this.rarity});
   factory _PokemonHeldItemVersion.fromJson(Map<String, dynamic> json) => _$PokemonHeldItemVersionFromJson(json);
 
+/// The version in which the item is held.
 @override final  NamedApiResource<Version> version;
+/// How often the item is held.
 @override final  int rarity;
 
 /// Create a copy of PokemonHeldItemVersion
@@ -3906,7 +4134,9 @@ $NamedApiResourceCopyWith<Version, $Res> get version {
 /// @nodoc
 mixin _$PokemonMove {
 
- NamedApiResource<Move> get move; List<PokemonMoveVersion> get versionGroupDetails;
+/// The move the Pokémon can learn.
+ NamedApiResource<Move> get move;/// A detail of version in which the Pokémon can learn the move.
+ List<PokemonMoveVersion> get versionGroupDetails;
 /// Create a copy of PokemonMove
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -3983,8 +4213,11 @@ class _PokemonMove implements PokemonMove {
   const _PokemonMove({required this.move, required final  List<PokemonMoveVersion> versionGroupDetails}): _versionGroupDetails = versionGroupDetails;
   factory _PokemonMove.fromJson(Map<String, dynamic> json) => _$PokemonMoveFromJson(json);
 
+/// The move the Pokémon can learn.
 @override final  NamedApiResource<Move> move;
+/// A detail of version in which the Pokémon can learn the move.
  final  List<PokemonMoveVersion> _versionGroupDetails;
+/// A detail of version in which the Pokémon can learn the move.
 @override List<PokemonMoveVersion> get versionGroupDetails {
   if (_versionGroupDetails is EqualUnmodifiableListView) return _versionGroupDetails;
   // ignore: implicit_dynamic_type
@@ -4066,7 +4299,10 @@ $NamedApiResourceCopyWith<Move, $Res> get move {
 /// @nodoc
 mixin _$PokemonMoveVersion {
 
- NamedApiResource<MoveLearnMethod> get moveLearnMethod; NamedApiResource<VersionGroup> get versionGroup; int get levelLearnedAt;
+/// The method by which the move is learned.
+ NamedApiResource<MoveLearnMethod> get moveLearnMethod;/// The version group in which the move is learned.
+ NamedApiResource<VersionGroup> get versionGroup;/// The minimum level to learn the move.
+ int get levelLearnedAt;
 /// Create a copy of PokemonMoveVersion
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -4153,8 +4389,11 @@ class _PokemonMoveVersion implements PokemonMoveVersion {
   const _PokemonMoveVersion({required this.moveLearnMethod, required this.versionGroup, required this.levelLearnedAt});
   factory _PokemonMoveVersion.fromJson(Map<String, dynamic> json) => _$PokemonMoveVersionFromJson(json);
 
+/// The method by which the move is learned.
 @override final  NamedApiResource<MoveLearnMethod> moveLearnMethod;
+/// The version group in which the move is learned.
 @override final  NamedApiResource<VersionGroup> versionGroup;
+/// The minimum level to learn the move.
 @override final  int levelLearnedAt;
 
 /// Create a copy of PokemonMoveVersion
@@ -4241,7 +4480,10 @@ $NamedApiResourceCopyWith<VersionGroup, $Res> get versionGroup {
 /// @nodoc
 mixin _$PokemonStat {
 
- NamedApiResource<Stat> get stat; int get effort; int get baseStat;
+/// The stat the referenced Pokémon has.
+ NamedApiResource<Stat> get stat;/// The effort points (EV) the referenced Pokémon has in the stat.
+ int get effort;/// The base value of the referenced stat.
+ int get baseStat;
 /// Create a copy of PokemonStat
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -4319,8 +4561,11 @@ class _PokemonStat implements PokemonStat {
   const _PokemonStat({required this.stat, required this.effort, required this.baseStat});
   factory _PokemonStat.fromJson(Map<String, dynamic> json) => _$PokemonStatFromJson(json);
 
+/// The stat the referenced Pokémon has.
 @override final  NamedApiResource<Stat> stat;
+/// The effort points (EV) the referenced Pokémon has in the stat.
 @override final  int effort;
+/// The base value of the referenced stat.
 @override final  int baseStat;
 
 /// Create a copy of PokemonStat
@@ -4398,7 +4643,15 @@ $NamedApiResourceCopyWith<Stat, $Res> get stat {
 /// @nodoc
 mixin _$PokemonSprites {
 
- String get frontDefault; String get frontShiny; String get frontFemale; String get frontShinyFemale; String get backDefault; String get backShiny; String get backFemale; String get backShinyFemale;
+/// The default depiction of this Pokémon from the front in battle.
+ String? get frontDefault;/// The shiny depiction of this Pokémon from the front in battle.
+ String? get frontShiny;/// The female depiction of this Pokémon from the front in battle.
+ String? get frontFemale;/// The shiny female depiction of this Pokémon from the front in battle.
+ String? get frontShinyFemale;/// The default depiction of this Pokémon from the back in battle.
+ String? get backDefault;/// The shiny depiction of this Pokémon from the back in battle.
+ String? get backShiny;/// The female depiction of this Pokémon from the back in battle.
+ String? get backFemale;/// The shiny female depiction of this Pokémon from the back in battle.
+ String? get backShinyFemale;
 /// Create a copy of PokemonSprites
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -4431,7 +4684,7 @@ abstract mixin class $PokemonSpritesCopyWith<$Res>  {
   factory $PokemonSpritesCopyWith(PokemonSprites value, $Res Function(PokemonSprites) _then) = _$PokemonSpritesCopyWithImpl;
 @useResult
 $Res call({
- String frontDefault, String frontShiny, String frontFemale, String frontShinyFemale, String backDefault, String backShiny, String backFemale, String backShinyFemale
+ String? frontDefault, String? frontShiny, String? frontFemale, String? frontShinyFemale, String? backDefault, String? backShiny, String? backFemale, String? backShinyFemale
 });
 
 
@@ -4448,17 +4701,17 @@ class _$PokemonSpritesCopyWithImpl<$Res>
 
 /// Create a copy of PokemonSprites
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? frontDefault = null,Object? frontShiny = null,Object? frontFemale = null,Object? frontShinyFemale = null,Object? backDefault = null,Object? backShiny = null,Object? backFemale = null,Object? backShinyFemale = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? frontDefault = freezed,Object? frontShiny = freezed,Object? frontFemale = freezed,Object? frontShinyFemale = freezed,Object? backDefault = freezed,Object? backShiny = freezed,Object? backFemale = freezed,Object? backShinyFemale = freezed,}) {
   return _then(_self.copyWith(
-frontDefault: null == frontDefault ? _self.frontDefault : frontDefault // ignore: cast_nullable_to_non_nullable
-as String,frontShiny: null == frontShiny ? _self.frontShiny : frontShiny // ignore: cast_nullable_to_non_nullable
-as String,frontFemale: null == frontFemale ? _self.frontFemale : frontFemale // ignore: cast_nullable_to_non_nullable
-as String,frontShinyFemale: null == frontShinyFemale ? _self.frontShinyFemale : frontShinyFemale // ignore: cast_nullable_to_non_nullable
-as String,backDefault: null == backDefault ? _self.backDefault : backDefault // ignore: cast_nullable_to_non_nullable
-as String,backShiny: null == backShiny ? _self.backShiny : backShiny // ignore: cast_nullable_to_non_nullable
-as String,backFemale: null == backFemale ? _self.backFemale : backFemale // ignore: cast_nullable_to_non_nullable
-as String,backShinyFemale: null == backShinyFemale ? _self.backShinyFemale : backShinyFemale // ignore: cast_nullable_to_non_nullable
-as String,
+frontDefault: freezed == frontDefault ? _self.frontDefault : frontDefault // ignore: cast_nullable_to_non_nullable
+as String?,frontShiny: freezed == frontShiny ? _self.frontShiny : frontShiny // ignore: cast_nullable_to_non_nullable
+as String?,frontFemale: freezed == frontFemale ? _self.frontFemale : frontFemale // ignore: cast_nullable_to_non_nullable
+as String?,frontShinyFemale: freezed == frontShinyFemale ? _self.frontShinyFemale : frontShinyFemale // ignore: cast_nullable_to_non_nullable
+as String?,backDefault: freezed == backDefault ? _self.backDefault : backDefault // ignore: cast_nullable_to_non_nullable
+as String?,backShiny: freezed == backShiny ? _self.backShiny : backShiny // ignore: cast_nullable_to_non_nullable
+as String?,backFemale: freezed == backFemale ? _self.backFemale : backFemale // ignore: cast_nullable_to_non_nullable
+as String?,backShinyFemale: freezed == backShinyFemale ? _self.backShinyFemale : backShinyFemale // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 
@@ -4469,17 +4722,25 @@ as String,
 @JsonSerializable()
 
 class _PokemonSprites implements PokemonSprites {
-  const _PokemonSprites({required this.frontDefault, required this.frontShiny, required this.frontFemale, required this.frontShinyFemale, required this.backDefault, required this.backShiny, required this.backFemale, required this.backShinyFemale});
+  const _PokemonSprites({this.frontDefault, this.frontShiny, this.frontFemale, this.frontShinyFemale, this.backDefault, this.backShiny, this.backFemale, this.backShinyFemale});
   factory _PokemonSprites.fromJson(Map<String, dynamic> json) => _$PokemonSpritesFromJson(json);
 
-@override final  String frontDefault;
-@override final  String frontShiny;
-@override final  String frontFemale;
-@override final  String frontShinyFemale;
-@override final  String backDefault;
-@override final  String backShiny;
-@override final  String backFemale;
-@override final  String backShinyFemale;
+/// The default depiction of this Pokémon from the front in battle.
+@override final  String? frontDefault;
+/// The shiny depiction of this Pokémon from the front in battle.
+@override final  String? frontShiny;
+/// The female depiction of this Pokémon from the front in battle.
+@override final  String? frontFemale;
+/// The shiny female depiction of this Pokémon from the front in battle.
+@override final  String? frontShinyFemale;
+/// The default depiction of this Pokémon from the back in battle.
+@override final  String? backDefault;
+/// The shiny depiction of this Pokémon from the back in battle.
+@override final  String? backShiny;
+/// The female depiction of this Pokémon from the back in battle.
+@override final  String? backFemale;
+/// The shiny female depiction of this Pokémon from the back in battle.
+@override final  String? backShinyFemale;
 
 /// Create a copy of PokemonSprites
 /// with the given fields replaced by the non-null parameter values.
@@ -4514,7 +4775,7 @@ abstract mixin class _$PokemonSpritesCopyWith<$Res> implements $PokemonSpritesCo
   factory _$PokemonSpritesCopyWith(_PokemonSprites value, $Res Function(_PokemonSprites) _then) = __$PokemonSpritesCopyWithImpl;
 @override @useResult
 $Res call({
- String frontDefault, String frontShiny, String frontFemale, String frontShinyFemale, String backDefault, String backShiny, String backFemale, String backShinyFemale
+ String? frontDefault, String? frontShiny, String? frontFemale, String? frontShinyFemale, String? backDefault, String? backShiny, String? backFemale, String? backShinyFemale
 });
 
 
@@ -4531,17 +4792,17 @@ class __$PokemonSpritesCopyWithImpl<$Res>
 
 /// Create a copy of PokemonSprites
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? frontDefault = null,Object? frontShiny = null,Object? frontFemale = null,Object? frontShinyFemale = null,Object? backDefault = null,Object? backShiny = null,Object? backFemale = null,Object? backShinyFemale = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? frontDefault = freezed,Object? frontShiny = freezed,Object? frontFemale = freezed,Object? frontShinyFemale = freezed,Object? backDefault = freezed,Object? backShiny = freezed,Object? backFemale = freezed,Object? backShinyFemale = freezed,}) {
   return _then(_PokemonSprites(
-frontDefault: null == frontDefault ? _self.frontDefault : frontDefault // ignore: cast_nullable_to_non_nullable
-as String,frontShiny: null == frontShiny ? _self.frontShiny : frontShiny // ignore: cast_nullable_to_non_nullable
-as String,frontFemale: null == frontFemale ? _self.frontFemale : frontFemale // ignore: cast_nullable_to_non_nullable
-as String,frontShinyFemale: null == frontShinyFemale ? _self.frontShinyFemale : frontShinyFemale // ignore: cast_nullable_to_non_nullable
-as String,backDefault: null == backDefault ? _self.backDefault : backDefault // ignore: cast_nullable_to_non_nullable
-as String,backShiny: null == backShiny ? _self.backShiny : backShiny // ignore: cast_nullable_to_non_nullable
-as String,backFemale: null == backFemale ? _self.backFemale : backFemale // ignore: cast_nullable_to_non_nullable
-as String,backShinyFemale: null == backShinyFemale ? _self.backShinyFemale : backShinyFemale // ignore: cast_nullable_to_non_nullable
-as String,
+frontDefault: freezed == frontDefault ? _self.frontDefault : frontDefault // ignore: cast_nullable_to_non_nullable
+as String?,frontShiny: freezed == frontShiny ? _self.frontShiny : frontShiny // ignore: cast_nullable_to_non_nullable
+as String?,frontFemale: freezed == frontFemale ? _self.frontFemale : frontFemale // ignore: cast_nullable_to_non_nullable
+as String?,frontShinyFemale: freezed == frontShinyFemale ? _self.frontShinyFemale : frontShinyFemale // ignore: cast_nullable_to_non_nullable
+as String?,backDefault: freezed == backDefault ? _self.backDefault : backDefault // ignore: cast_nullable_to_non_nullable
+as String?,backShiny: freezed == backShiny ? _self.backShiny : backShiny // ignore: cast_nullable_to_non_nullable
+as String?,backFemale: freezed == backFemale ? _self.backFemale : backFemale // ignore: cast_nullable_to_non_nullable
+as String?,backShinyFemale: freezed == backShinyFemale ? _self.backShinyFemale : backShinyFemale // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 
@@ -4552,7 +4813,9 @@ as String,
 /// @nodoc
 mixin _$PokemonCries {
 
- String get latest; String get legacy;
+/// The latest depiction of this Pokémon's cry.
+ String get latest;/// The legacy depiction of this Pokémon's cry.
+ String get legacy;
 /// Create a copy of PokemonCries
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -4620,7 +4883,9 @@ class _PokemonCries implements PokemonCries {
   const _PokemonCries({required this.latest, required this.legacy});
   factory _PokemonCries.fromJson(Map<String, dynamic> json) => _$PokemonCriesFromJson(json);
 
+/// The latest depiction of this Pokémon's cry.
 @override final  String latest;
+/// The legacy depiction of this Pokémon's cry.
 @override final  String legacy;
 
 /// Create a copy of PokemonCries
@@ -4688,7 +4953,9 @@ as String,
 /// @nodoc
 mixin _$LocationAreaEncounter {
 
- NamedApiResource<LocationArea> get locationArea; List<VersionEncounterDetail> get versionDetails;
+/// The location area where the referenced Pokémon can be encountered.
+ NamedApiResource<LocationArea> get locationArea;/// A list of versions and encounters with the referenced Pokémon that might happen.
+ List<VersionEncounterDetail> get versionDetails;
 /// Create a copy of LocationAreaEncounter
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -4765,8 +5032,11 @@ class _LocationAreaEncounter implements LocationAreaEncounter {
   const _LocationAreaEncounter({required this.locationArea, required final  List<VersionEncounterDetail> versionDetails}): _versionDetails = versionDetails;
   factory _LocationAreaEncounter.fromJson(Map<String, dynamic> json) => _$LocationAreaEncounterFromJson(json);
 
+/// The location area where the referenced Pokémon can be encountered.
 @override final  NamedApiResource<LocationArea> locationArea;
+/// A list of versions and encounters with the referenced Pokémon that might happen.
  final  List<VersionEncounterDetail> _versionDetails;
+/// A list of versions and encounters with the referenced Pokémon that might happen.
 @override List<VersionEncounterDetail> get versionDetails {
   if (_versionDetails is EqualUnmodifiableListView) return _versionDetails;
   // ignore: implicit_dynamic_type
@@ -4848,7 +5118,11 @@ $NamedApiResourceCopyWith<LocationArea, $Res> get locationArea {
 /// @nodoc
 mixin _$PokemonColor {
 
- int get id; String get name; List<Name> get names; List<NamedApiResource<PokemonSpecies>> get pokemonSpecies;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// The name of this resource listed in different languages.
+ List<Name> get names;/// A list of Pokémon species that have this color.
+ List<NamedApiResource<PokemonSpecies>> get pokemonSpecies;
 /// Create a copy of PokemonColor
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -4918,16 +5192,22 @@ class _PokemonColor implements PokemonColor {
   const _PokemonColor({required this.id, required this.name, required final  List<Name> names, required final  List<NamedApiResource<PokemonSpecies>> pokemonSpecies}): _names = names,_pokemonSpecies = pokemonSpecies;
   factory _PokemonColor.fromJson(Map<String, dynamic> json) => _$PokemonColorFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_names);
 }
 
+/// A list of Pokémon species that have this color.
  final  List<NamedApiResource<PokemonSpecies>> _pokemonSpecies;
+/// A list of Pokémon species that have this color.
 @override List<NamedApiResource<PokemonSpecies>> get pokemonSpecies {
   if (_pokemonSpecies is EqualUnmodifiableListView) return _pokemonSpecies;
   // ignore: implicit_dynamic_type
@@ -5002,7 +5282,21 @@ as List<NamedApiResource<PokemonSpecies>>,
 /// @nodoc
 mixin _$PokemonForm {
 
- int get id; String get name; int get order; int get formOrder; bool get isDefault; bool get isBattleOnly; bool get isMega; String get formName; NamedApiResource<Pokemon> get pokemon; List<PokemonFormType> get types; PokemonFormSprites get sprites; NamedApiResource<VersionGroup> get versionGroup; List<Name> get names; List<Name> get formNames;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case
+/// they should fall back on sorting by name.
+ int get order;/// The order in which forms should be sorted within a species' forms.
+ int get formOrder;/// True for exactly one form used as the default for each Pokémon.
+ bool get isDefault;/// Whether or not this form can only happen during battle.
+ bool get isBattleOnly;/// Whether or not this form requires mega evolution.
+ bool get isMega;/// The name of this form.
+ String get formName;/// The Pokémon that can take on this form.
+ NamedApiResource<Pokemon> get pokemon;/// A list of details showing types this Pokémon form has.
+ List<PokemonFormType> get types;/// A set of sprites used to depict this Pokémon form in the game.
+ NamedApiResource<VersionGroup> get versionGroup;/// The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
+ List<Name> get names;/// The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
+ List<Name> get formNames;
 /// Create a copy of PokemonForm
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -5015,16 +5309,16 @@ $PokemonFormCopyWith<PokemonForm> get copyWith => _$PokemonFormCopyWithImpl<Poke
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PokemonForm&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.order, order) || other.order == order)&&(identical(other.formOrder, formOrder) || other.formOrder == formOrder)&&(identical(other.isDefault, isDefault) || other.isDefault == isDefault)&&(identical(other.isBattleOnly, isBattleOnly) || other.isBattleOnly == isBattleOnly)&&(identical(other.isMega, isMega) || other.isMega == isMega)&&(identical(other.formName, formName) || other.formName == formName)&&(identical(other.pokemon, pokemon) || other.pokemon == pokemon)&&const DeepCollectionEquality().equals(other.types, types)&&(identical(other.sprites, sprites) || other.sprites == sprites)&&(identical(other.versionGroup, versionGroup) || other.versionGroup == versionGroup)&&const DeepCollectionEquality().equals(other.names, names)&&const DeepCollectionEquality().equals(other.formNames, formNames));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PokemonForm&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.order, order) || other.order == order)&&(identical(other.formOrder, formOrder) || other.formOrder == formOrder)&&(identical(other.isDefault, isDefault) || other.isDefault == isDefault)&&(identical(other.isBattleOnly, isBattleOnly) || other.isBattleOnly == isBattleOnly)&&(identical(other.isMega, isMega) || other.isMega == isMega)&&(identical(other.formName, formName) || other.formName == formName)&&(identical(other.pokemon, pokemon) || other.pokemon == pokemon)&&const DeepCollectionEquality().equals(other.types, types)&&(identical(other.versionGroup, versionGroup) || other.versionGroup == versionGroup)&&const DeepCollectionEquality().equals(other.names, names)&&const DeepCollectionEquality().equals(other.formNames, formNames));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,order,formOrder,isDefault,isBattleOnly,isMega,formName,pokemon,const DeepCollectionEquality().hash(types),sprites,versionGroup,const DeepCollectionEquality().hash(names),const DeepCollectionEquality().hash(formNames));
+int get hashCode => Object.hash(runtimeType,id,name,order,formOrder,isDefault,isBattleOnly,isMega,formName,pokemon,const DeepCollectionEquality().hash(types),versionGroup,const DeepCollectionEquality().hash(names),const DeepCollectionEquality().hash(formNames));
 
 @override
 String toString() {
-  return 'PokemonForm(id: $id, name: $name, order: $order, formOrder: $formOrder, isDefault: $isDefault, isBattleOnly: $isBattleOnly, isMega: $isMega, formName: $formName, pokemon: $pokemon, types: $types, sprites: $sprites, versionGroup: $versionGroup, names: $names, formNames: $formNames)';
+  return 'PokemonForm(id: $id, name: $name, order: $order, formOrder: $formOrder, isDefault: $isDefault, isBattleOnly: $isBattleOnly, isMega: $isMega, formName: $formName, pokemon: $pokemon, types: $types, versionGroup: $versionGroup, names: $names, formNames: $formNames)';
 }
 
 
@@ -5035,11 +5329,11 @@ abstract mixin class $PokemonFormCopyWith<$Res>  {
   factory $PokemonFormCopyWith(PokemonForm value, $Res Function(PokemonForm) _then) = _$PokemonFormCopyWithImpl;
 @useResult
 $Res call({
- int id, String name, int order, int formOrder, bool isDefault, bool isBattleOnly, bool isMega, String formName, NamedApiResource<Pokemon> pokemon, List<PokemonFormType> types, PokemonFormSprites sprites, NamedApiResource<VersionGroup> versionGroup, List<Name> names, List<Name> formNames
+ int id, String name, int order, int formOrder, bool isDefault, bool isBattleOnly, bool isMega, String formName, NamedApiResource<Pokemon> pokemon, List<PokemonFormType> types, NamedApiResource<VersionGroup> versionGroup, List<Name> names, List<Name> formNames
 });
 
 
-$NamedApiResourceCopyWith<Pokemon, $Res> get pokemon;$PokemonFormSpritesCopyWith<$Res> get sprites;$NamedApiResourceCopyWith<VersionGroup, $Res> get versionGroup;
+$NamedApiResourceCopyWith<Pokemon, $Res> get pokemon;$NamedApiResourceCopyWith<VersionGroup, $Res> get versionGroup;
 
 }
 /// @nodoc
@@ -5052,7 +5346,7 @@ class _$PokemonFormCopyWithImpl<$Res>
 
 /// Create a copy of PokemonForm
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? order = null,Object? formOrder = null,Object? isDefault = null,Object? isBattleOnly = null,Object? isMega = null,Object? formName = null,Object? pokemon = null,Object? types = null,Object? sprites = null,Object? versionGroup = null,Object? names = null,Object? formNames = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? order = null,Object? formOrder = null,Object? isDefault = null,Object? isBattleOnly = null,Object? isMega = null,Object? formName = null,Object? pokemon = null,Object? types = null,Object? versionGroup = null,Object? names = null,Object? formNames = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -5064,8 +5358,7 @@ as bool,isMega: null == isMega ? _self.isMega : isMega // ignore: cast_nullable_
 as bool,formName: null == formName ? _self.formName : formName // ignore: cast_nullable_to_non_nullable
 as String,pokemon: null == pokemon ? _self.pokemon : pokemon // ignore: cast_nullable_to_non_nullable
 as NamedApiResource<Pokemon>,types: null == types ? _self.types : types // ignore: cast_nullable_to_non_nullable
-as List<PokemonFormType>,sprites: null == sprites ? _self.sprites : sprites // ignore: cast_nullable_to_non_nullable
-as PokemonFormSprites,versionGroup: null == versionGroup ? _self.versionGroup : versionGroup // ignore: cast_nullable_to_non_nullable
+as List<PokemonFormType>,versionGroup: null == versionGroup ? _self.versionGroup : versionGroup // ignore: cast_nullable_to_non_nullable
 as NamedApiResource<VersionGroup>,names: null == names ? _self.names : names // ignore: cast_nullable_to_non_nullable
 as List<Name>,formNames: null == formNames ? _self.formNames : formNames // ignore: cast_nullable_to_non_nullable
 as List<Name>,
@@ -5084,15 +5377,6 @@ $NamedApiResourceCopyWith<Pokemon, $Res> get pokemon {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$PokemonFormSpritesCopyWith<$Res> get sprites {
-  
-  return $PokemonFormSpritesCopyWith<$Res>(_self.sprites, (value) {
-    return _then(_self.copyWith(sprites: value));
-  });
-}/// Create a copy of PokemonForm
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
 $NamedApiResourceCopyWith<VersionGroup, $Res> get versionGroup {
   
   return $NamedApiResourceCopyWith<VersionGroup, $Res>(_self.versionGroup, (value) {
@@ -5106,35 +5390,51 @@ $NamedApiResourceCopyWith<VersionGroup, $Res> get versionGroup {
 @JsonSerializable()
 
 class _PokemonForm implements PokemonForm {
-  const _PokemonForm({required this.id, required this.name, required this.order, required this.formOrder, required this.isDefault, required this.isBattleOnly, required this.isMega, required this.formName, required this.pokemon, required final  List<PokemonFormType> types, required this.sprites, required this.versionGroup, required final  List<Name> names, required final  List<Name> formNames}): _types = types,_names = names,_formNames = formNames;
+  const _PokemonForm({required this.id, required this.name, required this.order, required this.formOrder, required this.isDefault, required this.isBattleOnly, required this.isMega, required this.formName, required this.pokemon, required final  List<PokemonFormType> types, required this.versionGroup, required final  List<Name> names, required final  List<Name> formNames}): _types = types,_names = names,_formNames = formNames;
   factory _PokemonForm.fromJson(Map<String, dynamic> json) => _$PokemonFormFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case
+/// they should fall back on sorting by name.
 @override final  int order;
+/// The order in which forms should be sorted within a species' forms.
 @override final  int formOrder;
+/// True for exactly one form used as the default for each Pokémon.
 @override final  bool isDefault;
+/// Whether or not this form can only happen during battle.
 @override final  bool isBattleOnly;
+/// Whether or not this form requires mega evolution.
 @override final  bool isMega;
+/// The name of this form.
 @override final  String formName;
+/// The Pokémon that can take on this form.
 @override final  NamedApiResource<Pokemon> pokemon;
+/// A list of details showing types this Pokémon form has.
  final  List<PokemonFormType> _types;
+/// A list of details showing types this Pokémon form has.
 @override List<PokemonFormType> get types {
   if (_types is EqualUnmodifiableListView) return _types;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_types);
 }
 
-@override final  PokemonFormSprites sprites;
+/// A set of sprites used to depict this Pokémon form in the game.
 @override final  NamedApiResource<VersionGroup> versionGroup;
+/// The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
  final  List<Name> _names;
+/// The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_names);
 }
 
+/// The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
  final  List<Name> _formNames;
+/// The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
 @override List<Name> get formNames {
   if (_formNames is EqualUnmodifiableListView) return _formNames;
   // ignore: implicit_dynamic_type
@@ -5155,16 +5455,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PokemonForm&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.order, order) || other.order == order)&&(identical(other.formOrder, formOrder) || other.formOrder == formOrder)&&(identical(other.isDefault, isDefault) || other.isDefault == isDefault)&&(identical(other.isBattleOnly, isBattleOnly) || other.isBattleOnly == isBattleOnly)&&(identical(other.isMega, isMega) || other.isMega == isMega)&&(identical(other.formName, formName) || other.formName == formName)&&(identical(other.pokemon, pokemon) || other.pokemon == pokemon)&&const DeepCollectionEquality().equals(other._types, _types)&&(identical(other.sprites, sprites) || other.sprites == sprites)&&(identical(other.versionGroup, versionGroup) || other.versionGroup == versionGroup)&&const DeepCollectionEquality().equals(other._names, _names)&&const DeepCollectionEquality().equals(other._formNames, _formNames));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PokemonForm&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.order, order) || other.order == order)&&(identical(other.formOrder, formOrder) || other.formOrder == formOrder)&&(identical(other.isDefault, isDefault) || other.isDefault == isDefault)&&(identical(other.isBattleOnly, isBattleOnly) || other.isBattleOnly == isBattleOnly)&&(identical(other.isMega, isMega) || other.isMega == isMega)&&(identical(other.formName, formName) || other.formName == formName)&&(identical(other.pokemon, pokemon) || other.pokemon == pokemon)&&const DeepCollectionEquality().equals(other._types, _types)&&(identical(other.versionGroup, versionGroup) || other.versionGroup == versionGroup)&&const DeepCollectionEquality().equals(other._names, _names)&&const DeepCollectionEquality().equals(other._formNames, _formNames));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,order,formOrder,isDefault,isBattleOnly,isMega,formName,pokemon,const DeepCollectionEquality().hash(_types),sprites,versionGroup,const DeepCollectionEquality().hash(_names),const DeepCollectionEquality().hash(_formNames));
+int get hashCode => Object.hash(runtimeType,id,name,order,formOrder,isDefault,isBattleOnly,isMega,formName,pokemon,const DeepCollectionEquality().hash(_types),versionGroup,const DeepCollectionEquality().hash(_names),const DeepCollectionEquality().hash(_formNames));
 
 @override
 String toString() {
-  return 'PokemonForm(id: $id, name: $name, order: $order, formOrder: $formOrder, isDefault: $isDefault, isBattleOnly: $isBattleOnly, isMega: $isMega, formName: $formName, pokemon: $pokemon, types: $types, sprites: $sprites, versionGroup: $versionGroup, names: $names, formNames: $formNames)';
+  return 'PokemonForm(id: $id, name: $name, order: $order, formOrder: $formOrder, isDefault: $isDefault, isBattleOnly: $isBattleOnly, isMega: $isMega, formName: $formName, pokemon: $pokemon, types: $types, versionGroup: $versionGroup, names: $names, formNames: $formNames)';
 }
 
 
@@ -5175,11 +5475,11 @@ abstract mixin class _$PokemonFormCopyWith<$Res> implements $PokemonFormCopyWith
   factory _$PokemonFormCopyWith(_PokemonForm value, $Res Function(_PokemonForm) _then) = __$PokemonFormCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String name, int order, int formOrder, bool isDefault, bool isBattleOnly, bool isMega, String formName, NamedApiResource<Pokemon> pokemon, List<PokemonFormType> types, PokemonFormSprites sprites, NamedApiResource<VersionGroup> versionGroup, List<Name> names, List<Name> formNames
+ int id, String name, int order, int formOrder, bool isDefault, bool isBattleOnly, bool isMega, String formName, NamedApiResource<Pokemon> pokemon, List<PokemonFormType> types, NamedApiResource<VersionGroup> versionGroup, List<Name> names, List<Name> formNames
 });
 
 
-@override $NamedApiResourceCopyWith<Pokemon, $Res> get pokemon;@override $PokemonFormSpritesCopyWith<$Res> get sprites;@override $NamedApiResourceCopyWith<VersionGroup, $Res> get versionGroup;
+@override $NamedApiResourceCopyWith<Pokemon, $Res> get pokemon;@override $NamedApiResourceCopyWith<VersionGroup, $Res> get versionGroup;
 
 }
 /// @nodoc
@@ -5192,7 +5492,7 @@ class __$PokemonFormCopyWithImpl<$Res>
 
 /// Create a copy of PokemonForm
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? order = null,Object? formOrder = null,Object? isDefault = null,Object? isBattleOnly = null,Object? isMega = null,Object? formName = null,Object? pokemon = null,Object? types = null,Object? sprites = null,Object? versionGroup = null,Object? names = null,Object? formNames = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? order = null,Object? formOrder = null,Object? isDefault = null,Object? isBattleOnly = null,Object? isMega = null,Object? formName = null,Object? pokemon = null,Object? types = null,Object? versionGroup = null,Object? names = null,Object? formNames = null,}) {
   return _then(_PokemonForm(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -5204,8 +5504,7 @@ as bool,isMega: null == isMega ? _self.isMega : isMega // ignore: cast_nullable_
 as bool,formName: null == formName ? _self.formName : formName // ignore: cast_nullable_to_non_nullable
 as String,pokemon: null == pokemon ? _self.pokemon : pokemon // ignore: cast_nullable_to_non_nullable
 as NamedApiResource<Pokemon>,types: null == types ? _self._types : types // ignore: cast_nullable_to_non_nullable
-as List<PokemonFormType>,sprites: null == sprites ? _self.sprites : sprites // ignore: cast_nullable_to_non_nullable
-as PokemonFormSprites,versionGroup: null == versionGroup ? _self.versionGroup : versionGroup // ignore: cast_nullable_to_non_nullable
+as List<PokemonFormType>,versionGroup: null == versionGroup ? _self.versionGroup : versionGroup // ignore: cast_nullable_to_non_nullable
 as NamedApiResource<VersionGroup>,names: null == names ? _self._names : names // ignore: cast_nullable_to_non_nullable
 as List<Name>,formNames: null == formNames ? _self._formNames : formNames // ignore: cast_nullable_to_non_nullable
 as List<Name>,
@@ -5225,15 +5524,6 @@ $NamedApiResourceCopyWith<Pokemon, $Res> get pokemon {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$PokemonFormSpritesCopyWith<$Res> get sprites {
-  
-  return $PokemonFormSpritesCopyWith<$Res>(_self.sprites, (value) {
-    return _then(_self.copyWith(sprites: value));
-  });
-}/// Create a copy of PokemonForm
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
 $NamedApiResourceCopyWith<VersionGroup, $Res> get versionGroup {
   
   return $NamedApiResourceCopyWith<VersionGroup, $Res>(_self.versionGroup, (value) {
@@ -5246,7 +5536,11 @@ $NamedApiResourceCopyWith<VersionGroup, $Res> get versionGroup {
 /// @nodoc
 mixin _$PokemonFormSprites {
 
- String get frontDefault; String get frontShiny; String get backDefault; String get backShiny;
+/// The default depiction of this Pokémon form from the front in battle.
+ String get frontDefault;/// The shiny depiction of this Pokémon form from the front in battle.
+ String get frontShiny;/// The default depiction of this Pokémon form from the back in battle.
+ String get backDefault;/// The shiny depiction of this Pokémon form from the back in battle.
+ String get backShiny;
 /// Create a copy of PokemonFormSprites
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -5316,9 +5610,13 @@ class _PokemonFormSprites implements PokemonFormSprites {
   const _PokemonFormSprites({required this.frontDefault, required this.frontShiny, required this.backDefault, required this.backShiny});
   factory _PokemonFormSprites.fromJson(Map<String, dynamic> json) => _$PokemonFormSpritesFromJson(json);
 
+/// The default depiction of this Pokémon form from the front in battle.
 @override final  String frontDefault;
+/// The shiny depiction of this Pokémon form from the front in battle.
 @override final  String frontShiny;
+/// The default depiction of this Pokémon form from the back in battle.
 @override final  String backDefault;
+/// The shiny depiction of this Pokémon form from the back in battle.
 @override final  String backShiny;
 
 /// Create a copy of PokemonFormSprites
@@ -5388,7 +5686,11 @@ as String,
 /// @nodoc
 mixin _$PokemonHabitat {
 
- int get id; String get name; List<Name> get names; List<NamedApiResource<PokemonSpecies>> get pokemonSpecies;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// The name of this resource listed in different languages.
+ List<Name> get names;/// A list of Pokémon species that can be found in this habitat.
+ List<NamedApiResource<PokemonSpecies>> get pokemonSpecies;
 /// Create a copy of PokemonHabitat
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -5458,16 +5760,22 @@ class _PokemonHabitat implements PokemonHabitat {
   const _PokemonHabitat({required this.id, required this.name, required final  List<Name> names, required final  List<NamedApiResource<PokemonSpecies>> pokemonSpecies}): _names = names,_pokemonSpecies = pokemonSpecies;
   factory _PokemonHabitat.fromJson(Map<String, dynamic> json) => _$PokemonHabitatFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_names);
 }
 
+/// A list of Pokémon species that can be found in this habitat.
  final  List<NamedApiResource<PokemonSpecies>> _pokemonSpecies;
+/// A list of Pokémon species that can be found in this habitat.
 @override List<NamedApiResource<PokemonSpecies>> get pokemonSpecies {
   if (_pokemonSpecies is EqualUnmodifiableListView) return _pokemonSpecies;
   // ignore: implicit_dynamic_type
@@ -5542,7 +5850,12 @@ as List<NamedApiResource<PokemonSpecies>>,
 /// @nodoc
 mixin _$PokemonShape {
 
- int get id; String get name; List<AwesomeName> get awesomeNames; List<Name> get names; List<NamedApiResource<PokemonSpecies>> get pokemonSpecies;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// The "scientific" name of this Pokémon shape listed in different languages.
+ List<AwesomeName> get awesomeNames;/// The name of this resource listed in different languages.
+ List<Name> get names;/// A list of Pokémon species that have this shape.
+ List<NamedApiResource<PokemonSpecies>> get pokemonSpecies;
 /// Create a copy of PokemonShape
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -5613,23 +5926,31 @@ class _PokemonShape implements PokemonShape {
   const _PokemonShape({required this.id, required this.name, required final  List<AwesomeName> awesomeNames, required final  List<Name> names, required final  List<NamedApiResource<PokemonSpecies>> pokemonSpecies}): _awesomeNames = awesomeNames,_names = names,_pokemonSpecies = pokemonSpecies;
   factory _PokemonShape.fromJson(Map<String, dynamic> json) => _$PokemonShapeFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// The "scientific" name of this Pokémon shape listed in different languages.
  final  List<AwesomeName> _awesomeNames;
+/// The "scientific" name of this Pokémon shape listed in different languages.
 @override List<AwesomeName> get awesomeNames {
   if (_awesomeNames is EqualUnmodifiableListView) return _awesomeNames;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_awesomeNames);
 }
 
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_names);
 }
 
+/// A list of Pokémon species that have this shape.
  final  List<NamedApiResource<PokemonSpecies>> _pokemonSpecies;
+/// A list of Pokémon species that have this shape.
 @override List<NamedApiResource<PokemonSpecies>> get pokemonSpecies {
   if (_pokemonSpecies is EqualUnmodifiableListView) return _pokemonSpecies;
   // ignore: implicit_dynamic_type
@@ -5705,7 +6026,9 @@ as List<NamedApiResource<PokemonSpecies>>,
 /// @nodoc
 mixin _$AwesomeName {
 
- String get name; NamedApiResource<Language> get language;
+/// The "scientific" name of this Pokémon shape listed in different languages.
+ String get name;/// The language this "scientific" name is in.
+ NamedApiResource<Language> get language;
 /// Create a copy of AwesomeName
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -5782,7 +6105,9 @@ class _AwesomeName implements AwesomeName {
   const _AwesomeName({required this.name, required this.language});
   factory _AwesomeName.fromJson(Map<String, dynamic> json) => _$AwesomeNameFromJson(json);
 
+/// The "scientific" name of this Pokémon shape listed in different languages.
 @override final  String name;
+/// The language this "scientific" name is in.
 @override final  NamedApiResource<Language> language;
 
 /// Create a copy of AwesomeName
@@ -5859,7 +6184,39 @@ $NamedApiResourceCopyWith<Language, $Res> get language {
 /// @nodoc
 mixin _$PokemonSpecies {
 
- int get id; String get name; int get order; int get genderRate; int get captureRate; int get baseHappiness; bool get isBaby; bool get isLegendary; bool get isMythical; int get hatchCounter; bool get hasGenderDifferences; bool get formsSwitchable; NamedApiResource<GrowthRate> get growthRate; List<PokemonSpeciesDexEntry> get pokedexNumbers; List<NamedApiResource<EggGroup>> get eggGroups; NamedApiResource<PokemonColor> get color; NamedApiResource<PokemonShape> get shape; NamedApiResource<PokemonSpecies> get evolvesFromSpecies; NamedApiResource<EvolutionChain> get evolutionChain; NamedApiResource<PokemonHabitat> get habitat; NamedApiResource<Generation> get generation; List<Name> get names; List<NamedApiResource<PalParkEncounterArea>> get palParkEncounters; List<FlavorText> get flavorTextEntries; List<Description> get formDescriptions; List<Genus> get genera; List<PokemonSpeciesVariety> get varieties;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// The order in which species should be sorted. Based on National Dex order, except families are grouped together
+/// and sorted by stage.
+ int get order;/// The chance of this Pokémon being female, in eighths; or -1 for genderless.
+ int get genderRate;/// The base capture rate; up to 255. The higher the number, the easier the catch.
+ int get captureRate;/// The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
+ int get baseHappiness;/// Whether or not this is a baby Pokémon species.
+ bool get isBaby;/// Whether or not this is a legendary Pokémon species.
+ bool get isLegendary;/// Whether or not this is a mythical Pokémon species.
+ bool get isMythical;/// Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless
+/// utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are
+/// 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl,
+/// Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are
+/// 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
+ int get hatchCounter;/// Whether or not this Pokémon has visual gender differences.
+ bool get hasGenderDifferences;/// Whether or not this Pokémon has multiple forms and can switch between them.
+ bool get formsSwitchable;/// The rate at which this Pokémon species gains levels.
+ NamedApiResource<GrowthRate> get growthRate;/// A list of Pokedexes and the indexes reserved within them for this Pokémon species.
+ List<PokemonSpeciesDexEntry> get pokedexNumbers;/// A list of egg groups this Pokémon species is a member of.
+ List<NamedApiResource<EggGroup>> get eggGroups;/// The color of this Pokémon species.
+ NamedApiResource<PokemonColor> get color;/// The shape of this Pokémon species.
+ NamedApiResource<PokemonShape> get shape;/// The Pokémon species that evolves into this Pokemon_species.
+ NamedApiResource<PokemonSpecies> get evolvesFromSpecies;/// The evolution chain this Pokémon species is a member of.
+ NamedApiResource<EvolutionChain> get evolutionChain;/// The habitat this Pokémon species can be encountered in.
+ NamedApiResource<PokemonHabitat> get habitat;/// The generation this Pokémon species was introduced in.
+ NamedApiResource<Generation> get generation;/// The name of this resource listed in different languages.
+ List<Name> get names;/// A list of encounters that can be had with this Pokémon species in pal park.
+ List<NamedApiResource<PalParkEncounterArea>> get palParkEncounters;/// A list of flavor text entries for this Pokémon species.
+ List<FlavorText> get flavorTextEntries;/// Descriptions of different forms Pokémon take on within the Pokémon species.
+ List<Description> get formDescriptions;/// The genus of this Pokémon species listed in multiple languages.
+ List<Genus> get genera;/// A list of the Pokémon that exist within this Pokémon species.
+ List<PokemonSpeciesVariety> get varieties;
 /// Create a copy of PokemonSpecies
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -6015,75 +6372,115 @@ class _PokemonSpecies implements PokemonSpecies {
   const _PokemonSpecies({required this.id, required this.name, required this.order, required this.genderRate, required this.captureRate, required this.baseHappiness, required this.isBaby, required this.isLegendary, required this.isMythical, required this.hatchCounter, required this.hasGenderDifferences, required this.formsSwitchable, required this.growthRate, required final  List<PokemonSpeciesDexEntry> pokedexNumbers, required final  List<NamedApiResource<EggGroup>> eggGroups, required this.color, required this.shape, required this.evolvesFromSpecies, required this.evolutionChain, required this.habitat, required this.generation, required final  List<Name> names, required final  List<NamedApiResource<PalParkEncounterArea>> palParkEncounters, required final  List<FlavorText> flavorTextEntries, required final  List<Description> formDescriptions, required final  List<Genus> genera, required final  List<PokemonSpeciesVariety> varieties}): _pokedexNumbers = pokedexNumbers,_eggGroups = eggGroups,_names = names,_palParkEncounters = palParkEncounters,_flavorTextEntries = flavorTextEntries,_formDescriptions = formDescriptions,_genera = genera,_varieties = varieties;
   factory _PokemonSpecies.fromJson(Map<String, dynamic> json) => _$PokemonSpeciesFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// The order in which species should be sorted. Based on National Dex order, except families are grouped together
+/// and sorted by stage.
 @override final  int order;
+/// The chance of this Pokémon being female, in eighths; or -1 for genderless.
 @override final  int genderRate;
+/// The base capture rate; up to 255. The higher the number, the easier the catch.
 @override final  int captureRate;
+/// The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
 @override final  int baseHappiness;
+/// Whether or not this is a baby Pokémon species.
 @override final  bool isBaby;
+/// Whether or not this is a legendary Pokémon species.
 @override final  bool isLegendary;
+/// Whether or not this is a mythical Pokémon species.
 @override final  bool isMythical;
+/// Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless
+/// utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are
+/// 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl,
+/// Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are
+/// 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
 @override final  int hatchCounter;
+/// Whether or not this Pokémon has visual gender differences.
 @override final  bool hasGenderDifferences;
+/// Whether or not this Pokémon has multiple forms and can switch between them.
 @override final  bool formsSwitchable;
+/// The rate at which this Pokémon species gains levels.
 @override final  NamedApiResource<GrowthRate> growthRate;
+/// A list of Pokedexes and the indexes reserved within them for this Pokémon species.
  final  List<PokemonSpeciesDexEntry> _pokedexNumbers;
+/// A list of Pokedexes and the indexes reserved within them for this Pokémon species.
 @override List<PokemonSpeciesDexEntry> get pokedexNumbers {
   if (_pokedexNumbers is EqualUnmodifiableListView) return _pokedexNumbers;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_pokedexNumbers);
 }
 
+/// A list of egg groups this Pokémon species is a member of.
  final  List<NamedApiResource<EggGroup>> _eggGroups;
+/// A list of egg groups this Pokémon species is a member of.
 @override List<NamedApiResource<EggGroup>> get eggGroups {
   if (_eggGroups is EqualUnmodifiableListView) return _eggGroups;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_eggGroups);
 }
 
+/// The color of this Pokémon species.
 @override final  NamedApiResource<PokemonColor> color;
+/// The shape of this Pokémon species.
 @override final  NamedApiResource<PokemonShape> shape;
+/// The Pokémon species that evolves into this Pokemon_species.
 @override final  NamedApiResource<PokemonSpecies> evolvesFromSpecies;
+/// The evolution chain this Pokémon species is a member of.
 @override final  NamedApiResource<EvolutionChain> evolutionChain;
+/// The habitat this Pokémon species can be encountered in.
 @override final  NamedApiResource<PokemonHabitat> habitat;
+/// The generation this Pokémon species was introduced in.
 @override final  NamedApiResource<Generation> generation;
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_names);
 }
 
+/// A list of encounters that can be had with this Pokémon species in pal park.
  final  List<NamedApiResource<PalParkEncounterArea>> _palParkEncounters;
+/// A list of encounters that can be had with this Pokémon species in pal park.
 @override List<NamedApiResource<PalParkEncounterArea>> get palParkEncounters {
   if (_palParkEncounters is EqualUnmodifiableListView) return _palParkEncounters;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_palParkEncounters);
 }
 
+/// A list of flavor text entries for this Pokémon species.
  final  List<FlavorText> _flavorTextEntries;
+/// A list of flavor text entries for this Pokémon species.
 @override List<FlavorText> get flavorTextEntries {
   if (_flavorTextEntries is EqualUnmodifiableListView) return _flavorTextEntries;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_flavorTextEntries);
 }
 
+/// Descriptions of different forms Pokémon take on within the Pokémon species.
  final  List<Description> _formDescriptions;
+/// Descriptions of different forms Pokémon take on within the Pokémon species.
 @override List<Description> get formDescriptions {
   if (_formDescriptions is EqualUnmodifiableListView) return _formDescriptions;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_formDescriptions);
 }
 
+/// The genus of this Pokémon species listed in multiple languages.
  final  List<Genus> _genera;
+/// The genus of this Pokémon species listed in multiple languages.
 @override List<Genus> get genera {
   if (_genera is EqualUnmodifiableListView) return _genera;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_genera);
 }
 
+/// A list of the Pokémon that exist within this Pokémon species.
  final  List<PokemonSpeciesVariety> _varieties;
+/// A list of the Pokémon that exist within this Pokémon species.
 @override List<PokemonSpeciesVariety> get varieties {
   if (_varieties is EqualUnmodifiableListView) return _varieties;
   // ignore: implicit_dynamic_type
@@ -6244,7 +6641,9 @@ $NamedApiResourceCopyWith<Generation, $Res> get generation {
 /// @nodoc
 mixin _$Genus {
 
- String get genus; NamedApiResource<Language> get language;
+/// The localized genus for the referenced Pokémon species
+ String get genus;/// The language this genus is in.
+ NamedApiResource<Language> get language;
 /// Create a copy of Genus
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -6321,7 +6720,9 @@ class _Genus implements Genus {
   const _Genus({required this.genus, required this.language});
   factory _Genus.fromJson(Map<String, dynamic> json) => _$GenusFromJson(json);
 
+/// The localized genus for the referenced Pokémon species
 @override final  String genus;
+/// The language this genus is in.
 @override final  NamedApiResource<Language> language;
 
 /// Create a copy of Genus
@@ -6398,7 +6799,9 @@ $NamedApiResourceCopyWith<Language, $Res> get language {
 /// @nodoc
 mixin _$PokemonSpeciesDexEntry {
 
- int get entryNumber; NamedApiResource<Pokedex> get pokedex;
+/// The index number within the Pokédex.
+ int get entryNumber;/// The Pokédex the referenced Pokémon species can be found in.
+ NamedApiResource<Pokedex> get pokedex;
 /// Create a copy of PokemonSpeciesDexEntry
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -6475,7 +6878,9 @@ class _PokemonSpeciesDexEntry implements PokemonSpeciesDexEntry {
   const _PokemonSpeciesDexEntry({required this.entryNumber, required this.pokedex});
   factory _PokemonSpeciesDexEntry.fromJson(Map<String, dynamic> json) => _$PokemonSpeciesDexEntryFromJson(json);
 
+/// The index number within the Pokédex.
 @override final  int entryNumber;
+/// The Pokédex the referenced Pokémon species can be found in.
 @override final  NamedApiResource<Pokedex> pokedex;
 
 /// Create a copy of PokemonSpeciesDexEntry
@@ -6552,7 +6957,10 @@ $NamedApiResourceCopyWith<Pokedex, $Res> get pokedex {
 /// @nodoc
 mixin _$PalParkEncounterArea {
 
- int get baseScore; int get rate; NamedApiResource<PalParkArea> get area;
+/// The base score given to the player when the referenced Pokémon is caught during a pal park run.
+ int get baseScore;/// The base rate for encountering the referenced Pokémon in this pal park area.
+ int get rate;/// The pal park area where the referenced Pokémon can be encountered.
+ NamedApiResource<PalParkArea> get area;
 /// Create a copy of PalParkEncounterArea
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -6630,8 +7038,11 @@ class _PalParkEncounterArea implements PalParkEncounterArea {
   const _PalParkEncounterArea({required this.baseScore, required this.rate, required this.area});
   factory _PalParkEncounterArea.fromJson(Map<String, dynamic> json) => _$PalParkEncounterAreaFromJson(json);
 
+/// The base score given to the player when the referenced Pokémon is caught during a pal park run.
 @override final  int baseScore;
+/// The base rate for encountering the referenced Pokémon in this pal park area.
 @override final  int rate;
+/// The pal park area where the referenced Pokémon can be encountered.
 @override final  NamedApiResource<PalParkArea> area;
 
 /// Create a copy of PalParkEncounterArea
@@ -6709,7 +7120,9 @@ $NamedApiResourceCopyWith<PalParkArea, $Res> get area {
 /// @nodoc
 mixin _$PokemonSpeciesVariety {
 
- bool get isDefault; NamedApiResource<Pokemon> get pokemon;
+/// Whether or not this variety is the default variety.
+ bool get isDefault;/// The referenced Pokémon species.
+ NamedApiResource<Pokemon> get pokemon;
 /// Create a copy of PokemonSpeciesVariety
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -6786,7 +7199,9 @@ class _PokemonSpeciesVariety implements PokemonSpeciesVariety {
   const _PokemonSpeciesVariety({required this.isDefault, required this.pokemon});
   factory _PokemonSpeciesVariety.fromJson(Map<String, dynamic> json) => _$PokemonSpeciesVarietyFromJson(json);
 
+/// Whether or not this variety is the default variety.
 @override final  bool isDefault;
+/// The referenced Pokémon species.
 @override final  NamedApiResource<Pokemon> pokemon;
 
 /// Create a copy of PokemonSpeciesVariety
@@ -6863,7 +7278,16 @@ $NamedApiResourceCopyWith<Pokemon, $Res> get pokemon {
 /// @nodoc
 mixin _$Stat {
 
- int get id; String get name; int get gameIndex; bool get isBattleOnly; MoveStatAffectSets get moveStatAffectSets; NatureStatAffectSets get natureStatAffectSets; List<ApiResource<Characteristic>> get characteristics; NamedApiResource<MoveDamageClass> get moveDamageClass; List<Name> get names;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// The index number for this stat in the Pokédex.
+ int get gameIndex;/// Whether or not this stat only exists within a battle.
+ bool get isBattleOnly;/// A detail of natures which affect this stat.
+ MoveStatAffectSets get moveStatAffectSets;/// A detail of natures which affect this stat.
+ NatureStatAffectSets get natureStatAffectSets;/// A list of characteristics that are associated with this stat.
+ List<ApiResource<Characteristic>> get characteristics;/// The class of moves that affect this stat.
+ NamedApiResource<MoveDamageClass> get moveDamageClass;/// The name of this resource listed in different languages.
+ List<Name> get names;
 /// Create a copy of Stat
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -6965,21 +7389,32 @@ class _Stat implements Stat {
   const _Stat({required this.id, required this.name, required this.gameIndex, required this.isBattleOnly, required this.moveStatAffectSets, required this.natureStatAffectSets, required final  List<ApiResource<Characteristic>> characteristics, required this.moveDamageClass, required final  List<Name> names}): _characteristics = characteristics,_names = names;
   factory _Stat.fromJson(Map<String, dynamic> json) => _$StatFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// The index number for this stat in the Pokédex.
 @override final  int gameIndex;
+/// Whether or not this stat only exists within a battle.
 @override final  bool isBattleOnly;
+/// A detail of natures which affect this stat.
 @override final  MoveStatAffectSets moveStatAffectSets;
+/// A detail of natures which affect this stat.
 @override final  NatureStatAffectSets natureStatAffectSets;
+/// A list of characteristics that are associated with this stat.
  final  List<ApiResource<Characteristic>> _characteristics;
+/// A list of characteristics that are associated with this stat.
 @override List<ApiResource<Characteristic>> get characteristics {
   if (_characteristics is EqualUnmodifiableListView) return _characteristics;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_characteristics);
 }
 
+/// The class of moves that affect this stat.
 @override final  NamedApiResource<MoveDamageClass> moveDamageClass;
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
@@ -7086,7 +7521,9 @@ $NamedApiResourceCopyWith<MoveDamageClass, $Res> get moveDamageClass {
 /// @nodoc
 mixin _$MoveStatAffectSets {
 
- List<MoveStatAffect> get increase; List<MoveStatAffect> get decrease;
+/// A list of moves that increase this stat.
+ List<MoveStatAffect> get increase;/// A list of moves that decrease this stat.
+ List<MoveStatAffect> get decrease;
 /// Create a copy of MoveStatAffectSets
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -7154,14 +7591,18 @@ class _MoveStatAffectSets implements MoveStatAffectSets {
   const _MoveStatAffectSets({required final  List<MoveStatAffect> increase, required final  List<MoveStatAffect> decrease}): _increase = increase,_decrease = decrease;
   factory _MoveStatAffectSets.fromJson(Map<String, dynamic> json) => _$MoveStatAffectSetsFromJson(json);
 
+/// A list of moves that increase this stat.
  final  List<MoveStatAffect> _increase;
+/// A list of moves that increase this stat.
 @override List<MoveStatAffect> get increase {
   if (_increase is EqualUnmodifiableListView) return _increase;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_increase);
 }
 
+/// A list of moves that decrease this stat.
  final  List<MoveStatAffect> _decrease;
+/// A list of moves that decrease this stat.
 @override List<MoveStatAffect> get decrease {
   if (_decrease is EqualUnmodifiableListView) return _decrease;
   // ignore: implicit_dynamic_type
@@ -7234,7 +7675,9 @@ as List<MoveStatAffect>,
 /// @nodoc
 mixin _$MoveStatAffect {
 
- int get change; NamedApiResource<Move> get move;
+/// The amount of change to this stat.
+ int get change;/// The move that cause the change.
+ NamedApiResource<Move> get move;
 /// Create a copy of MoveStatAffect
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -7311,7 +7754,9 @@ class _MoveStatAffect implements MoveStatAffect {
   const _MoveStatAffect({required this.change, required this.move});
   factory _MoveStatAffect.fromJson(Map<String, dynamic> json) => _$MoveStatAffectFromJson(json);
 
+/// The amount of change to this stat.
 @override final  int change;
+/// The move that cause the change.
 @override final  NamedApiResource<Move> move;
 
 /// Create a copy of MoveStatAffect
@@ -7388,7 +7833,9 @@ $NamedApiResourceCopyWith<Move, $Res> get move {
 /// @nodoc
 mixin _$NatureStatAffectSets {
 
- List<NamedApiResource<Nature>> get increase; List<NamedApiResource<Nature>> get decrease;
+/// A list of natures that increase this stat.
+ List<NamedApiResource<Nature>> get increase;/// A list of natures that decrease this stat.
+ List<NamedApiResource<Nature>> get decrease;
 /// Create a copy of NatureStatAffectSets
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -7456,14 +7903,18 @@ class _NatureStatAffectSets implements NatureStatAffectSets {
   const _NatureStatAffectSets({required final  List<NamedApiResource<Nature>> increase, required final  List<NamedApiResource<Nature>> decrease}): _increase = increase,_decrease = decrease;
   factory _NatureStatAffectSets.fromJson(Map<String, dynamic> json) => _$NatureStatAffectSetsFromJson(json);
 
+/// A list of natures that increase this stat.
  final  List<NamedApiResource<Nature>> _increase;
+/// A list of natures that increase this stat.
 @override List<NamedApiResource<Nature>> get increase {
   if (_increase is EqualUnmodifiableListView) return _increase;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_increase);
 }
 
+/// A list of natures that decrease this stat.
  final  List<NamedApiResource<Nature>> _decrease;
+/// A list of natures that decrease this stat.
 @override List<NamedApiResource<Nature>> get decrease {
   if (_decrease is EqualUnmodifiableListView) return _decrease;
   // ignore: implicit_dynamic_type
@@ -7536,7 +7987,17 @@ as List<NamedApiResource<Nature>>,
 /// @nodoc
 mixin _$Type {
 
- int get id; String get name; TypeRelations get damageRelations; List<TypeRelationsPast> get pastDamageRelations; List<GenerationGameIndex> get gameIndices; NamedApiResource<MoveDamageClass> get moveDamageClass; List<Name> get names; List<TypePokemon> get pokemon; List<NamedApiResource<Move>> get moves;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// A detail of how effective this type is toward others and vice versa.
+ TypeRelations get damageRelations;/// A list of details of how effective this type was toward others and vice versa in previous generations
+ List<TypeRelationsPast> get pastDamageRelations;/// A list of game indices for the generation of this Pokémon type.
+ List<GenerationGameIndex> get gameIndices;/// The generation this type was introduced in.
+ NamedApiResource<Generation> get generation;/// The class of damage inflicted by this type.
+ NamedApiResource<MoveDamageClass> get moveDamageClass;/// The name of this resource listed in different languages.
+ List<Name> get names;/// A list of Pokémon that have this type.
+ List<TypePokemon> get pokemon;/// A list of moves that are affected by this type.
+ List<NamedApiResource<Move>> get moves;
 /// Create a copy of Type
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -7549,16 +8010,16 @@ $TypeCopyWith<Type> get copyWith => _$TypeCopyWithImpl<Type>(this as Type, _$ide
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Type&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.damageRelations, damageRelations) || other.damageRelations == damageRelations)&&const DeepCollectionEquality().equals(other.pastDamageRelations, pastDamageRelations)&&const DeepCollectionEquality().equals(other.gameIndices, gameIndices)&&(identical(other.moveDamageClass, moveDamageClass) || other.moveDamageClass == moveDamageClass)&&const DeepCollectionEquality().equals(other.names, names)&&const DeepCollectionEquality().equals(other.pokemon, pokemon)&&const DeepCollectionEquality().equals(other.moves, moves));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Type&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.damageRelations, damageRelations) || other.damageRelations == damageRelations)&&const DeepCollectionEquality().equals(other.pastDamageRelations, pastDamageRelations)&&const DeepCollectionEquality().equals(other.gameIndices, gameIndices)&&(identical(other.generation, generation) || other.generation == generation)&&(identical(other.moveDamageClass, moveDamageClass) || other.moveDamageClass == moveDamageClass)&&const DeepCollectionEquality().equals(other.names, names)&&const DeepCollectionEquality().equals(other.pokemon, pokemon)&&const DeepCollectionEquality().equals(other.moves, moves));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,damageRelations,const DeepCollectionEquality().hash(pastDamageRelations),const DeepCollectionEquality().hash(gameIndices),moveDamageClass,const DeepCollectionEquality().hash(names),const DeepCollectionEquality().hash(pokemon),const DeepCollectionEquality().hash(moves));
+int get hashCode => Object.hash(runtimeType,id,name,damageRelations,const DeepCollectionEquality().hash(pastDamageRelations),const DeepCollectionEquality().hash(gameIndices),generation,moveDamageClass,const DeepCollectionEquality().hash(names),const DeepCollectionEquality().hash(pokemon),const DeepCollectionEquality().hash(moves));
 
 @override
 String toString() {
-  return 'Type(id: $id, name: $name, damageRelations: $damageRelations, pastDamageRelations: $pastDamageRelations, gameIndices: $gameIndices, moveDamageClass: $moveDamageClass, names: $names, pokemon: $pokemon, moves: $moves)';
+  return 'Type(id: $id, name: $name, damageRelations: $damageRelations, pastDamageRelations: $pastDamageRelations, gameIndices: $gameIndices, generation: $generation, moveDamageClass: $moveDamageClass, names: $names, pokemon: $pokemon, moves: $moves)';
 }
 
 
@@ -7569,11 +8030,11 @@ abstract mixin class $TypeCopyWith<$Res>  {
   factory $TypeCopyWith(Type value, $Res Function(Type) _then) = _$TypeCopyWithImpl;
 @useResult
 $Res call({
- int id, String name, TypeRelations damageRelations, List<TypeRelationsPast> pastDamageRelations, List<GenerationGameIndex> gameIndices, NamedApiResource<MoveDamageClass> moveDamageClass, List<Name> names, List<TypePokemon> pokemon, List<NamedApiResource<Move>> moves
+ int id, String name, TypeRelations damageRelations, List<TypeRelationsPast> pastDamageRelations, List<GenerationGameIndex> gameIndices, NamedApiResource<Generation> generation, NamedApiResource<MoveDamageClass> moveDamageClass, List<Name> names, List<TypePokemon> pokemon, List<NamedApiResource<Move>> moves
 });
 
 
-$TypeRelationsCopyWith<$Res> get damageRelations;$NamedApiResourceCopyWith<MoveDamageClass, $Res> get moveDamageClass;
+$TypeRelationsCopyWith<$Res> get damageRelations;$NamedApiResourceCopyWith<Generation, $Res> get generation;$NamedApiResourceCopyWith<MoveDamageClass, $Res> get moveDamageClass;
 
 }
 /// @nodoc
@@ -7586,14 +8047,15 @@ class _$TypeCopyWithImpl<$Res>
 
 /// Create a copy of Type
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? damageRelations = null,Object? pastDamageRelations = null,Object? gameIndices = null,Object? moveDamageClass = null,Object? names = null,Object? pokemon = null,Object? moves = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? damageRelations = null,Object? pastDamageRelations = null,Object? gameIndices = null,Object? generation = null,Object? moveDamageClass = null,Object? names = null,Object? pokemon = null,Object? moves = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,damageRelations: null == damageRelations ? _self.damageRelations : damageRelations // ignore: cast_nullable_to_non_nullable
 as TypeRelations,pastDamageRelations: null == pastDamageRelations ? _self.pastDamageRelations : pastDamageRelations // ignore: cast_nullable_to_non_nullable
 as List<TypeRelationsPast>,gameIndices: null == gameIndices ? _self.gameIndices : gameIndices // ignore: cast_nullable_to_non_nullable
-as List<GenerationGameIndex>,moveDamageClass: null == moveDamageClass ? _self.moveDamageClass : moveDamageClass // ignore: cast_nullable_to_non_nullable
+as List<GenerationGameIndex>,generation: null == generation ? _self.generation : generation // ignore: cast_nullable_to_non_nullable
+as NamedApiResource<Generation>,moveDamageClass: null == moveDamageClass ? _self.moveDamageClass : moveDamageClass // ignore: cast_nullable_to_non_nullable
 as NamedApiResource<MoveDamageClass>,names: null == names ? _self.names : names // ignore: cast_nullable_to_non_nullable
 as List<Name>,pokemon: null == pokemon ? _self.pokemon : pokemon // ignore: cast_nullable_to_non_nullable
 as List<TypePokemon>,moves: null == moves ? _self.moves : moves // ignore: cast_nullable_to_non_nullable
@@ -7613,6 +8075,15 @@ $TypeRelationsCopyWith<$Res> get damageRelations {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
+$NamedApiResourceCopyWith<Generation, $Res> get generation {
+  
+  return $NamedApiResourceCopyWith<Generation, $Res>(_self.generation, (value) {
+    return _then(_self.copyWith(generation: value));
+  });
+}/// Create a copy of Type
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
 $NamedApiResourceCopyWith<MoveDamageClass, $Res> get moveDamageClass {
   
   return $NamedApiResourceCopyWith<MoveDamageClass, $Res>(_self.moveDamageClass, (value) {
@@ -7626,42 +8097,58 @@ $NamedApiResourceCopyWith<MoveDamageClass, $Res> get moveDamageClass {
 @JsonSerializable()
 
 class _Type implements Type {
-  const _Type({required this.id, required this.name, required this.damageRelations, required final  List<TypeRelationsPast> pastDamageRelations, required final  List<GenerationGameIndex> gameIndices, required this.moveDamageClass, required final  List<Name> names, required final  List<TypePokemon> pokemon, required final  List<NamedApiResource<Move>> moves}): _pastDamageRelations = pastDamageRelations,_gameIndices = gameIndices,_names = names,_pokemon = pokemon,_moves = moves;
+  const _Type({required this.id, required this.name, required this.damageRelations, required final  List<TypeRelationsPast> pastDamageRelations, required final  List<GenerationGameIndex> gameIndices, required this.generation, required this.moveDamageClass, required final  List<Name> names, required final  List<TypePokemon> pokemon, required final  List<NamedApiResource<Move>> moves}): _pastDamageRelations = pastDamageRelations,_gameIndices = gameIndices,_names = names,_pokemon = pokemon,_moves = moves;
   factory _Type.fromJson(Map<String, dynamic> json) => _$TypeFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// A detail of how effective this type is toward others and vice versa.
 @override final  TypeRelations damageRelations;
+/// A list of details of how effective this type was toward others and vice versa in previous generations
  final  List<TypeRelationsPast> _pastDamageRelations;
+/// A list of details of how effective this type was toward others and vice versa in previous generations
 @override List<TypeRelationsPast> get pastDamageRelations {
   if (_pastDamageRelations is EqualUnmodifiableListView) return _pastDamageRelations;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_pastDamageRelations);
 }
 
+/// A list of game indices for the generation of this Pokémon type.
  final  List<GenerationGameIndex> _gameIndices;
+/// A list of game indices for the generation of this Pokémon type.
 @override List<GenerationGameIndex> get gameIndices {
   if (_gameIndices is EqualUnmodifiableListView) return _gameIndices;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_gameIndices);
 }
 
+/// The generation this type was introduced in.
+@override final  NamedApiResource<Generation> generation;
+/// The class of damage inflicted by this type.
 @override final  NamedApiResource<MoveDamageClass> moveDamageClass;
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_names);
 }
 
+/// A list of Pokémon that have this type.
  final  List<TypePokemon> _pokemon;
+/// A list of Pokémon that have this type.
 @override List<TypePokemon> get pokemon {
   if (_pokemon is EqualUnmodifiableListView) return _pokemon;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_pokemon);
 }
 
+/// A list of moves that are affected by this type.
  final  List<NamedApiResource<Move>> _moves;
+/// A list of moves that are affected by this type.
 @override List<NamedApiResource<Move>> get moves {
   if (_moves is EqualUnmodifiableListView) return _moves;
   // ignore: implicit_dynamic_type
@@ -7682,16 +8169,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Type&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.damageRelations, damageRelations) || other.damageRelations == damageRelations)&&const DeepCollectionEquality().equals(other._pastDamageRelations, _pastDamageRelations)&&const DeepCollectionEquality().equals(other._gameIndices, _gameIndices)&&(identical(other.moveDamageClass, moveDamageClass) || other.moveDamageClass == moveDamageClass)&&const DeepCollectionEquality().equals(other._names, _names)&&const DeepCollectionEquality().equals(other._pokemon, _pokemon)&&const DeepCollectionEquality().equals(other._moves, _moves));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Type&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.damageRelations, damageRelations) || other.damageRelations == damageRelations)&&const DeepCollectionEquality().equals(other._pastDamageRelations, _pastDamageRelations)&&const DeepCollectionEquality().equals(other._gameIndices, _gameIndices)&&(identical(other.generation, generation) || other.generation == generation)&&(identical(other.moveDamageClass, moveDamageClass) || other.moveDamageClass == moveDamageClass)&&const DeepCollectionEquality().equals(other._names, _names)&&const DeepCollectionEquality().equals(other._pokemon, _pokemon)&&const DeepCollectionEquality().equals(other._moves, _moves));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,damageRelations,const DeepCollectionEquality().hash(_pastDamageRelations),const DeepCollectionEquality().hash(_gameIndices),moveDamageClass,const DeepCollectionEquality().hash(_names),const DeepCollectionEquality().hash(_pokemon),const DeepCollectionEquality().hash(_moves));
+int get hashCode => Object.hash(runtimeType,id,name,damageRelations,const DeepCollectionEquality().hash(_pastDamageRelations),const DeepCollectionEquality().hash(_gameIndices),generation,moveDamageClass,const DeepCollectionEquality().hash(_names),const DeepCollectionEquality().hash(_pokemon),const DeepCollectionEquality().hash(_moves));
 
 @override
 String toString() {
-  return 'Type(id: $id, name: $name, damageRelations: $damageRelations, pastDamageRelations: $pastDamageRelations, gameIndices: $gameIndices, moveDamageClass: $moveDamageClass, names: $names, pokemon: $pokemon, moves: $moves)';
+  return 'Type(id: $id, name: $name, damageRelations: $damageRelations, pastDamageRelations: $pastDamageRelations, gameIndices: $gameIndices, generation: $generation, moveDamageClass: $moveDamageClass, names: $names, pokemon: $pokemon, moves: $moves)';
 }
 
 
@@ -7702,11 +8189,11 @@ abstract mixin class _$TypeCopyWith<$Res> implements $TypeCopyWith<$Res> {
   factory _$TypeCopyWith(_Type value, $Res Function(_Type) _then) = __$TypeCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String name, TypeRelations damageRelations, List<TypeRelationsPast> pastDamageRelations, List<GenerationGameIndex> gameIndices, NamedApiResource<MoveDamageClass> moveDamageClass, List<Name> names, List<TypePokemon> pokemon, List<NamedApiResource<Move>> moves
+ int id, String name, TypeRelations damageRelations, List<TypeRelationsPast> pastDamageRelations, List<GenerationGameIndex> gameIndices, NamedApiResource<Generation> generation, NamedApiResource<MoveDamageClass> moveDamageClass, List<Name> names, List<TypePokemon> pokemon, List<NamedApiResource<Move>> moves
 });
 
 
-@override $TypeRelationsCopyWith<$Res> get damageRelations;@override $NamedApiResourceCopyWith<MoveDamageClass, $Res> get moveDamageClass;
+@override $TypeRelationsCopyWith<$Res> get damageRelations;@override $NamedApiResourceCopyWith<Generation, $Res> get generation;@override $NamedApiResourceCopyWith<MoveDamageClass, $Res> get moveDamageClass;
 
 }
 /// @nodoc
@@ -7719,14 +8206,15 @@ class __$TypeCopyWithImpl<$Res>
 
 /// Create a copy of Type
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? damageRelations = null,Object? pastDamageRelations = null,Object? gameIndices = null,Object? moveDamageClass = null,Object? names = null,Object? pokemon = null,Object? moves = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? damageRelations = null,Object? pastDamageRelations = null,Object? gameIndices = null,Object? generation = null,Object? moveDamageClass = null,Object? names = null,Object? pokemon = null,Object? moves = null,}) {
   return _then(_Type(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,damageRelations: null == damageRelations ? _self.damageRelations : damageRelations // ignore: cast_nullable_to_non_nullable
 as TypeRelations,pastDamageRelations: null == pastDamageRelations ? _self._pastDamageRelations : pastDamageRelations // ignore: cast_nullable_to_non_nullable
 as List<TypeRelationsPast>,gameIndices: null == gameIndices ? _self._gameIndices : gameIndices // ignore: cast_nullable_to_non_nullable
-as List<GenerationGameIndex>,moveDamageClass: null == moveDamageClass ? _self.moveDamageClass : moveDamageClass // ignore: cast_nullable_to_non_nullable
+as List<GenerationGameIndex>,generation: null == generation ? _self.generation : generation // ignore: cast_nullable_to_non_nullable
+as NamedApiResource<Generation>,moveDamageClass: null == moveDamageClass ? _self.moveDamageClass : moveDamageClass // ignore: cast_nullable_to_non_nullable
 as NamedApiResource<MoveDamageClass>,names: null == names ? _self._names : names // ignore: cast_nullable_to_non_nullable
 as List<Name>,pokemon: null == pokemon ? _self._pokemon : pokemon // ignore: cast_nullable_to_non_nullable
 as List<TypePokemon>,moves: null == moves ? _self._moves : moves // ignore: cast_nullable_to_non_nullable
@@ -7747,6 +8235,15 @@ $TypeRelationsCopyWith<$Res> get damageRelations {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
+$NamedApiResourceCopyWith<Generation, $Res> get generation {
+  
+  return $NamedApiResourceCopyWith<Generation, $Res>(_self.generation, (value) {
+    return _then(_self.copyWith(generation: value));
+  });
+}/// Create a copy of Type
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
 $NamedApiResourceCopyWith<MoveDamageClass, $Res> get moveDamageClass {
   
   return $NamedApiResourceCopyWith<MoveDamageClass, $Res>(_self.moveDamageClass, (value) {
@@ -7759,7 +8256,9 @@ $NamedApiResourceCopyWith<MoveDamageClass, $Res> get moveDamageClass {
 /// @nodoc
 mixin _$TypePokemon {
 
- int get slot; NamedApiResource<Pokemon> get pokemon;
+/// The order the Pokémon's types are listed in.
+ int get slot;/// The referenced Pokémon species.
+ NamedApiResource<Pokemon> get pokemon;
 /// Create a copy of TypePokemon
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -7836,7 +8335,9 @@ class _TypePokemon implements TypePokemon {
   const _TypePokemon({required this.slot, required this.pokemon});
   factory _TypePokemon.fromJson(Map<String, dynamic> json) => _$TypePokemonFromJson(json);
 
+/// The order the Pokémon's types are listed in.
 @override final  int slot;
+/// The referenced Pokémon species.
 @override final  NamedApiResource<Pokemon> pokemon;
 
 /// Create a copy of TypePokemon
@@ -7913,7 +8414,13 @@ $NamedApiResourceCopyWith<Pokemon, $Res> get pokemon {
 /// @nodoc
 mixin _$TypeRelations {
 
- List<NamedApiResource<Type>> get noDamageTo; List<NamedApiResource<Type>> get halfDamageTo; List<NamedApiResource<Type>> get doubleDamageTo; List<NamedApiResource<Type>> get noDamageFrom; List<NamedApiResource<Type>> get halfDamageFrom; List<NamedApiResource<Type>> get doubleDamageFrom;
+/// A list of types this type has no effect on.
+ List<NamedApiResource<Type>> get noDamageTo;/// A list of types this type is not very effect against.
+ List<NamedApiResource<Type>> get halfDamageTo;/// A list of types this type is very effect against.
+ List<NamedApiResource<Type>> get doubleDamageTo;/// A list of types that have no effect on this type.
+ List<NamedApiResource<Type>> get noDamageFrom;/// A list of types that are not very effective against this type.
+ List<NamedApiResource<Type>> get halfDamageFrom;/// A list of types that are very effective against this type.
+ List<NamedApiResource<Type>> get doubleDamageFrom;
 /// Create a copy of TypeRelations
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -7985,42 +8492,54 @@ class _TypeRelations implements TypeRelations {
   const _TypeRelations({required final  List<NamedApiResource<Type>> noDamageTo, required final  List<NamedApiResource<Type>> halfDamageTo, required final  List<NamedApiResource<Type>> doubleDamageTo, required final  List<NamedApiResource<Type>> noDamageFrom, required final  List<NamedApiResource<Type>> halfDamageFrom, required final  List<NamedApiResource<Type>> doubleDamageFrom}): _noDamageTo = noDamageTo,_halfDamageTo = halfDamageTo,_doubleDamageTo = doubleDamageTo,_noDamageFrom = noDamageFrom,_halfDamageFrom = halfDamageFrom,_doubleDamageFrom = doubleDamageFrom;
   factory _TypeRelations.fromJson(Map<String, dynamic> json) => _$TypeRelationsFromJson(json);
 
+/// A list of types this type has no effect on.
  final  List<NamedApiResource<Type>> _noDamageTo;
+/// A list of types this type has no effect on.
 @override List<NamedApiResource<Type>> get noDamageTo {
   if (_noDamageTo is EqualUnmodifiableListView) return _noDamageTo;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_noDamageTo);
 }
 
+/// A list of types this type is not very effect against.
  final  List<NamedApiResource<Type>> _halfDamageTo;
+/// A list of types this type is not very effect against.
 @override List<NamedApiResource<Type>> get halfDamageTo {
   if (_halfDamageTo is EqualUnmodifiableListView) return _halfDamageTo;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_halfDamageTo);
 }
 
+/// A list of types this type is very effect against.
  final  List<NamedApiResource<Type>> _doubleDamageTo;
+/// A list of types this type is very effect against.
 @override List<NamedApiResource<Type>> get doubleDamageTo {
   if (_doubleDamageTo is EqualUnmodifiableListView) return _doubleDamageTo;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_doubleDamageTo);
 }
 
+/// A list of types that have no effect on this type.
  final  List<NamedApiResource<Type>> _noDamageFrom;
+/// A list of types that have no effect on this type.
 @override List<NamedApiResource<Type>> get noDamageFrom {
   if (_noDamageFrom is EqualUnmodifiableListView) return _noDamageFrom;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_noDamageFrom);
 }
 
+/// A list of types that are not very effective against this type.
  final  List<NamedApiResource<Type>> _halfDamageFrom;
+/// A list of types that are not very effective against this type.
 @override List<NamedApiResource<Type>> get halfDamageFrom {
   if (_halfDamageFrom is EqualUnmodifiableListView) return _halfDamageFrom;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_halfDamageFrom);
 }
 
+/// A list of types that are very effective against this type.
  final  List<NamedApiResource<Type>> _doubleDamageFrom;
+/// A list of types that are very effective against this type.
 @override List<NamedApiResource<Type>> get doubleDamageFrom {
   if (_doubleDamageFrom is EqualUnmodifiableListView) return _doubleDamageFrom;
   // ignore: implicit_dynamic_type
@@ -8097,7 +8616,9 @@ as List<NamedApiResource<Type>>,
 /// @nodoc
 mixin _$TypeRelationsPast {
 
- NamedApiResource<Generation> get generation; TypeRelations get damageRelations;
+/// The generation this type was introduced in.
+ NamedApiResource<Generation> get generation;/// A list of details of how effective this type was toward others and vice versa in this generation.
+ TypeRelations get damageRelations;
 /// Create a copy of TypeRelationsPast
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -8183,7 +8704,9 @@ class _TypeRelationsPast implements TypeRelationsPast {
   const _TypeRelationsPast({required this.generation, required this.damageRelations});
   factory _TypeRelationsPast.fromJson(Map<String, dynamic> json) => _$TypeRelationsPastFromJson(json);
 
+/// The generation this type was introduced in.
 @override final  NamedApiResource<Generation> generation;
+/// A list of details of how effective this type was toward others and vice versa in this generation.
 @override final  TypeRelations damageRelations;
 
 /// Create a copy of TypeRelationsPast

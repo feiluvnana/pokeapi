@@ -814,10 +814,10 @@ $NamedApiResourceCopyWith<EncounterMethod, $Res> get method {
 /// @nodoc
 mixin _$FlavorText {
 
-/// The localized flavor text for an API resource in a specific language.
-/// Note that this text is left unprocessed as it is found in game files.
-/// This means that it contains special characters that one might want to replace with their visible decodable version.
-/// Please check out this [issue](https://github.com/veekun/pokedex/issues/218#issuecomment-339841781) to find out more.
+/// The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed
+/// as it is found in game files. This means that it contains special characters that one might want to replace
+/// with their visible decodable version. Please check out this
+/// [issue](https://github.com/veekun/pokedex/issues/218#issuecomment-339841781) to find out more.
  String get flavorText;/// The language this name is in.
  NamedApiResource<Language> get language;/// The game version this flavor text is extracted from.
  NamedApiResource<Version> get version;
@@ -907,10 +907,10 @@ class _FlavorText implements FlavorText {
   const _FlavorText({required this.flavorText, required this.language, required this.version});
   factory _FlavorText.fromJson(Map<String, dynamic> json) => _$FlavorTextFromJson(json);
 
-/// The localized flavor text for an API resource in a specific language.
-/// Note that this text is left unprocessed as it is found in game files.
-/// This means that it contains special characters that one might want to replace with their visible decodable version.
-/// Please check out this [issue](https://github.com/veekun/pokedex/issues/218#issuecomment-339841781) to find out more.
+/// The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed
+/// as it is found in game files. This means that it contains special characters that one might want to replace
+/// with their visible decodable version. Please check out this
+/// [issue](https://github.com/veekun/pokedex/issues/218#issuecomment-339841781) to find out more.
 @override final  String flavorText;
 /// The language this name is in.
 @override final  NamedApiResource<Language> language;

@@ -16,7 +16,22 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Item {
 
- int get id; String get name; int get cost; int get flingPower; NamedApiResource<ItemFlingEffect> get flingType; List<NamedApiResource<ItemAttribute>> get attributes; NamedApiResource<ItemCategory> get category; List<VerboseEffect> get effectEntries; List<NamedApiResource<VersionGroupFlavorText>> get flavorTextEntries; List<GenerationGameIndex> get gameIndices; List<Name> get names; ItemSprites get sprites; List<ItemHolderPokemon> get heldByPokemon; ApiResource<EvolutionChain> get babyTriggerFor; List<MachineVersionDetail> get machines;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// The price of this item in stores.
+ int get cost;/// The power of the move Fling when used with this item.
+ int get flingPower;/// The effect of the move Fling when used with this item.
+ NamedApiResource<ItemFlingEffect> get flingType;/// A list of attributes this item has.
+ List<NamedApiResource<ItemAttribute>> get attributes;/// The category of items this item falls into.
+ NamedApiResource<ItemCategory> get category;/// The effect of this item listed in different languages.
+ List<VerboseEffect> get effectEntries;/// The flavor text of this item listed in different languages.
+ List<NamedApiResource<VersionGroupFlavorText>> get flavorTextEntries;/// A list of game indices relevent to this item by generation.
+ List<GenerationGameIndex> get gameIndices;/// A list of names this item has in different languages.
+ List<Name> get names;/// A set of sprites used to depict this item in the game.
+ ItemSprites get sprites;/// A list of Pokémon that might be found in the wild holding this item.
+ List<ItemHolderPokemon> get heldByPokemon;/// An evolution chain this item requires to produce a bay during mating.
+ ApiResource<EvolutionChain> get babyTriggerFor;/// A list of the machines related to this item.
+ List<MachineVersionDetail> get machines;
 /// Create a copy of Item
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -133,57 +148,79 @@ class _Item implements Item {
   const _Item({required this.id, required this.name, required this.cost, required this.flingPower, required this.flingType, required final  List<NamedApiResource<ItemAttribute>> attributes, required this.category, required final  List<VerboseEffect> effectEntries, required final  List<NamedApiResource<VersionGroupFlavorText>> flavorTextEntries, required final  List<GenerationGameIndex> gameIndices, required final  List<Name> names, required this.sprites, required final  List<ItemHolderPokemon> heldByPokemon, required this.babyTriggerFor, required final  List<MachineVersionDetail> machines}): _attributes = attributes,_effectEntries = effectEntries,_flavorTextEntries = flavorTextEntries,_gameIndices = gameIndices,_names = names,_heldByPokemon = heldByPokemon,_machines = machines;
   factory _Item.fromJson(Map<String, dynamic> json) => _$ItemFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// The price of this item in stores.
 @override final  int cost;
+/// The power of the move Fling when used with this item.
 @override final  int flingPower;
+/// The effect of the move Fling when used with this item.
 @override final  NamedApiResource<ItemFlingEffect> flingType;
+/// A list of attributes this item has.
  final  List<NamedApiResource<ItemAttribute>> _attributes;
+/// A list of attributes this item has.
 @override List<NamedApiResource<ItemAttribute>> get attributes {
   if (_attributes is EqualUnmodifiableListView) return _attributes;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_attributes);
 }
 
+/// The category of items this item falls into.
 @override final  NamedApiResource<ItemCategory> category;
+/// The effect of this item listed in different languages.
  final  List<VerboseEffect> _effectEntries;
+/// The effect of this item listed in different languages.
 @override List<VerboseEffect> get effectEntries {
   if (_effectEntries is EqualUnmodifiableListView) return _effectEntries;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_effectEntries);
 }
 
+/// The flavor text of this item listed in different languages.
  final  List<NamedApiResource<VersionGroupFlavorText>> _flavorTextEntries;
+/// The flavor text of this item listed in different languages.
 @override List<NamedApiResource<VersionGroupFlavorText>> get flavorTextEntries {
   if (_flavorTextEntries is EqualUnmodifiableListView) return _flavorTextEntries;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_flavorTextEntries);
 }
 
+/// A list of game indices relevent to this item by generation.
  final  List<GenerationGameIndex> _gameIndices;
+/// A list of game indices relevent to this item by generation.
 @override List<GenerationGameIndex> get gameIndices {
   if (_gameIndices is EqualUnmodifiableListView) return _gameIndices;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_gameIndices);
 }
 
+/// A list of names this item has in different languages.
  final  List<Name> _names;
+/// A list of names this item has in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_names);
 }
 
+/// A set of sprites used to depict this item in the game.
 @override final  ItemSprites sprites;
+/// A list of Pokémon that might be found in the wild holding this item.
  final  List<ItemHolderPokemon> _heldByPokemon;
+/// A list of Pokémon that might be found in the wild holding this item.
 @override List<ItemHolderPokemon> get heldByPokemon {
   if (_heldByPokemon is EqualUnmodifiableListView) return _heldByPokemon;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_heldByPokemon);
 }
 
+/// An evolution chain this item requires to produce a bay during mating.
 @override final  ApiResource<EvolutionChain> babyTriggerFor;
+/// A list of the machines related to this item.
  final  List<MachineVersionDetail> _machines;
+/// A list of the machines related to this item.
 @override List<MachineVersionDetail> get machines {
   if (_machines is EqualUnmodifiableListView) return _machines;
   // ignore: implicit_dynamic_type
@@ -305,6 +342,7 @@ $ApiResourceCopyWith<EvolutionChain, $Res> get babyTriggerFor {
 /// @nodoc
 mixin _$ItemSprites {
 
+/// The default depiction of this item.
 // ignore: invalid_annotation_target
 @JsonKey(name: "default") String get defaultDepiction;
 /// Create a copy of ItemSprites
@@ -373,6 +411,7 @@ class _ItemSprites implements ItemSprites {
   const _ItemSprites({@JsonKey(name: "default") required this.defaultDepiction});
   factory _ItemSprites.fromJson(Map<String, dynamic> json) => _$ItemSpritesFromJson(json);
 
+/// The default depiction of this item.
 // ignore: invalid_annotation_target
 @override@JsonKey(name: "default") final  String defaultDepiction;
 
@@ -440,7 +479,9 @@ as String,
 /// @nodoc
 mixin _$ItemHolderPokemon {
 
- NamedApiResource<Pokemon> get pokemon; List<ItemHolderPokemonVersionDetail> get versionDetails;
+/// The Pokémon that holds this item.
+ NamedApiResource<Pokemon> get pokemon;/// The details for the version that this item is held in by the Pokémon.
+ List<ItemHolderPokemonVersionDetail> get versionDetails;
 /// Create a copy of ItemHolderPokemon
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -517,8 +558,11 @@ class _ItemHolderPokemon implements ItemHolderPokemon {
   const _ItemHolderPokemon({required this.pokemon, required final  List<ItemHolderPokemonVersionDetail> versionDetails}): _versionDetails = versionDetails;
   factory _ItemHolderPokemon.fromJson(Map<String, dynamic> json) => _$ItemHolderPokemonFromJson(json);
 
+/// The Pokémon that holds this item.
 @override final  NamedApiResource<Pokemon> pokemon;
+/// The details for the version that this item is held in by the Pokémon.
  final  List<ItemHolderPokemonVersionDetail> _versionDetails;
+/// The details for the version that this item is held in by the Pokémon.
 @override List<ItemHolderPokemonVersionDetail> get versionDetails {
   if (_versionDetails is EqualUnmodifiableListView) return _versionDetails;
   // ignore: implicit_dynamic_type
@@ -600,7 +644,9 @@ $NamedApiResourceCopyWith<Pokemon, $Res> get pokemon {
 /// @nodoc
 mixin _$ItemHolderPokemonVersionDetail {
 
- int get rarity; NamedApiResource<Version> get version;
+/// How often this Pokémon holds this item in this version.
+ int get rarity;/// Te version that this item is held in by the Pokémon.
+ NamedApiResource<Version> get version;
 /// Create a copy of ItemHolderPokemonVersionDetail
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -677,7 +723,9 @@ class _ItemHolderPokemonVersionDetail implements ItemHolderPokemonVersionDetail 
   const _ItemHolderPokemonVersionDetail({required this.rarity, required this.version});
   factory _ItemHolderPokemonVersionDetail.fromJson(Map<String, dynamic> json) => _$ItemHolderPokemonVersionDetailFromJson(json);
 
+/// How often this Pokémon holds this item in this version.
 @override final  int rarity;
+/// Te version that this item is held in by the Pokémon.
 @override final  NamedApiResource<Version> version;
 
 /// Create a copy of ItemHolderPokemonVersionDetail
@@ -754,7 +802,12 @@ $NamedApiResourceCopyWith<Version, $Res> get version {
 /// @nodoc
 mixin _$ItemAttribute {
 
- int get id; String get name; List<NamedApiResource<Item>> get items; List<Name> get names; List<Description> get descriptions;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// A list of items that have this attribute.
+ List<NamedApiResource<Item>> get items;/// The name of this resource listed in different languages.
+ List<Name> get names;/// The description of this resource listed in different languages.
+ List<Description> get descriptions;
 /// Create a copy of ItemAttribute
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -825,23 +878,31 @@ class _ItemAttribute implements ItemAttribute {
   const _ItemAttribute({required this.id, required this.name, required final  List<NamedApiResource<Item>> items, required final  List<Name> names, required final  List<Description> descriptions}): _items = items,_names = names,_descriptions = descriptions;
   factory _ItemAttribute.fromJson(Map<String, dynamic> json) => _$ItemAttributeFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// A list of items that have this attribute.
  final  List<NamedApiResource<Item>> _items;
+/// A list of items that have this attribute.
 @override List<NamedApiResource<Item>> get items {
   if (_items is EqualUnmodifiableListView) return _items;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_items);
 }
 
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_names);
 }
 
+/// The description of this resource listed in different languages.
  final  List<Description> _descriptions;
+/// The description of this resource listed in different languages.
 @override List<Description> get descriptions {
   if (_descriptions is EqualUnmodifiableListView) return _descriptions;
   // ignore: implicit_dynamic_type
@@ -917,7 +978,12 @@ as List<Description>,
 /// @nodoc
 mixin _$ItemCategory {
 
- int get id; String get name; List<NamedApiResource<Item>> get items; List<Name> get names; NamedApiResource<ItemPocket> get pocket;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// A list of items that are a part of this category.
+ List<NamedApiResource<Item>> get items;/// The name of this resource listed in different languages.
+ List<Name> get names;/// The pocket items in this category are stored in.
+ NamedApiResource<ItemPocket> get pocket;
 /// Create a copy of ItemCategory
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -997,22 +1063,29 @@ class _ItemCategory implements ItemCategory {
   const _ItemCategory({required this.id, required this.name, required final  List<NamedApiResource<Item>> items, required final  List<Name> names, required this.pocket}): _items = items,_names = names;
   factory _ItemCategory.fromJson(Map<String, dynamic> json) => _$ItemCategoryFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// A list of items that are a part of this category.
  final  List<NamedApiResource<Item>> _items;
+/// A list of items that are a part of this category.
 @override List<NamedApiResource<Item>> get items {
   if (_items is EqualUnmodifiableListView) return _items;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_items);
 }
 
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_names);
 }
 
+/// The pocket items in this category are stored in.
 @override final  NamedApiResource<ItemPocket> pocket;
 
 /// Create a copy of ItemCategory
@@ -1092,7 +1165,11 @@ $NamedApiResourceCopyWith<ItemPocket, $Res> get pocket {
 /// @nodoc
 mixin _$ItemFlingEffect {
 
- int get id; String get name; List<Effect> get effectEntries; List<NamedApiResource<Item>> get items;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// The result of this fling effect listed in different languages.
+ List<Effect> get effectEntries;/// A list of items that have this fling effect.
+ List<NamedApiResource<Item>> get items;
 /// Create a copy of ItemFlingEffect
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1162,16 +1239,22 @@ class _ItemFlingEffect implements ItemFlingEffect {
   const _ItemFlingEffect({required this.id, required this.name, required final  List<Effect> effectEntries, required final  List<NamedApiResource<Item>> items}): _effectEntries = effectEntries,_items = items;
   factory _ItemFlingEffect.fromJson(Map<String, dynamic> json) => _$ItemFlingEffectFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// The result of this fling effect listed in different languages.
  final  List<Effect> _effectEntries;
+/// The result of this fling effect listed in different languages.
 @override List<Effect> get effectEntries {
   if (_effectEntries is EqualUnmodifiableListView) return _effectEntries;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_effectEntries);
 }
 
+/// A list of items that have this fling effect.
  final  List<NamedApiResource<Item>> _items;
+/// A list of items that have this fling effect.
 @override List<NamedApiResource<Item>> get items {
   if (_items is EqualUnmodifiableListView) return _items;
   // ignore: implicit_dynamic_type
@@ -1246,7 +1329,11 @@ as List<NamedApiResource<Item>>,
 /// @nodoc
 mixin _$ItemPocket {
 
- int get id; String get name; List<NamedApiResource<ItemCategory>> get categories; List<Name> get names;
+/// The identifier for this resource.
+ int get id;/// The name for this resource.
+ String get name;/// A list of item categories that are relevant to this item pocket.
+ List<NamedApiResource<ItemCategory>> get categories;/// The name of this resource listed in different languages.
+ List<Name> get names;
 /// Create a copy of ItemPocket
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1316,16 +1403,22 @@ class _ItemPocket implements ItemPocket {
   const _ItemPocket({required this.id, required this.name, required final  List<NamedApiResource<ItemCategory>> categories, required final  List<Name> names}): _categories = categories,_names = names;
   factory _ItemPocket.fromJson(Map<String, dynamic> json) => _$ItemPocketFromJson(json);
 
+/// The identifier for this resource.
 @override final  int id;
+/// The name for this resource.
 @override final  String name;
+/// A list of item categories that are relevant to this item pocket.
  final  List<NamedApiResource<ItemCategory>> _categories;
+/// A list of item categories that are relevant to this item pocket.
 @override List<NamedApiResource<ItemCategory>> get categories {
   if (_categories is EqualUnmodifiableListView) return _categories;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_categories);
 }
 
+/// The name of this resource listed in different languages.
  final  List<Name> _names;
+/// The name of this resource listed in different languages.
 @override List<Name> get names {
   if (_names is EqualUnmodifiableListView) return _names;
   // ignore: implicit_dynamic_type
