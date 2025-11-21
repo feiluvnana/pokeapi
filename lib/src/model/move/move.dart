@@ -41,6 +41,8 @@ class Move extends NamedResource {
   final NamedAPIResource<Generation> generation;
   final List<MachineVersionDetail> machines;
   final List<MoveMetaData> meta;
+
+  /// The name of this resource listed in different languages.
   final List<Name> names;
   final List<PastMoveStatValues> pastValues;
   final List<MoveStatChange> statChanges;

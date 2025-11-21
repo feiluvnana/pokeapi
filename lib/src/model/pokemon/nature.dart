@@ -17,6 +17,8 @@ class Nature extends NamedResource {
   final NamedAPIResource<BerryFlavor> likesFlavor;
   final List<NatureStatChange> pokeathlonStatChanges;
   final List<MoveBatterStylePreference> moveBattleStylePreferences;
+
+  /// The name of this resource listed in different languages.
   final List<Name> names;
 
   const Nature({

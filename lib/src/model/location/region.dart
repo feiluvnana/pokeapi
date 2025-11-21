@@ -9,11 +9,22 @@ import 'package:pokeapi/src/model/location/location.dart';
 part 'region.g.dart';
 
 @JsonSerializable()
+/// A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species
+/// of Pokémon that can be encountered within them.
 class Region extends NamedResource {
+  /// A list of locations that can be found in this region.
   final List<NamedAPIResource<Location>> locations;
+
+  /// The name of this resource listed in different languages.
   final List<Name> names;
+
+  /// The generation this region was introduced in.
   final NamedAPIResource<Generation> mainGeneration;
+
+  /// A list of pokédexes that catalogue Pokémon in this region.
   final List<NamedAPIResource<Pokedex>> pokedexes;
+
+  /// A list of version groups where this region can be visited.
   final List<NamedAPIResource<VersionGroup>> versionGroups;
 
   const Region({

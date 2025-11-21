@@ -7,9 +7,15 @@ import 'package:pokeapi/src/model/move/move.dart';
 part 'super_contest_effect.g.dart';
 
 @JsonSerializable()
+/// Super contest effects refer to the effects of moves when used in super contests.
 class SuperContestEffect extends UnnamedResource with EquatableMixin {
+  /// The level of appeal this super contest effect has.
   final int appeal;
+
+  /// The flavor text of this super contest effect listed in different languages.
   final List<FlavorText> flavorTextEntries;
+
+  /// A list of moves that have the effect when used in super contests.
   final List<NamedAPIResource<Move>> moves;
 
   const SuperContestEffect({

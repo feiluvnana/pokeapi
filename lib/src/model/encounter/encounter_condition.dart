@@ -6,8 +6,12 @@ import 'package:pokeapi/src/model/foundation.dart';
 part 'encounter_condition.g.dart';
 
 @JsonSerializable()
+/// Conditions which affect what pokemon might appear in the wild, e.g., day or night.
 class EncounterCondition extends NamedResource {
+  /// The name of this resource listed in different languages.
   final List<Name> names;
+
+  /// A list of possible values for this encounter condition.
   final List<NamedAPIResource<EncounterConditionValue>> values;
 
   const EncounterCondition({required super.id, required super.name, required this.names, required this.values});

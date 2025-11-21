@@ -7,9 +7,15 @@ import 'package:pokeapi/src/model/item/item_pocket.dart';
 part 'item_category.g.dart';
 
 @JsonSerializable()
+/// Item categories determine where items will be placed in the players bag.
 class ItemCategory extends NamedResource {
+  /// A list of items that are a part of this category.
   final List<NamedAPIResource<Item>> items;
+
+  /// The name of this resource listed in different languages.
   final List<Name> names;
+
+  /// The pocket items in this category would be put in.
   final NamedAPIResource<ItemPocket> pocket;
 
   const ItemCategory({

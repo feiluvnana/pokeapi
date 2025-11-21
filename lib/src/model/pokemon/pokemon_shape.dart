@@ -10,6 +10,8 @@ part 'pokemon_shape.g.dart';
 @JsonSerializable()
 class PokemonShape extends NamedResource {
   final List<AwesomeName> awesomeNames;
+
+  /// The name of this resource listed in different languages.
   final List<Name> names;
   final List<NamedAPIResource<PokemonSpecies>> pokemonSpecies;
 

@@ -7,6 +7,7 @@ part 'pokemon_color.g.dart';
 
 @JsonSerializable()
 class PokemonColor extends NamedResource {
+  /// The name of this resource listed in different languages.
   final List<Name> names;
   final List<NamedAPIResource<PokemonSpecies>> pokemonSpecies;
 

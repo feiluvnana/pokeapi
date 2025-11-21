@@ -39,6 +39,8 @@ class PokemonSpecies extends NamedResource {
   final UnnamedAPIResource<EvolutionChain> evolutionChain;
   final NamedAPIResource<PokemonHabitat> habitat;
   final NamedAPIResource<Generation> generation;
+
+  /// The name of this resource listed in different languages.
   final List<Name> names;
   final List<PalParkEncounterArea> palParkEncounters;
   final List<FlavorText> flavorTextEntries;

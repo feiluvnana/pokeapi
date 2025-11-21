@@ -9,6 +9,8 @@ part 'growth_rate.g.dart';
 @JsonSerializable()
 class GrowthRate extends NamedResource {
   final String formula;
+
+  /// The description of this resource listed in different languages.
   final List<Description> descriptions;
   final List<GrowthRateExperience> levels;
   final List<NamedAPIResource<PokemonSpecies>> pokemonSpecies;

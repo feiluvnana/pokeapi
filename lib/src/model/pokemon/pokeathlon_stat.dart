@@ -8,6 +8,7 @@ part 'pokeathlon_stat.g.dart';
 
 @JsonSerializable()
 class PokeathlonStat extends NamedResource {
+  /// The name of this resource listed in different languages.
   final List<Name> names;
   final NaturePokeathlonAffectSets affectingNatures;
 

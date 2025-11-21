@@ -6,8 +6,12 @@ import 'package:pokeapi/src/model/item/item_category.dart';
 part 'item_pocket.g.dart';
 
 @JsonSerializable()
+/// Pockets within the players bag used for storing items by category.
 class ItemPocket extends NamedResource {
+  /// A list of item categories that are relevant to this item pocket.
   final List<NamedAPIResource<ItemCategory>> categories;
+
+  /// The name of this resource listed in different languages.
   final List<Name> names;
 
   const ItemPocket({required super.id, required super.name, required this.categories, required this.names});

@@ -12,7 +12,7 @@ part 'berry.g.dart';
 
 @JsonSerializable()
 /// Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage
-/// negation when eaten by [Pokémon](https://pokeapi.co/docs/v2#).
+/// negation when eaten by Pokémon.
 /// Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail.
 class Berry extends NamedResource {
   /// Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before
@@ -37,7 +37,8 @@ class Berry extends NamedResource {
   /// The firmness of this berry, used in making Pokéblocks or Poffins.
   final NamedAPIResource<BerryFirmness> firmness;
 
-  /// A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.
+  /// A list of references to each flavor a berry can have and the potency of each of those flavors in regard to
+  /// this berry.
   final List<BerryFlavorMap> flavors;
 
   /// Berries are actually items. This is a reference to the item specific data for this berry.

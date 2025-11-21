@@ -17,6 +17,8 @@ class Type extends NamedResource {
   final List<GenerationGameIndex> gameIndices;
   final NamedAPIResource<Generation> generation;
   final List<NamedAPIResource<MoveDamageClass>> moveDamageClass;
+
+  /// The name of this resource listed in different languages.
   final List<Name> names;
   final List<TypePokemon> pokemon;
   final List<NamedAPIResource<Move>> moves;

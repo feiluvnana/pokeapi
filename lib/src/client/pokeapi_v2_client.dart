@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:http/http.dart';
-import 'package:pokeapi/src/client/apis/berry_api.dart';
-import 'package:pokeapi/src/client/apis/contest_api.dart';
-import 'package:pokeapi/src/client/apis/encounter_api.dart';
-import 'package:pokeapi/src/client/apis/foundation.dart';
+import 'package:pokeapi/src/client/api/berry_api.dart';
+import 'package:pokeapi/src/client/api/contest_api.dart';
+import 'package:pokeapi/src/client/api/encounter_api.dart';
+import 'package:pokeapi/src/client/api/foundation.dart';
 import 'package:pokeapi/src/client/cache/base_cache.dart';
 import 'package:pokeapi/src/client/cache/no_op_cache.dart';
 import 'package:pokeapi/src/model/berry/berry.dart';

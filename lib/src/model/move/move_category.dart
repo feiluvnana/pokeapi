@@ -8,6 +8,8 @@ part 'move_category.g.dart';
 @JsonSerializable()
 class MoveCategory extends NamedResource {
   final List<NamedAPIResource<Move>> moves;
+
+  /// The description of this resource listed in different languages.
   final List<Description> descriptions;
 
   const MoveCategory({required super.id, required super.name, required this.moves, required this.descriptions});

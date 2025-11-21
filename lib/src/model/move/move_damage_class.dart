@@ -8,8 +8,11 @@ part 'move_damage_class.g.dart';
 
 @JsonSerializable()
 class MoveDamageClass extends NamedResource {
+  /// The description of this resource listed in different languages.
   final List<Description> descriptions;
   final List<NamedAPIResource<Move>> moves;
+
+  /// The name of this resource listed in different languages.
   final List<Name> names;
 
   const MoveDamageClass({

@@ -8,9 +8,17 @@ import 'package:pokeapi/src/model/foundation.dart';
 part 'berry_flavor.g.dart';
 
 @JsonSerializable()
+/// Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their
+/// [nature](https://pokeapi.co/docs/v2#natures). Check out
+/// [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail.
 class BerryFlavor extends NamedResource {
+  /// A list of the berries with this flavor.
   final List<FlavorBerryMap> berries;
+
+  /// The contest type that correlates with this berry flavor.
   final NamedAPIResource<ContestType> contestType;
+
+  /// The name of this resource listed in different languages.
   final List<Name> names;
 
   BerryFlavor({
@@ -31,7 +39,10 @@ class BerryFlavor extends NamedResource {
 
 @JsonSerializable()
 class FlavorBerryMap extends Equatable {
+  /// How powerful the referenced flavor is for this berry.
   final int potency;
+
+  /// The berry with the referenced flavor.
   final NamedAPIResource<Berry> berry;
 
   const FlavorBerryMap({required this.potency, required this.berry});

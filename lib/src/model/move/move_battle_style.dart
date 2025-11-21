@@ -6,6 +6,7 @@ part 'move_battle_style.g.dart';
 
 @JsonSerializable()
 class MoveBattleStyle extends NamedResource {
+  /// The name of this resource listed in different languages.
   final List<Name> names;
 
   const MoveBattleStyle({required super.id, required super.name, required this.names});

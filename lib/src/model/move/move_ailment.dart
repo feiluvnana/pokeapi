@@ -8,6 +8,8 @@ part 'move_ailment.g.dart';
 @JsonSerializable()
 class MoveAilment extends NamedResource {
   final List<NamedAPIResource<Move>> moves;
+
+  /// The name of this resource listed in different languages.
   final List<Name> names;
 
   const MoveAilment({required super.id, required super.name, required this.moves, required this.names});

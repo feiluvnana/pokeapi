@@ -15,6 +15,8 @@ part 'ability.g.dart';
 class Ability extends NamedResource {
   final bool isMainSeries;
   final NamedAPIResource<Generation> generation;
+
+  /// The name of this resource listed in different languages.
   final List<Name> names;
   final List<VerboseEffect> effectEntries;
   final List<AbilityEffectChange> effectChanges;

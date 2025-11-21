@@ -9,21 +9,18 @@ typedef FromJsonMethod<T extends Returnable> = T Function(Object? json);
 abstract class Returnable {
   const Returnable();
 
-  static final Map<String, FromJsonMethod> _registries = {};
-
-  static bool isSubtypeOf<S, T>() => <S>[] is List<T>;
+  static final Map<Type, FromJsonMethod> _registries = {};
 
   static FromJsonMethod<T> get<T extends Returnable>() {
-    print("get $T");
-    return _registries[T.toString()]! as FromJsonMethod<T>;
+    return _registries[T]! as FromJsonMethod<T>;
   }
 
   static T parse<T extends Returnable>(Map<String, dynamic> json) {
-    return _registries[T.toString()]!(json) as T;
+    return _registries[T]!(json) as T;
   }
 
   static void register<T extends Returnable>(FromJsonMethod<T> fromJson) {
-    _registries[T.toString()] = fromJson;
+    _registries[T] = fromJson;
   }
 }
 

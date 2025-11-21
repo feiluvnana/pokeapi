@@ -7,6 +7,7 @@ part 'egg_group.g.dart';
 
 @JsonSerializable()
 class EggGroup extends NamedResource {
+  /// The name of this resource listed in different languages.
   final List<Name> names;
   final List<NamedAPIResource<PokemonSpecies>> pokemonSpecies;
 

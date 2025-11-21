@@ -7,9 +7,15 @@ import 'package:pokeapi/src/model/item/item.dart';
 part 'item_attribute.g.dart';
 
 @JsonSerializable()
+/// Item attributes define particular aspects of items, e.g. "usable in battle" or "consumable".
 class ItemAttribute extends NamedResource {
+  /// A list of items that have this attribute.
   final List<NamedAPIResource<Item>> items;
+
+  /// The name of this resource listed in different languages.
   final List<Name> names;
+
+  /// The description of this resource listed in different languages.
   final List<Description> descriptions;
 
   const ItemAttribute({

@@ -13,13 +13,29 @@ import 'package:pokeapi/src/model/pokemon/type.dart';
 part 'generation.g.dart';
 
 @JsonSerializable()
+/// A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include.
+/// In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation
+/// are released.
 class Generation extends NamedResource {
+  /// A list of abilities that were introduced in this generation.
   final List<NamedAPIResource<Ability>> abilities;
+
+  /// The name of this resource listed in different languages.
   final List<Name> names;
+
+  /// The main region travelled in this generation.
   final NamedAPIResource<Region> mainRegion;
+
+  /// A list of moves that were introduced in this generation.
   final List<NamedAPIResource<Move>> moves;
+
+  /// A list of Pokémon species that were introduced in this generation.
   final List<NamedAPIResource<PokemonSpecies>> pokemonSpecies;
+
+  /// A list of types that were introduced in this generation.
   final List<NamedAPIResource<Type>> types;
+
+  /// A list of version groups that were introduced in this generation.
   final List<NamedAPIResource<VersionGroup>> versionGroups;
 
   const Generation({

@@ -8,7 +8,10 @@ part 'move_learn_method.g.dart';
 
 @JsonSerializable()
 class MoveLearnMethod extends NamedResource {
+  /// The description of this resource listed in different languages.
   final List<Description> descriptions;
+
+  /// The name of this resource listed in different languages.
   final List<Name> names;
   final List<NamedAPIResource<VersionGroup>> versionGroups;
 

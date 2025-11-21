@@ -7,10 +7,18 @@ import 'package:pokeapi/src/model/foundation.dart';
 part 'contest_effect.g.dart';
 
 @JsonSerializable()
+/// Contest effects refer to the effects of moves when used in contests.
 class ContestEffect extends UnnamedResource with EquatableMixin {
+  /// The base number of hearts the user of this move gets.
   final int appeal;
+
+  /// The base number of hearts the user's opponent loses.
   final int jam;
+
+  /// The result of this contest effect listed in different languages.
   final List<Effect> effectEntries;
+
+  /// The flavor text of this contest effect listed in different languages.
   final List<FlavorText> flavorTextEntries;
 
   const ContestEffect({

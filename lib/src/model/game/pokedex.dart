@@ -10,12 +10,27 @@ import 'package:pokeapi/src/model/pokemon/pokemon_species.dart';
 part 'pokedex.g.dart';
 
 @JsonSerializable()
+/// A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining
+/// information of the various Pokémon in a given region with the exception of the national dex and some smaller
+/// dexes related to portions of a region.
+/// See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.
 class Pokedex extends NamedResource {
+  /// Whether or not this Pokédex originated in the main series of the video games.
   final bool isMainSeries;
+
+  /// The description of this resource listed in different languages.
   final List<Description> descriptions;
+
+  /// The name of this resource listed in different languages.
   final List<Name> names;
+
+  /// A list of Pokémon catalogued in this Pokédex and their indexes.
   final List<PokemonEntry> pokemonEntries;
+
+  /// The region this Pokédex catalogues Pokémon for.
   final NamedAPIResource<Region> region;
+
+  /// A list of version groups this Pokédex is relevant to.
   final List<NamedAPIResource<VersionGroup>> versionGroups;
 
   const Pokedex({
@@ -39,7 +54,10 @@ class Pokedex extends NamedResource {
 
 @JsonSerializable()
 class PokemonEntry extends Equatable {
+  /// The index of this Pokémon species entry within the Pokédex.
   final int entryNumber;
+
+  /// The Pokémon species being encountered.
   final NamedAPIResource<PokemonSpecies> pokemonSpecies;
 
   const PokemonEntry({required this.entryNumber, required this.pokemonSpecies});

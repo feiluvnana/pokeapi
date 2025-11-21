@@ -8,10 +8,18 @@ import 'package:pokeapi/src/model/location/region.dart';
 part 'location.g.dart';
 
 @JsonSerializable()
+/// Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
 class Location extends NamedResource {
+  /// The region this location can be found in.
   final NamedAPIResource<Region> region;
+
+  /// The name of this resource listed in different languages.
   final List<Name> names;
+
+  /// A list of game indices relevent to this location by generation.
   final List<GenerationGameIndex> gameIndices;
+
+  /// Areas that can be found within this location.
   final List<NamedAPIResource<LocationArea>> areas;
 
   const Location({

@@ -10,6 +10,8 @@ class Characteristic extends UnnamedResource {
   final int geneModulo;
   final List<int> possibleValues;
   final NamedAPIResource<Stat> highestStat;
+
+  /// The description of this resource listed in different languages.
   final List<Description> descriptions;
 
   const Characteristic({

@@ -19,6 +19,8 @@ class PokemonForm extends NamedResource {
   final List<PokemonFormType> types;
   final PokemonFormSprites sprites;
   final NamedAPIResource<VersionGroup> versionGroup;
+
+  /// The name of this resource listed in different languages.
   final List<Name> names;
   final List<Name> formNames;
 

@@ -17,6 +17,8 @@ class Stat extends NamedResource {
   final NatureStatAffectSets affectingNatures;
   final List<UnnamedAPIResource<Characteristic>> characteristics;
   final NamedAPIResource<MoveDamageClass> moveDamageClass;
+
+  /// The name of this resource listed in different languages.
   final List<Name> names;
 
   const Stat({
