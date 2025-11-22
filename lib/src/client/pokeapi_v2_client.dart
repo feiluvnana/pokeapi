@@ -1,12 +1,11 @@
 import 'dart:convert';
+import 'dart:io';
 
-import 'package:http/http.dart';
 import 'package:pokeapi/src/client/api/berry_api.dart';
 import 'package:pokeapi/src/client/api/contest_api.dart';
 import 'package:pokeapi/src/client/api/encounter_api.dart';
 import 'package:pokeapi/src/client/api/foundation.dart';
 import 'package:pokeapi/src/client/cache/base_cache.dart';
-import 'package:pokeapi/src/client/cache/no_op_cache.dart';
 import 'package:pokeapi/src/model/berry/berry.dart';
 import 'package:pokeapi/src/model/berry/berry_firmness.dart';
 import 'package:pokeapi/src/model/berry/berry_flavor.dart';
@@ -57,17 +56,30 @@ import 'package:pokeapi/src/model/pokemon/pokemon_species.dart';
 import 'package:pokeapi/src/model/pokemon/stat.dart';
 import 'package:pokeapi/src/model/pokemon/type.dart';
 
+abstract class BasePokeHttpClient {
+  Future<String> get(String url);
+}
+
+class PokeHttpClient extends BasePokeHttpClient {
+  final client = HttpClient();
+
+  @override
+  Future<String> get(String url) async {
+    return utf8.decodeStream(await (await HttpClient().getUrl(Uri.parse(url))).close());
+  }
+}
+
 class PokeAPIV2Client {
   final Client client;
-  final BaseCache cache;
+  final BaseCache<Request, Response> cache;
 
   BerryAPI get berry => BerryAPI(this);
   ContestAPI get contest => ContestAPI(this);
   EncounterAPI get encounter => EncounterAPI(this);
 
-  PokeAPIV2Client({Client? client, BaseCache? cache})
+  PokeAPIV2Client({Client? client, BaseCache<Request, Response>? cache})
     : client = client ?? Client(),
-      cache = cache ?? const NoOpCache() {
+      cache = cache ?? Cache<Request, Response>(storage: NoOpCacheStorage(), policy: NoOpCachePolicy()) {
     registerFromJson();
   }
 
@@ -89,20 +101,27 @@ class PokeAPIV2Client {
 
   Future<T> url<T extends Returnable>(String url) async {
     final request = Request("GET", Uri.parse(url));
-    final response =
-        await cache.read(request) ??
-        await client.send(request).then<Response>((sr) async {
-          return Response.bytes(
-            await sr.stream.reduce((b1, b2) => b1 + b2),
-            sr.statusCode,
-            request: sr.request,
-            headers: sr.headers,
-            isRedirect: sr.isRedirect,
-            persistentConnection: sr.persistentConnection,
-            reasonPhrase: sr.reasonPhrase,
-          );
-        });
-    cache.write(response);
+    final response = await cache
+        .load(
+          request,
+          computeIfNeeded: () async {
+            return CacheEntry(
+              value: await client.send(request).then<Response>((sr) async {
+                return Response.bytes(
+                  await sr.stream.reduce((b1, b2) => b1 + b2),
+                  sr.statusCode,
+                  request: sr.request,
+                  headers: sr.headers,
+                  isRedirect: sr.isRedirect,
+                  persistentConnection: sr.persistentConnection,
+                  reasonPhrase: sr.reasonPhrase,
+                );
+              }),
+              storedAt: DateTime.now(),
+            );
+          },
+        )
+        .then((entry) => entry.value);
     if (response.statusCode != 200) throw Exception(response.body);
     return Returnable.parse<T>(json.decode(response.body));
   }

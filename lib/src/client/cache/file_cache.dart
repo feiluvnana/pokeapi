@@ -5,10 +5,10 @@ import 'dart:typed_data';
 import 'package:http/http.dart';
 import 'package:pokeapi/src/client/cache/base_cache.dart';
 
-class FileCache extends BaseCache {
+class FileCacheStorage extends BaseCacheStorage<Request, Response> {
   final Directory directory;
 
-  const FileCache({required this.directory});
+  FileCacheStorage({required this.directory});
 
   File _cacheFileFromRequest(BaseRequest request) {
     return File([directory.path, "${md5(request.url.toString())}.json"].join(Platform.pathSeparator))
@@ -16,9 +16,9 @@ class FileCache extends BaseCache {
   }
 
   @override
-  Future<Response?> read(Request request) async {
+  Future<CacheEntry<Response>?> read(Request key) async {
     try {
-      final file = _cacheFileFromRequest(request);
+      final file = _cacheFileFromRequest(key);
       final raw = json.decode(await file.readAsString());
       // final date = HttpDate.parse(raw["headers"]["date"]);
       // final age = int.parse(
@@ -33,33 +33,36 @@ class FileCache extends BaseCache {
       //   evict(request).ignore();
       //   return null;
       // }
-      return Response(
-        raw["body"],
-        raw["status"],
-        request: request,
-        headers: Map.from(raw["headers"]).cast<String, String>(),
+      return CacheEntry(
+        value: Response(
+          raw["body"],
+          raw["status"],
+          request: key,
+          headers: Map.from(raw["headers"]).cast<String, String>(),
+        ),
+        storedAt: DateTime.parse(raw["stored_at"]),
       );
     } catch (_) {
-      evict(request).ignore();
+      remove(key).ignore();
       return null;
     }
   }
 
   @override
-  Future<void> evict(Request request) {
-    return _cacheFileFromRequest(request).delete();
+  Future<void> write(Request key, CacheEntry<Response> entry) async {
+    await _cacheFileFromRequest(key).writeAsString(
+      json.encode({
+        "stored_at": entry.storedAt,
+        "body": entry.value.body,
+        "status": entry.value.statusCode,
+        "headers": entry.value.headers.map((k, v) => MapEntry(k.toLowerCase(), v)),
+      }),
+    );
   }
 
   @override
-  Future<void> write(Response response) async {
-    if (response.request == null) return;
-    await _cacheFileFromRequest(response.request!).writeAsString(
-      json.encode({
-        "status": response.statusCode,
-        "headers": response.headers.map((k, v) => MapEntry(k.toLowerCase(), v)),
-        "body": response.body,
-      }),
-    );
+  Future<void> remove(Request key) {
+    return _cacheFileFromRequest(key).delete();
   }
 }
 
